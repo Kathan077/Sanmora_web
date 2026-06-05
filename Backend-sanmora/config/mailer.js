@@ -1,4 +1,8 @@
 const nodemailer = require("nodemailer");
+const dns = require("dns");
+if (typeof dns.setDefaultResultOrder === "function") {
+  dns.setDefaultResultOrder("ipv4first");
+}
 
 /**
  * Custom wrapper that mimics Nodemailer's transporter object but sends via HTTPS API
@@ -160,7 +164,10 @@ const getTransporter = () => {
       auth: {
         user: user,
         pass: pass
-      }
+      },
+      connectionTimeout: 8000,
+      greetingTimeout: 8000,
+      socketTimeout: 10000
     });
   }
 
@@ -171,7 +178,10 @@ const getTransporter = () => {
     auth: {
       user: user,
       pass: pass
-    }
+    },
+    connectionTimeout: 8000,
+    greetingTimeout: 8000,
+    socketTimeout: 10000
   });
 };
 
