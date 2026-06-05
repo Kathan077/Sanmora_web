@@ -123,8 +123,7 @@ export default function JobDetailClient({ id }) {
       data.append("jobId", id);
       data.append("jobTitle", formData.jobType);
 
-      const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-      const response = await fetch(`${apiBase}/api/career-apply`, {
+      const response = await fetch(`/api/career-apply`, {
         method: "POST",
         body: data,
       });
