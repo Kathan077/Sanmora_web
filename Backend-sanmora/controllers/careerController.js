@@ -74,19 +74,14 @@ const applyJob = async (req, res) => {
     ]
   };
 
-  // Send email in the background so that the API responds instantly to Vercel/frontend
-  transporter.sendMail(mailOptions)
-    .then(() => {
-      console.log(`[Success] Career email with attachment sent successfully to ${receiver} for: ${name}`);
-    })
-    .catch((error) => {
-      console.error("[Error] Failed to send career email in background:", error);
-    });
-
-  return res.status(200).json({ 
-    success: true, 
-    message: "Application submitted successfully!" 
-  });
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[Success] Career email with attachment sent successfully to ${receiver} for: ${name}`);
+    return res.status(200).json({ success: true, message: "Application submitted and email sent successfully!" });
+  } catch (error) {
+    console.error("[Error] Failed to send career email:", error);
+    return res.status(500).json({ error: "Failed to send career email: " + error.message });
+  }
 };
 
 module.exports = {
