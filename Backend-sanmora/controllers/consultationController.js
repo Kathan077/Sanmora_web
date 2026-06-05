@@ -55,14 +55,16 @@ const sendConsultationEmail = async (req, res) => {
     `
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log(`[Success] Consultation email sent successfully to ${receiver} for service: ${serviceName}`);
-    return res.status(200).json({ success: true, message: "Consultation request email sent successfully!" });
-  } catch (error) {
-    console.error("[Error] Failed to send consultation email:", error);
-    return res.status(500).json({ error: "Failed to send email. Please try again later.", details: error.message });
-  }
+  // Send email asynchronously in the background so it doesn't block the client response
+  transporter.sendMail(mailOptions)
+    .then(() => {
+      console.log(`[Success] Consultation email sent successfully to ${receiver} for service: ${serviceName}`);
+    })
+    .catch((error) => {
+      console.error("[Error] Failed to send consultation email in background:", error);
+    });
+
+  return res.status(200).json({ success: true, message: "Consultation request email submitted successfully!" });
 };
 
 module.exports = {
