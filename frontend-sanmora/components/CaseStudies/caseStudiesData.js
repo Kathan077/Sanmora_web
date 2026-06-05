@@ -1,0 +1,226 @@
+export const caseStudiesData = [
+  {
+    id: "cs-1",
+    slug: "fintech-platform-scaling",
+    title: "Scaling a Fintech Platform for 1M+ Active Users",
+    client: "Nexus Finance",
+    category: "Custom SaaS",
+    color: "#4f46e5",
+    summary: "How we re-architected a monolithic financial dashboard into a highly scalable, real-time microservices ecosystem.",
+    challenge: "Nexus Finance was struggling with database deadlocks and slow API response times during peak trading hours, leading to user churn and negative app store reviews. They needed a complete backend overhaul without downtime.",
+    solution: "We implemented a Strangler Fig pattern to gradually migrate their Node.js monolith into isolated microservices. We introduced PostgreSQL read replicas, Redis caching for active sessions, and a new React frontend optimized for fast rendering of real-time trading data.",
+    results: [
+      { label: "API Response Time", value: "-75%" },
+      { label: "Active Users", value: "1.2M+" },
+      { label: "Uptime", value: "99.99%" },
+    ]
+  },
+  {
+    id: "cs-2",
+    slug: "ecommerce-conversion-optimization",
+    title: "Revamping UX to Drive E-Commerce Sales",
+    client: "Lumina Apparel",
+    category: "E-Commerce",
+    color: "#ec4899",
+    summary: "Redesigning a Shopify storefront with a headless Next.js approach to achieve sub-second page loads and higher conversions.",
+    challenge: "Lumina Apparel's legacy Shopify theme was bloated with third-party apps, resulting in a 4.5-second average load time and a high cart abandonment rate on mobile devices.",
+    solution: "We decoupled their frontend using Next.js Commerce, connecting to Shopify via the Storefront API. We implemented a streamlined, single-page checkout flow and integrated Framer Motion for premium, lightweight micro-interactions.",
+    results: [
+      { label: "Conversion Rate", value: "+38%" },
+      { label: "Mobile Bounce Rate", value: "-45%" },
+      { label: "Page Load Time", value: "0.8s" },
+    ]
+  },
+  {
+    id: "cs-3",
+    slug: "healthcare-app-react-native",
+    title: "Cross-Platform Telehealth Application",
+    client: "CareConnect",
+    category: "Application Development",
+    color: "#10b981",
+    summary: "Developing a secure, HIPAA-compliant React Native mobile app for virtual doctor consultations and prescription tracking.",
+    challenge: "CareConnect needed to launch on both iOS and Android simultaneously to secure their Series A funding. The app required real-time video streaming, secure messaging, and complex health record synchronization.",
+    solution: "We chose React Native to maintain a single codebase. We integrated WebRTC for high-quality video calls and implemented end-to-end encryption for all messaging. The UI was built with a custom design system adhering to strict accessibility standards.",
+    results: [
+      { label: "Time to Market", value: "4 Months" },
+      { label: "App Store Rating", value: "4.8/5" },
+      { label: "Consultations", value: "50k/mo" },
+    ]
+  },
+  {
+    id: "cs-4",
+    slug: "b2b-seo-organic-growth",
+    title: "Dominating Search for B2B Enterprise Software",
+    client: "Synthetix Cloud",
+    category: "SEO Optimization",
+    color: "#f59e0b",
+    summary: "A technical SEO and content cluster strategy that positioned a B2B SaaS startup as the #1 authority in their niche.",
+    challenge: "Synthetix Cloud had an incredible product but zero organic visibility. They were burning cash on Google Ads with a high Customer Acquisition Cost (CAC) and needed a sustainable organic pipeline.",
+    solution: "We conducted a deep technical audit, fixing Core Web Vitals and schema markup. We then mapped out a content strategy targeting high-intent 'bottom-of-funnel' keywords, creating comprehensive pillar pages and interconnected blog clusters.",
+    results: [
+      { label: "Organic Traffic", value: "+310%" },
+      { label: "Qualified Leads", value: "+125%" },
+      { label: "CAC Reduction", value: "-40%" },
+    ]
+  },
+  {
+    id: "cs-5",
+    slug: "global-logistics-dashboard",
+    title: "Real-time Tracking Dashboard for Global Logistics",
+    client: "Apex Freight",
+    category: "Custom Website Development",
+    color: "#0ea5e9",
+    summary: "Building a React-based interactive dashboard to visualize global shipping routes, delays, and container statuses.",
+    challenge: "Apex Freight's dispatchers were using multiple Excel spreadsheets to track shipments. They needed a unified, real-time map interface to spot bottlenecks and communicate delays to customers proactively.",
+    solution: "We built a custom React dashboard integrating Mapbox GL for interactive 3D maps. We utilized WebSockets to stream live GPS data from cargo ships and trucks, presenting it in an intuitive, dark-mode optimized UI.",
+    results: [
+      { label: "Dispatcher Efficiency", value: "+60%" },
+      { label: "Customer Support Tickets", value: "-30%" },
+      { label: "Data Latency", value: "< 2s" },
+    ]
+  },
+  {
+    id: "cs-6",
+    slug: "rebranding-modern-tech-startup",
+    title: "Complete Rebrand for an AI Startup",
+    client: "NeuralShift",
+    category: "Brand Identity",
+    color: "#8b5cf6",
+    summary: "Designing a futuristic yet trustworthy visual identity, logo, and design system for a cutting-edge AI analytics company.",
+    challenge: "NeuralShift's original branding looked like a generic tech template. They needed a unique identity to stand out at a major tech conference and attract enterprise buyers.",
+    solution: "We developed a dynamic new logo based on neural network nodes, paired with a sophisticated color palette of deep purples and neon accents. We delivered a comprehensive brand book, custom iconography, and presentation templates.",
+    results: [
+      { label: "Brand Recall", value: "+85%" },
+      { label: "Investor Funding", value: "$5M Series A" },
+      { label: "Conference Leads", value: "300+" },
+    ]
+  },
+  {
+    id: "cs-7",
+    slug: "headless-cms-media-portal",
+    title: "High-Traffic Media Publishing Platform",
+    client: "Daily Insight",
+    category: "Dynamic Website",
+    color: "#ef4444",
+    summary: "Migrating a legacy WordPress news site to a headless Sanity CMS and Next.js frontend to handle massive traffic spikes.",
+    challenge: "Daily Insight's server would crash during breaking news events. Editors were frustrated by a slow CMS interface, and developers couldn't easily implement new ad formats.",
+    solution: "We migrated 10+ years of content to Sanity CMS, providing editors with a real-time collaborative workspace. The frontend was rebuilt in Next.js using Incremental Static Regeneration (ISR) to serve pages instantly even under heavy load.",
+    results: [
+      { label: "Server Uptime", value: "100%" },
+      { label: "Page Speed Score", value: "99/100" },
+      { label: "Editorial Output", value: "+40%" },
+    ]
+  },
+  {
+    id: "cs-8",
+    slug: "omnichannel-marketing-campaign",
+    title: "Launching a Sustainable Consumer Brand",
+    client: "Verdant Home",
+    category: "Digital Marketing",
+    color: "#22c55e",
+    summary: "A synchronized Meta Ads, Google Shopping, and Influencer marketing campaign that generated $1M+ in launch week revenue.",
+    challenge: "Verdant Home was launching a premium line of sustainable home goods into a crowded market. They needed to quickly build brand awareness and drive immediate sales to recoup manufacturing costs.",
+    solution: "We designed a multi-touchpoint funnel. Top-of-funnel awareness was driven by aesthetic TikTok/Reels content. High-intent traffic was captured via Google Shopping, and abandoned carts were aggressively recovered via dynamic retargeting and email sequences.",
+    results: [
+      { label: "Launch Revenue", value: "$1.2M" },
+      { label: "ROAS", value: "4.5x" },
+      { label: "Email Subscribers", value: "25k+" },
+    ]
+  },
+  {
+    id: "cs-9",
+    slug: "real-estate-web-app",
+    title: "Luxury Real Estate Browsing Experience",
+    client: "Aura Properties",
+    category: "Website Development",
+    color: "#d946ef",
+    summary: "Creating a highly visual, immersive property browsing web application with 3D virtual tours and advanced filtering.",
+    challenge: "Aura Properties needed a digital experience that matched the luxury of their multi-million dollar listings. Their existing site had small images, clunky search, and slow loading times.",
+    solution: "We built a bespoke web app using React and Three.js for seamless 3D tour integration. The UI heavily utilized Framer Motion for cinematic page transitions, large typography, and edge-to-edge high-resolution imagery.",
+    results: [
+      { label: "User Session Duration", value: "+210%" },
+      { label: "Inquiry Rate", value: "+55%" },
+      { label: "Bounce Rate", value: "-35%" },
+    ]
+  },
+  {
+    id: "cs-10",
+    slug: "fitness-tracking-app-flutter",
+    title: "Gamified Fitness Tracking Application",
+    client: "PulseFit",
+    category: "Application Development",
+    color: "#f43f5e",
+    summary: "Designing and developing a cross-platform Flutter app that gamifies daily workouts with social leaderboards.",
+    challenge: "PulseFit wanted to enter the competitive fitness app market with a unique angle: social gamification. They needed smooth animations, real-time leaderboards, and offline support.",
+    solution: "We utilized Flutter to achieve 60fps animations across iOS and Android. The backend was powered by Firebase for real-time data sync, and we integrated Apple Health and Google Fit APIs to automatically track user activity.",
+    results: [
+      { label: "Downloads", value: "100k+ in 30 days" },
+      { label: "Daily Active Users", value: "45k" },
+      { label: "Retention Rate", value: "68% (30-day)" },
+    ]
+  },
+  {
+    id: "cs-11",
+    slug: "b2b-saas-onboarding",
+    title: "Frictionless Onboarding for HR Software",
+    client: "TalentFlow",
+    category: "Custom SaaS",
+    color: "#06b6d4",
+    summary: "Redesigning the user onboarding flow of a complex HR platform to reduce drop-offs and increase trial-to-paid conversions.",
+    challenge: "TalentFlow had a powerful product, but users found the initial setup overwhelming. 60% of free trials were abandoned before the user imported their first employee list.",
+    solution: "We overhauled the UX, breaking the setup into bite-sized, gamified steps with a progress indicator. We implemented smart defaults and a guided interactive tour using React Joyride to highlight key features contextually.",
+    results: [
+      { label: "Onboarding Completion", value: "+85%" },
+      { label: "Trial Conversion", value: "+22%" },
+      { label: "Support Tickets", value: "-40%" },
+    ]
+  },
+  {
+    id: "cs-12",
+    slug: "corporate-website-redesign",
+    title: "Corporate Website Overhaul for a Global Consultancy",
+    client: "Meridian Partners",
+    category: "Static Website",
+    color: "#3b82f6",
+    summary: "A sleek, professional, and accessible website redesign aimed at corporate executives and enterprise clients.",
+    challenge: "Meridian's website looked dated and failed to reflect their status as a premium consultancy. It was also not fully accessible (WCAG compliant), which was a requirement for government contracts.",
+    solution: "We designed a sophisticated, minimalist UI utilizing a refined typography scale and ample white space. We built the site statically with Next.js for maximum security and speed, ensuring strict WCAG 2.1 AA compliance.",
+    results: [
+      { label: "WCAG Compliance", value: "100% AA" },
+      { label: "Lead Quality", value: "Significantly Improved" },
+      { label: "Page Load Time", value: "< 1s" },
+    ]
+  },
+  {
+    id: "cs-13",
+    slug: "ppc-lead-gen-legal",
+    title: "High-Intent PPC Campaigns for a Law Firm",
+    client: "Sterling & Reed",
+    category: "PPC Campaigns",
+    color: "#6366f1",
+    summary: "Restructuring Google Ads campaigns to capture high-value corporate law clients while reducing wasted ad spend.",
+    challenge: "Sterling & Reed were spending heavily on broad match keywords, resulting in irrelevant clicks from individuals seeking free legal advice rather than their target corporate clients.",
+    solution: "We rebuilt their Google Ads account from scratch. We focused on exact and phrase match keywords, implemented a rigorous negative keyword list, and created dedicated, high-converting landing pages for specific legal services.",
+    results: [
+      { label: "Cost Per Lead", value: "-65%" },
+      { label: "Lead Conversion Rate", value: "+140%" },
+      { label: "Corporate Retainers", value: "+12" },
+    ]
+  },
+  {
+    id: "cs-14",
+    slug: "typography-brand-refresh",
+    title: "Typography & Visual Refresh for a Lifestyle Brand",
+    client: "Aura Essentials",
+    category: "Typography",
+    color: "#f472b6",
+    summary: "Elevating a boutique skincare brand's packaging and digital presence through custom typography and visual assets.",
+    challenge: "Aura Essentials felt their brand lacked a premium feel compared to competitors. Their existing fonts were generic and did not convey the organic, luxurious nature of their products.",
+    solution: "We curated a bespoke pairing of an elegant serif for headings and a clean sans-serif for body copy. We updated all digital assets, packaging guidelines, and social media templates to reflect this new, elevated aesthetic.",
+    results: [
+      { label: "Brand Perception", value: "Premium" },
+      { label: "Social Engagement", value: "+45%" },
+      { label: "Retail Partnerships", value: "Secured 3 new" },
+    ]
+  }
+];

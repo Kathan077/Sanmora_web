@@ -1,0 +1,183 @@
+﻿.section {
+  width: 100%;
+  padding: 60px 0; /* Removed horizontal padding so it touches edge */
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  overflow: hidden; /* Prevent horizontal scroll from edge-to-edge elements */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Restored padding for the centered text */
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────
+   DESKTOP VIEW (SVG Path Edge to Edge)
+───────────────────────────────────── */
+.diagramWrapperDesktop {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 400px; /* Restored height to give breathing room for 5 nodes */
+  display: block;
+}
+
+.svgLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.nodeBox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -28px);
+  width: 200px; /* Tighter width to fit 5 nodes without overflowing edges */
+}
+
+/* Coordinates matching the 5 bezier points */
+.node1 { top: 60%; left: 12%; }
+.node2 { top: 40%; left: 31%; }
+.node3 { top: 60%; left: 50%; }
+.node4 { top: 30%; left: 69%; }
+.node5 { top: 50%; left: 88%; }
+
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15);
+  margin-bottom: 24px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #a855f7, #06b6d4);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
+}
+
+.textBlock {
+  text-align: center;
+}
+
+.textBlock h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.textBlock p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────
+   MOBILE VIEW (Vertical Timeline)
+───────────────────────────────────── */
+.diagramWrapperMobile {
+  display: none;
+  position: relative;
+  padding-left: 20px;
+  margin-top: 40px;
+}
+
+.mobileLine {
+  position: absolute;
+  top: 20px;
+  bottom: 40px;
+  left: 48px; /* 20px padding + half of 56px icon (28px) = 48px */
+  width: 3px;
+  background: linear-gradient(to bottom, #a855f7, #06b6d4);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.mobileNode {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  z-index: 2;
+}
+
+.mobileNode .iconWrapper {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.textBlockMobile {
+  text-align: left;
+  flex: 1;
+  padding-top: 8px; /* Align text vertically with the icon center */
+}
+
+.textBlockMobile h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.textBlockMobile p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .diagramWrapperDesktop {
+    display: none;
+  }
+  .diagramWrapperMobile {
+    display: block;
+  }
+}

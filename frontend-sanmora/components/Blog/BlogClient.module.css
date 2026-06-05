@@ -1,0 +1,372 @@
+.blogContainer {
+  min-height: 100vh;
+  padding: 0 5% 4rem 5%;
+  background: transparent;
+  font-family: var(--font-body);
+  color: #0f172a;
+}
+
+/* ── Hero Section (transparent glassmorphic Apple-like design) ── */
+.heroSection {
+  padding: 8rem 5% 4rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(124, 58, 237, 0.06) 60%, rgba(37, 99, 235, 0.12) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0 0 50px 50px;
+  box-shadow: 
+    0 15px 35px -15px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 7vw, 4.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  padding-left: 0.05em;
+  color: #0F172A;
+  margin: 0;
+  text-align: center;
+}
+
+.blinkWord {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0 0.08em;
+}
+
+/* ── Typography & Navigation inside Hero ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748B;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: #0F172A;
+}
+
+.breadcrumbSeparator {
+  color: #CBD5E1;
+  font-size: 0.85rem;
+}
+
+.breadcrumbActive {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.heroDesc {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 28px auto 0;
+}
+
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 6rem auto 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Make the first post featured (spans more columns) */
+.featuredCard {
+  grid-column: span 12;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.04);
+}
+
+.featuredImageWrapper {
+  flex: 1.2;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.featuredImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featuredCard:hover .featuredImage {
+  transform: scale(1.05);
+}
+
+.featuredContent {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Regular Cards */
+.regularCard {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.regularCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.regularImageWrapper {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.regularImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.regularCard:hover .regularImage {
+  transform: scale(1.05);
+}
+
+.regularContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Common Content Styles */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.category {
+  color: #7c3aed;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.date, .readTime {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.postTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #09122b;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.featuredContent .postTitle {
+  font-size: 2.25rem;
+}
+
+.postExcerpt {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.readMoreBtn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #09122b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.readMoreBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.regularCard:hover .readMoreBtn,
+.featuredCard:hover .readMoreBtn {
+  color: #7c3aed;
+}
+
+.regularCard:hover .readMoreBtn svg,
+.featuredCard:hover .readMoreBtn svg {
+  transform: translateX(4px);
+}
+
+/* Responsive styling improvements */
+.meta {
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 7rem 4% 3rem;
+  }
+  
+  .blogGrid {
+    margin: 4rem auto 0;
+    gap: 1.5rem;
+  }
+
+  .featuredCard {
+    flex-direction: column;
+  }
+  
+  .featuredImageWrapper {
+    width: 100%;
+    height: 320px;
+  }
+  
+  .featuredContent {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .regularCard {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 6rem 1.25rem 2.5rem;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .heroDesc {
+    margin-top: 18px;
+    font-size: 1rem;
+  }
+
+  .blogContainer {
+    padding: 0 1rem 3rem 1rem;
+  }
+
+  .blogGrid {
+    margin: 2.5rem auto 0;
+    gap: 1.25rem;
+  }
+  
+  .regularCard {
+    grid-column: span 12;
+  }
+
+  .regularImageWrapper {
+    height: 200px;
+  }
+  
+  .featuredImageWrapper {
+    height: 240px;
+  }
+
+  .featuredContent {
+    padding: 1.5rem;
+  }
+
+  .regularContent {
+    padding: 1.5rem;
+  }
+  
+  .featuredContent .postTitle {
+    font-size: 1.5rem;
+  }
+  
+  .postTitle {
+    font-size: 1.35rem;
+  }
+
+  .postExcerpt {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 5.5rem 1rem 2rem;
+  }
+
+  .blogContainer {
+    padding: 0 0.75rem 2.5rem 0.75rem;
+  }
+
+  .featuredContent,
+  .regularContent {
+    padding: 1.25rem;
+  }
+
+  .postExcerpt {
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+  }
+}

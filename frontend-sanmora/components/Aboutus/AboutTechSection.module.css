@@ -1,0 +1,278 @@
+﻿.wrapper {
+  width: 100%;
+}
+
+/* ── SECTION 1: Static Grid ── */
+.gridSection {
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  padding: 8rem 0 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+}
+
+.gridContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 120px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #09122b;
+  letter-spacing: -2px;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 480px;
+}
+
+.rightCol {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+.columnCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.01),
+    0 1px 3px rgba(0, 0, 0, 0.01);
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.columnCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 58, 237, 0.12);
+  box-shadow: 
+    0 20px 40px rgba(124, 58, 237, 0.04), 
+    0 1px 10px rgba(0, 0, 0, 0.02);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.8rem;
+}
+
+.columnTitle {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.columnCard:hover .columnTitle {
+  color: var(--primary);
+}
+
+.arrowIcon {
+  color: #94a3b8;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease;
+}
+
+.columnCard:hover .arrowIcon {
+  transform: translate(3px, -3px);
+  color: var(--primary);
+}
+
+.techList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  cursor: pointer;
+  background: transparent;
+  transition: 
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease;
+}
+
+.techItem:hover {
+  background-color: rgba(124, 58, 237, 0.05);
+  transform: translateX(6px);
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.techItem:hover .iconContainer {
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.iconSvg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: grayscale(100%) opacity(0.4);
+  transition: 
+    filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.techItem:hover .iconSvg {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.1);
+}
+
+.techName {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.techItem:hover .techName {
+  color: #09122b;
+  font-weight: 600;
+}
+
+/* ── SECTION 2: Physics Playground (Boxed Layout) ── */
+.playgroundSection {
+  position: relative;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 88%;
+  max-width: 1440px;
+  height: 500px;
+  min-height: 400px;
+  padding: 0;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+/* Canvas occupies the container */
+.canvasWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  cursor: grab;
+  pointer-events: auto !important;
+  touch-action: pan-y !important; /* Forces browser to handle vertical scrolling/panning gestures */
+}
+
+.canvasWrapper:active {
+  cursor: grabbing;
+}
+
+.canvasWrapper canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: auto !important;
+  touch-action: pan-y !important; /* Overrides Matter.js inline touch-action: none styles */
+}
+
+@media (max-width: 1024px) {
+  .canvasWrapper {
+    pointer-events: none !important; /* Disable interaction on mobile/tablet so scrolling is 100% native and untrapped */
+  }
+}
+
+/* ── RESPONSIVE ADAPTATIONS ── */
+@media (max-width: 1200px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .leftCol {
+    position: static;
+    text-align: center;
+    align-items: center;
+  }
+
+  .description {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rightCol {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gridSection {
+    padding: 5rem 0 2rem 0;
+  }
+
+  .playgroundSection {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .columnCard {
+    padding: 1rem 1.25rem;
+  }
+}

@@ -1,0 +1,309 @@
+.processContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.processHeader {
+    margin-bottom: 60px;
+    max-width: 700px;
+    text-align: left;
+}
+
+.processHeader h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.processHeader p {
+    font-family: var(--font-body);
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Layout Wrapper */
+.processContentWrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Sidebar Styling */
+.processSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebarBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    border-radius: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebarBtn .arrowIcon {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+    color: #555;
+}
+
+/* Active Button State */
+.sidebarBtn.active {
+    background: linear-gradient(135deg, #a855f7, #06b6d4);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.2);
+}
+
+.sidebarBtn.active .arrowIcon {
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
+.sidebarBtn:hover:not(.active) {
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Timeline Layout */
+.processTimelineWrapper {
+    position: relative;
+    padding-left: 50px;
+}
+
+/* Vertical line */
+.timelineLine {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+    bottom: 25px;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.5), rgba(6, 182, 212, 0.5));
+    border-radius: 2px;
+    z-index: 0;
+}
+
+.timelineList {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    perspective: 1000px;
+}
+
+.timelineItem {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    transform-style: preserve-3d;
+}
+
+/* The structural geometric icons inside the vertical axis */
+.timelineNode {
+    position: absolute;
+    left: -50px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border: 2px solid rgba(124, 58, 237, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nodeIcon {
+    color: #a855f7;
+    transition: color 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nodePulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(6, 182, 212, 0.8);
+    animation: pulseNode 1.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+@keyframes pulseNode {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+.timelineItem:hover .timelineNode {
+    border-color: #06b6d4;
+    transform: scale(1.2);
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+}
+
+.timelineItem:hover .nodePulse {
+    opacity: 1;
+}
+
+.timelineItem:hover .nodeIcon {
+    color: #06b6d4;
+}
+
+/* Content Cards styling */
+.timelineCard {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timelineItem:hover .timelineCard {
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.15);
+    border-color: rgba(168, 85, 247, 0.6);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* --- Creative Sweep Animation --- */
+.glowSweep {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: skewX(-20deg);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.timelineItem:hover .glowSweep {
+    animation: sweep 0.8s ease-in-out forwards;
+}
+
+@keyframes sweep {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+.timelineCard h3 {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.timelineCard p {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-body);
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 992px) {
+    .processContentWrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .processSidebar {
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebarBtn {
+        flex: 1 1 calc(33.333% - 10px);
+        min-width: 200px;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .processHeader h2 {
+        font-size: 2rem;
+    }
+
+    .processHeader p {
+        font-size: 0.95rem;
+    }
+
+    .sidebarBtn {
+        flex: 1 1 100%;
+    }
+
+    .processTimelineWrapper {
+        padding-left: 35px;
+    }
+
+    .timelineNode {
+        left: -35px;
+        width: 26px;
+        height: 26px;
+        top: 16px;
+    }
+
+    .timelineLine {
+        left: -22px;
+    }
+
+    .timelineCard {
+        padding: 20px;
+    }
+}

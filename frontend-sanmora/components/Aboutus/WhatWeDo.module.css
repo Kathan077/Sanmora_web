@@ -1,0 +1,305 @@
+.section {
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  padding: 8rem 0;
+  overflow: clip;
+  font-family: var(--font-body);
+}
+
+.sectionGrid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr; /* Split between description and scrolling timeline steps */
+  gap: 6rem;
+  align-items: flex-start;
+}
+
+/* Sticky Left Side Layout */
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 120px;
+  max-height: calc(100vh - 160px);
+}
+
+.stickyWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: #09122b;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.5rem;
+}
+
+.subheadline {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 440px;
+  margin: 0;
+}
+
+/* Vertical Timeline Interactive Navigation List */
+.timelineNav {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 3.5rem;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 15px; /* Half of 32px point diameter (16px) minus 1px (half of 2px line width) */
+  top: 16px; /* Starts exactly at center of first nav point */
+  bottom: 16px; /* Ends exactly at center of last nav point */
+  width: 2px;
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.timelineFill {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.timelineSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.navStep {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  padding: 0.35rem 0;
+}
+
+/* 32px alignment wrapper centering the visual dot */
+.navStepPoint {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+}
+
+/* Visual dot */
+.navStepPoint::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1; /* slate-300 */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navStepNumber {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+  min-width: 20px;
+  transition: color 0.4s ease;
+  font-variant-numeric: tabular-nums;
+}
+
+.navStepTitle {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #94a3b8;
+  transition: color 0.4s ease;
+}
+
+/* Nav Step Active Highlights - Gradient & Halo Ring matching other site timelines */
+.navStepActive .navStepPoint::before {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  transform: scale(1.3);
+  box-shadow: 
+    0 4px 10px rgba(124, 58, 237, 0.4),
+    0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+.navStepActive .navStepNumber {
+  color: var(--primary);
+}
+
+.navStepActive .navStepTitle {
+  color: #09122b;
+  font-weight: 700;
+}
+
+/* ── RIGHT COLUMN: Cards Stack ── */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem; /* Tightened from 12rem for better cohesive scroll flow */
+  padding-bottom: 25vh; /* Allows scrolling bottom card to center trigger height */
+}
+
+/* Premium Apple Glass Card */
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 28px;
+  padding: 3rem;
+  width: 100%;
+  opacity: 0.45;
+  transform: scale(0.96);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.6s ease,
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+.cardActive {
+  opacity: 1;
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(124, 58, 237, 0.15);
+  box-shadow: 
+    0 20px 45px -15px rgba(124, 58, 237, 0.06),
+    0 10px 20px rgba(0, 0, 0, 0.01);
+}
+
+.card:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(124, 58, 237, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Inner Layout */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.iconWrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(124, 58, 237, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.4s ease;
+}
+
+.cardActive .iconWrapper {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+}
+
+.stepId {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #e2e8f0;
+  transition: color 0.4s ease;
+}
+
+.cardActive .stepId {
+  color: var(--primary);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #09122b;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #64748b;
+  transition: color 0.4s ease;
+}
+
+.cardActive .description {
+  color: #475569;
+}
+
+/* ── RESPONSIVE MEDIA QUERIES ── */
+@media (max-width: 992px) {
+  .sectionGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .leftColumn {
+    position: static;
+    max-height: none;
+    text-align: center;
+    align-items: center;
+  }
+
+  .subheadline {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .timelineNav {
+    display: none;
+  }
+
+  .rightColumn {
+    gap: 2rem;
+    padding-bottom: 0;
+  }
+
+  .card {
+    opacity: 1 !important;
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2.2rem 1.8rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px) !important;
+  }
+}

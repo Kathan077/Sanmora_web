@@ -1,0 +1,88 @@
+/* Simple Vision & Mission styling – plain boxes without glassmorphism */
+
+.section {
+  padding: 4rem 0;
+  background: #f9fafb; /* light neutral background */
+  color: #111827; /* dark text */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #4b5563; /* gray-600 */
+  margin-bottom: 2rem;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.iconBadge {
+  margin-right: 0.5rem;
+  color: #2563eb; /* blue-600 */
+}
+
+.cardHeader h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: #111827;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.75rem;
+}
+
+.featureList {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 0.4rem;
+}
+
+.chevron {
+  margin-right: 0.4rem;
+  color: #6b7280;
+}

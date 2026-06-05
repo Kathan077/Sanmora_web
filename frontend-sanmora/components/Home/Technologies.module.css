@@ -1,0 +1,153 @@
+﻿.section {
+  width: 100%;
+  padding: 80px 0; /* Changed horizontal padding to 0 for edge to edge marquee */
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 60px auto;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────
+   INFINITE MARQUEE
+───────────────────────────────────── */
+.marqueeContainer {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.marqueeRow {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+}
+
+.techGroup {
+  display: flex;
+  gap: 30px;
+  padding-right: 30px; /* Essential for seamless mathematical looping */
+}
+
+/* Animations */
+.scrollLeft {
+  animation: scrollLeft 40s linear infinite;
+}
+
+.scrollRight {
+  animation: scrollRight 40s linear infinite;
+}
+
+/* Pause on hover */
+.marqueeRow:hover .scrollLeft,
+.marqueeRow:hover .scrollRight {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); } /* Translates by exactly 1 of the 3 TechGroups */
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-33.3333%); }
+  100% { transform: translateX(0); }
+}
+
+/* ─────────────────────────────────────
+   TECH CARDS
+───────────────────────────────────── */
+.techCard {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 58, 237, 0.15); /* UI Purple Tint */
+  border-radius: 100px; /* Pill shape */
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s ease;
+  cursor: default;
+}
+
+.techCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: color-mix(in srgb, var(--tech-color) 40%, transparent);
+  box-shadow: 0 15px 30px color-mix(in srgb, var(--tech-color) 20%, transparent);
+}
+
+.techIcon {
+  color: #1a1a1a;
+  transition: color 0.4s ease;
+  width: 24px;
+  height: 24px;
+}
+
+.techCard:hover .techIcon {
+  color: var(--tech-color);
+}
+
+.techName {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .techCard {
+    padding: 14px 24px;
+  }
+  .techName {
+    font-size: 1.05rem;
+  }
+  .marqueeContainer {
+    gap: 20px;
+  }
+  .techGroup {
+    gap: 20px;
+    padding-right: 20px;
+  }
+}

@@ -1,0 +1,249 @@
+.section {
+  position: relative;
+  background: transparent; /* Transparent to show global particle background */
+  color: #0f172a;
+  overflow: hidden;
+  margin-top: 8vh; /* Adds space before the section starts */
+}
+
+.pinnedWrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Perfectly centers both header and cards vertically */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header is no longer absolute, it flows naturally above the cards */
+.header {
+  padding: 0 5%;
+  width: 100%;
+  z-index: 10;
+  pointer-events: none; 
+  margin-bottom: 4rem; /* Elegant gap between text and cards */
+}
+
+.heading {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Horizontal Track */
+.track {
+  display: flex;
+  height: auto; /* Takes only the height of the cards */
+  align-items: center;
+  will-change: transform;
+  position: relative;
+}
+
+/* Individual Card Panels */
+.panel {
+  width: 50vw; 
+  max-width: 700px;
+  height: 45vh; /* Fixed height so all cards are completely identical */
+  min-height: 350px;
+  flex-shrink: 0;
+  padding: 0 2rem; 
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* We want a continuous connecting line in the background */
+.progressLineBg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(15, 23, 42, 0.05);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.progressLineFill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #7c3aed, #0ea5e9, #10b981);
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Panel Content Layout */
+.panelContent {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start; /* Left align content inside card */
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85); 
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  border-radius: 24px; 
+  padding: 3.5rem 4rem; /* Balanced internal padding */
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* Left-Aligned Text Layout */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-start; /* Left align flex items */
+  text-align: left; /* Left align actual text */
+  max-width: 600px;
+}
+
+/* Massive watermark number perfectly centered behind the text */
+.massiveNumber {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14rem; /* Slightly smaller to fit medium card */
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(124, 58, 237, 0.06);
+  z-index: -1;
+  user-select: none;
+  font-family: inherit;
+}
+
+.serviceTitle {
+  font-size: 2.2rem;
+  font-weight: 850; /* Extra bold */
+  background: linear-gradient(135deg, #0f172a 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+}
+
+.serviceDesc {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #334155; /* Slightly darker for better contrast */
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* Right side: Visuals */
+.visualContent {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Abstract Floating Visuals Wrapper */
+.visualWrapper {
+  width: 100%;
+  height: 90%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(124, 58, 237, 0.03);
+}
+
+.glowOrb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  opacity: 0.25;
+}
+
+.visualInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Fallback */
+@media (max-width: 900px) {
+  .section {
+    background-image: none; /* simpler on mobile */
+  }
+
+  .pinnedWrapper {
+    height: auto;
+    overflow: visible;
+  }
+
+  .header {
+    position: relative;
+    padding: 4rem 5% 2rem;
+  }
+
+  .track {
+    flex-direction: column;
+    height: auto;
+    padding-top: 0;
+    will-change: auto;
+    transform: none !important; /* Force override GSAP on resize */
+  }
+
+  .panel {
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    padding: 2rem 5%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progressLineBg, .progressLineFill {
+    display: none;
+  }
+
+  .panelContent {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .serviceTitle {
+    font-size: 2.5rem;
+  }
+
+  .massiveNumber {
+    font-size: 8rem;
+    top: -4rem;
+    left: -1rem;
+  }
+
+  .visualWrapper {
+    height: 40vh;
+    min-height: 300px;
+  }
+}

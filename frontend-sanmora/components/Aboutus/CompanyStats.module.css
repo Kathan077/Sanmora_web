@@ -1,0 +1,147 @@
+﻿.section {
+  position: relative;
+  background-color: transparent;
+  color: #111111;
+  padding: 10rem 5%;
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Area */
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 6rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #7c3aed; /* Small purple accent */
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 900;
+  color: #111111;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: #6b7280;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Stats Layout */
+.statsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.statItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* Divider Lines */
+.statItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px;
+  width: 1px;
+  background-color: rgba(15, 23, 42, 0.1);
+}
+
+.numberWrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.number {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 6vw, 6rem);
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.plus {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  color: #7c3aed;
+  margin-left: 0.2rem;
+}
+
+.statLabel {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .statsRow {
+    flex-wrap: wrap;
+    gap: 4rem 0;
+  }
+  
+  .statItem {
+    flex: 0 0 50%;
+  }
+
+  /* Adjust dividers for 2-column layout */
+  .statItem::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 6rem 5%;
+  }
+
+  .statsRow {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .statItem {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 3rem 0;
+  }
+
+  /* Horizontal dividers on mobile */
+  .statItem:not(:last-child) {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+  }
+}
