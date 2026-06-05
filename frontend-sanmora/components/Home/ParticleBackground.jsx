@@ -15,13 +15,19 @@ export default function ParticleBackground() {
     let H = (canvas.height = window.innerHeight);
     let animId;
 
+    const isMobile = W < 768;
+    const count = isMobile ? 25 : 90;
+    const CONN = isMobile ? 80 : 130;
+    const REPEL_R = isMobile ? 60 : 110;
+    const REPEL_F = isMobile ? 2.5 : 3.5;
+
     // Particles array
-    const particles = Array.from({ length: 90 }, () => ({
+    const particles = Array.from({ length: count }, () => ({
       x: Math.random() * W,
       y: Math.random() * H,
       r: Math.random() * 1.8 + 0.4,
-      dx: (Math.random() - 0.5) * 0.38,
-      dy: (Math.random() - 0.5) * 0.38,
+      dx: (Math.random() - 0.5) * (isMobile ? 0.25 : 0.38),
+      dy: (Math.random() - 0.5) * (isMobile ? 0.25 : 0.38),
       ox: 0,
       oy: 0,
       opacity: Math.random() * 0.55 + 0.2,
@@ -32,10 +38,6 @@ export default function ParticleBackground() {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener("mousemove", onMouseMove);
-
-    const CONN = 130;
-    const REPEL_R = 110;
-    const REPEL_F = 3.5;
 
     function draw() {
       ctx.clearRect(0, 0, W, H);

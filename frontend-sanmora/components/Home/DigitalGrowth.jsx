@@ -79,8 +79,10 @@ export default function DigitalGrowth() {
                   <div className={styles.stepDot}></div>
                   <span className={styles.stepNum}>{step.step}</span>
                 </div>
-                <h4 className={styles.stepTitle}>{step.title}</h4>
-                <p className={styles.stepDesc}>{step.desc}</p>
+                <div className={styles.stepContent}>
+                  <h4 className={styles.stepTitle}>{step.title}</h4>
+                  <p className={styles.stepDesc}>{step.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>

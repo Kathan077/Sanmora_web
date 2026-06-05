@@ -164,6 +164,13 @@
   letter-spacing: 0.05em;
 }
 
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .stepTitle {
   font-size: 1.25rem;
   font-weight: 600;
@@ -323,6 +330,11 @@
   .stepDot {
     margin-top: 8px; /* Vertically align with h4 step title */
     box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.08);
+  }
+
+  .stepContent {
+    align-items: flex-start;
+    text-align: left;
   }
 
   .stepTitle {
