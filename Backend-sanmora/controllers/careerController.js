@@ -74,16 +74,14 @@ const applyJob = async (req, res) => {
     ]
   };
 
-  // Send email asynchronously in the background so it doesn't block the client response
-  transporter.sendMail(mailOptions)
-    .then(() => {
-      console.log(`[Success] Career email with attachment sent successfully to ${receiver} for: ${name}`);
-    })
-    .catch((error) => {
-      console.error("[Error] Failed to send career email in background:", error);
-    });
-
-  return res.status(200).json({ success: true, message: "Application submitted and email queued successfully!" });
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`[Success] Career email with attachment sent successfully to ${receiver} for: ${name}`);
+    return res.status(200).json({ success: true, message: "Application submitted and email sent successfully!" });
+  } catch (error) {
+    console.error("[Error] Failed to send career email:", error);
+    return res.status(500).json({ error: "Failed to send career email: " + error.message });
+  }
 };
 
 module.exports = {
