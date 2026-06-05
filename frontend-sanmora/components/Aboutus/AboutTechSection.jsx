@@ -294,8 +294,9 @@ export default function InteractiveTechDrop() {
       }
 
       // Pill metrics calculations
-      const pillHeight = 44;
-      const pillWidths = playgroundTechs.map(tech => Math.max(100, tech.length * 11 + 35));
+      const isMobile = width < 768;
+      const pillHeight = isMobile ? 30 : 44;
+      const pillWidths = playgroundTechs.map(tech => Math.max(isMobile ? 65 : 100, tech.length * (isMobile ? 8 : 11) + (isMobile ? 20 : 35)));
 
       // Trigger the physics drop animation
       const dropPills = () => {
@@ -303,7 +304,8 @@ export default function InteractiveTechDrop() {
 
         pills = playgroundTechs.map((tech, i) => {
           const w = pillWidths[i];
-          const startX = Math.random() * (width - 160) + 80;
+          const minPillWidth = isMobile ? 65 : 100;
+          const startX = Math.random() * (width - minPillWidth * 2) + minPillWidth;
           const startY = -(Math.random() * 300) - 50;
 
           return Bodies.rectangle(startX, startY, w, pillHeight, {
@@ -358,7 +360,7 @@ export default function InteractiveTechDrop() {
           ctx.stroke();
 
           // Render Text Centered
-          ctx.font = '600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+          ctx.font = `600 ${isMobile ? '10px' : '13px'} -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif`;
           ctx.fillStyle = '#0f172a';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';

@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors({
     origin: function (origin, callback) {
-        // Allow all origins to prevent CORS errors during deployment
+
         callback(null, true);
     },
     methods: ["GET", "POST"],

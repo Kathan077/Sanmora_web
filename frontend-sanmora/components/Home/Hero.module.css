@@ -976,6 +976,7 @@
 
   .content {
     align-items: center;
+    grid-row: 2;
   }
 
   .actions,
@@ -989,6 +990,7 @@
 
   .visual {
     min-height: 380px;
+    grid-row: 1;
   }
 
   .imageWrapper {
