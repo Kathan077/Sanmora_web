@@ -282,7 +282,7 @@ export default function BlogDetailClient({ id }) {
                 <div className={styles.ctaSection} style={{ marginTop: "0", width: "100%", maxWidth: "440px" }}>
                   <h4 className={styles.ctaTitle}>Have a project?</h4>
                   <p className={styles.ctaDesc}>
-                    Let's build something exceptional together. Speak with our specialists today.
+                    Let&apos;s build something exceptional together. Speak with our specialists today.
                   </p>
                   <Link href="/consultation" className={styles.ctaBtn} style={{ width: "100%" }}>
                     Schedule Consultation

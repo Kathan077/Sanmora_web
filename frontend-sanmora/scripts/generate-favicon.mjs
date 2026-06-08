@@ -37,6 +37,8 @@ async function main() {
     if (!found) {
       console.log("No non-transparent pixels found. Resizing original...");
       image.resize({ w: 128, h: 128 });
+      console.log("Writing to:", outputPath);
+      await image.write(outputPath);
     } else {
       const cropWidth = (maxX - minX) + 1;
       const cropHeight = (maxY - minY) + 1;

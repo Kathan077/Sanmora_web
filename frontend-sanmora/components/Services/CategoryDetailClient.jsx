@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import ParticleBackground from "@/components/Home/ParticleBackground";
 import ServiceVisual from "@/components/Services/ServiceVisual";
-import { getCategoryImagePath } from "@/components/Services/serviceImages";
+import { getCategoryDetailPrimaryImagePath, getCategoryDetailSecondaryImagePath } from "@/components/Services/serviceImages";
 import styles from "@/app/services/services.module.css";
 
 export default function CategoryDetailClient({ service, category }) {
@@ -29,7 +29,8 @@ export default function CategoryDetailClient({ service, category }) {
 
   const { name: serviceName, slug: serviceSlug, color } = service;
   const { name: catName, description: catDesc } = category;
-  const categoryImage = getCategoryImagePath(serviceSlug, category.slug);
+  const categoryPrimaryImage = getCategoryDetailPrimaryImagePath(serviceSlug, category.slug);
+  const categorySecondaryImage = getCategoryDetailSecondaryImagePath(serviceSlug, category.slug);
   const catNameParts = catName.split(" ");
 
   const heroText = category.longDescription ?? catDesc;
@@ -95,7 +96,7 @@ export default function CategoryDetailClient({ service, category }) {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <ServiceVisual
-              src={categoryImage}
+              src={categoryPrimaryImage}
               alt={`${catName} — ${serviceName}`}
               priority
             />
@@ -138,7 +139,7 @@ export default function CategoryDetailClient({ service, category }) {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <ServiceVisual
-              src={categoryImage}
+              src={categorySecondaryImage}
               alt={`${catName} technology stack`}
             />
 

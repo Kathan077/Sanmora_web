@@ -1,3 +1,4 @@
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -20,8 +21,46 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} data-scroll-behavior="smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                window.addEventListener('error', function(e) {
+                  var isChunk = false;
+                  if (e.message) {
+                    var errorMsg = e.message;
+                    isChunk = /chunk/i.test(errorMsg) || 
+                              /Failed to fetch/i.test(errorMsg) || 
+                              /dynamically imported module/i.test(errorMsg);
+                  }
+                  if (!isChunk && e.target && e.target.tagName === 'SCRIPT') {
+                    var src = e.target.src || '';
+                    isChunk = src.indexOf('/_next/static/') !== -1 || src.indexOf('chunk') !== -1;
+                  }
+                  if (isChunk) {
+                    try {
+                      var lastReload = sessionStorage.getItem('last-chunk-reload');
+                      var now = Date.now();
+                      if (!lastReload || now - parseInt(lastReload, 10) > 15000) {
+                        sessionStorage.setItem('last-chunk-reload', now.toString());
+                        window.location.reload();
+                      }
+                    } catch (err) {
+                      console.error(err);
+                    }
+                  }
+                }, true);
+              })();
+            `
+          }}
+        />
+      </head>
+      <body className={inter.className}>
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }

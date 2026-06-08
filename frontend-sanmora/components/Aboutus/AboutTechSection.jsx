@@ -441,17 +441,17 @@ export default function InteractiveTechDrop() {
       if (st) {
         st.kill();
       }
-      if (render) {
-        Render.stop(render);
+      if (render && MatterLib) {
+        MatterLib.Render.stop(render);
         if (render.canvas) {
           render.canvas.remove();
         }
       }
-      if (runner) {
-        Runner.stop(runner);
+      if (runner && MatterLib) {
+        MatterLib.Runner.stop(runner);
       }
-      if (MatterLib && engine && world) {
-        MatterLib.World.clear(world);
+      if (MatterLib && engine) {
+        MatterLib.World.clear(engine.world);
         MatterLib.Engine.clear(engine);
       }
     };

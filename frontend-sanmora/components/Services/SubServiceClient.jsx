@@ -27,8 +27,7 @@ export default function SubServiceClient({ service }) {
     );
   }
 
-  const { name, slug, color, description, subtitle, categories, features, benefits, techStack } = service;
-  const nameParts = name.split(" ");
+  const { name, slug, color, description, subtitle, categories } = service;
 
   return (
     <div className={styles.page}>
@@ -43,6 +42,7 @@ export default function SubServiceClient({ service }) {
 
       <Navbar />
 
+      {/* ── Hero ── */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <motion.div
@@ -50,84 +50,36 @@ export default function SubServiceClient({ service }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Link
-              href="/services"
-              className={styles.backLink}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              All Services
-            </Link>
+            {/* Breadcrumb */}
+            <div className={styles.breadcrumb}>
+              <Link href="/services" className={styles.breadcrumbLink}>
+                Services
+              </Link>
+              <span className={styles.breadcrumbSeparator}>/</span>
+              <span className={styles.breadcrumbActive}>{name}</span>
+            </div>
 
             <h1 className={styles.headline}>
               <span className={styles.blinkWord}>{name}</span>
             </h1>
 
             {subtitle && (
-              <p className={styles.heroSubtitle}>
-                {subtitle}
-              </p>
+              <p className={styles.heroSubtitle}>{subtitle}</p>
             )}
 
-            <p className={styles.heroDesc}>
-              {description}
-            </p>
+            <p className={styles.heroDesc}>{description}</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Service-level highlights */}
-      {(features?.length > 0 || benefits?.length > 0) && (
-        <section style={{ padding: "64px 5%", maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
-            {features?.length > 0 && (
-              <div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0F172A", marginBottom: "20px" }}>Core Capabilities</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {features.map((feat, i) => (
-                    <li key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start", fontSize: "0.95rem", color: "#475569", lineHeight: 1.55 }}>
-                      <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)", boxShadow: "0 0 8px rgba(124, 58, 237, 0.4), 0 0 12px rgba(6, 182, 212, 0.2)", flexShrink: 0, marginTop: "8px" }} />
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {benefits?.length > 0 && (
-              <div>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#0F172A", marginBottom: "20px" }}>Business Outcomes</h3>
-                <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {benefits.map((benefit, i) => (
-                    <li key={i} style={{ display: "flex", gap: "12px", alignItems: "flex-start", fontSize: "0.95rem", color: "#475569", lineHeight: 1.55 }}>
-                      <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)", boxShadow: "0 0 8px rgba(124, 58, 237, 0.4), 0 0 12px rgba(6, 182, 212, 0.2)", flexShrink: 0, marginTop: "8px" }} />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-          {techStack?.length > 0 && (
-            <div style={{ marginTop: "40px" }}>
-              <p style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: "#94a3b8", marginBottom: "14px" }}>Tools & platforms</p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-                {techStack.map((tech, i) => (
-                  <span key={i} style={{ padding: "8px 16px", background: "#FFFFFF", border: "1px solid rgba(124, 58, 237, 0.15)", borderRadius: "10px", fontSize: "0.82rem", fontWeight: 700, color: "#475569" }}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </section>
-      )}
-
+      {/* ── Specializations ── */}
       <section className={styles.workspaceSection}>
         <div style={{ textAlign: "center", marginBottom: "48px", padding: "0 5%" }}>
-          <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 900, color: "#0F172A" }}>Specializations</h2>
+          <h2 style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)", fontWeight: 900, color: "#0F172A" }}>
+            Specializations
+          </h2>
           <p style={{ color: "#64748B", marginTop: "12px", maxWidth: "560px", marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
-            Each focus area has its own deliverables, tools, and outcomes—choose the path that matches your project.
+            Each focus area has its own deliverables, tools, and outcomes — choose the path that matches your project.
           </p>
         </div>
 

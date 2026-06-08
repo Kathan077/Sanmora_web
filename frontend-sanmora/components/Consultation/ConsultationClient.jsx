@@ -23,7 +23,10 @@ export default function ConsultationClient() {
   useEffect(() => {
     const serviceParam = searchParams.get("service");
     if (serviceParam) {
-      setServiceName(decodeURIComponent(serviceParam));
+      const timer = setTimeout(() => {
+        setServiceName(decodeURIComponent(serviceParam));
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [searchParams]);
 
@@ -100,7 +103,7 @@ export default function ConsultationClient() {
             </h1>
 
             <p className={servicesStyles.heroDesc}>
-              Let's discuss your project goals, technical requirements, and how we can bring your vision to life.
+              Let&apos;s discuss your project goals, technical requirements, and how we can bring your vision to life.
             </p>
           </motion.div>
         </div>
