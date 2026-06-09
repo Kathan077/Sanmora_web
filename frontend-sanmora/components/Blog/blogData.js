@@ -1,5 +1,54 @@
 export const blogPosts = [
   {
+    id: 6,
+    title: "How Website Speed Affects Google Rankings",
+    excerpt: "If your website takes more than 3 seconds to load, you're not just losing users—you are actively dropping in Google search rankings. Here is how Google evaluates speed and how to optimize it.",
+    category: "SEO & Performance",
+    date: "Jun 09, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    featured: true,
+    content: `
+We have all heard the advice: "build a fast website." But for most business owners, speed is seen as a secondary UX goal—something to fix after the launch, once the design is polished and the copywriting is approved.
+
+But behind the scenes, Google treats page speed as a primary ranking factor. Since the introduction of the Page Experience Update and the Core Web Vitals initiative, Google has made it clear: slow sites get lower search visibility. If your website takes more than 3 seconds to load, you're not just losing visitors; you're actively being pushed down the search results by faster competitors.
+
+At Sanmora, we've seen this play out in real-time across multiple projects. Here is exactly how Google evaluates your website's speed, why milliseconds dictate your search position, and how to optimize it.
+
+### The metrics that matter: Core Web Vitals
+Google doesn't just measure a generic "load time" anymore. Instead, they use three specific metrics—known as the Core Web Vitals—to evaluate how real users experience your page speed:
+
+1. **Largest Contentful Paint (LCP):** This measures how long it takes for the largest element on the screen (usually a hero image or a main headline) to render. To keep Google happy, your LCP should occur within **2.5 seconds** of the page starting to load.
+2. **Interaction to Next Paint (INP):** Newly introduced as a ranking factor in 2024 to replace First Input Delay (FID), INP measures the user interface's responsiveness. When a user clicks a button or opens a menu, does it react instantly? A good INP is under **200 milliseconds**.
+3. **Cumulative Layout Shift (CLS):** This measures visual stability. Have you ever tried to read an article on your phone, only for the text to jump down because a slow image or ad loaded at the top? Google penalizes pages that shift around, as it ruins the user experience.
+
+### Why Google cares about milliseconds
+Google's business model relies on providing the best possible search experience. If a user clicks a search result and faces a blank screen for 5 seconds, they will click back to Google and try another link. To Google, this is a failed search session.
+
+Furthermore, slow sites eat up Google's **crawl budget**. Googlebot uses automated scripts to crawl and index billions of web pages daily. If your server takes 2 seconds to respond to each request, Google's crawlers will scan fewer pages on your site, leading to delayed indexing of your new content or product updates.
+
+### The tangible cost of slowness: An Ahmedabad case study
+Let's look at a real-world example from our work here in Ahmedabad. We recently audited a local B2B manufacturer in the GIDC Industrial Estate. They had a massive catalog of industrial products, but their site was built on a heavy, unoptimized WordPress theme with dozens of active plugins. 
+
+Their homepage took **6.8 seconds** to load on mobile devices, and their search rankings for high-intent keywords like "industrial valve exporter Gujarat" had dropped to the second page of Google.
+
+We rebuilt their website using Next.js, optimized their product images, and used static site generation (SSG) to pre-render their product catalogs. The results were immediate:
+- Page load time dropped from **6.8s to 1.2s**.
+- The bounce rate decreased by **42%**.
+- Within 45 days, their site regained top-3 organic rankings for their core product keywords, leading to a **180% increase in monthly quote inquiries**.
+
+### Actionable steps to speed up your website today
+If you want to protect and improve your Google rankings, here is the performance roadmap we recommend:
+
+- **Optimize your images:** Never upload raw photos from digital cameras or smartphones. Resize them to their exact container dimensions and convert them to modern formats like WebP or AVIF.
+- **Implement a CDN:** Use a Content Delivery Network like Cloudflare or Vercel Edge Network. This caches your website's static files in servers worldwide, serving them to users from the closest geographic location.
+- **Limit third-party scripts:** Google Tag Manager, tracking pixels, hotjar maps, and chat widgets are notorious for blocking the main thread. Defer non-critical scripts so they load only after the main content is visible.
+- **Minimize CSS & JS bundle sizes:** Use code splitting and tree shaking to ensure you only ship the code that is actually needed for the active page.
+
+> A fast website is no longer a luxury or an afterthought. It is the very foundation of your organic marketing and user retention strategy.
+    `
+  },
+  {
     id: 1,
     title: "We got tired of sending WhatsApp updates, so we built our own client portal",
     excerpt: "The honest story of why we spent three weeks building a custom dashboard instead of using Slack or Trello, and how it completely changed our client handoffs.",
@@ -7,7 +56,7 @@ export const blogPosts = [
     date: "Jun 02, 2026",
     readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-    featured: true,
+    featured: false,
     content: `
 We’ve all been there. You’re working hard on a feature branch, and suddenly your phone buzzes. It’s a WhatsApp message from a client asking for a quick staging link, followed by another asking if the latest landing page design has been updated in Figma. 
 

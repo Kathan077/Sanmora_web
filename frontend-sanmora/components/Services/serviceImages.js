@@ -8,7 +8,7 @@ export function getServiceImagePath(serviceSlug) {
 export function getCategoryImagePath(serviceSlug, categorySlug) {
   if (serviceSlug === "website-development") {
     if (categorySlug === "static-website") {
-      return `/images/services/website-development/Static web.png`;
+      return `/images/services/website-development/Static Website.jpeg`;
     }
     if (categorySlug === "dynamic-website") {
       return `/images/services/website-development/Dynamic Website.jpeg`;
@@ -85,58 +85,58 @@ export function getCategoryImagePath(serviceSlug, categorySlug) {
 export function getCategoryDetailPrimaryImagePath(serviceSlug, categorySlug) {
   if (serviceSlug === "website-development") {
     if (categorySlug === "static-website") {
-      return `/images/services/website-development/Static Website.jpeg`;
+      return `/images/services/website-development/Static web.png`;
     }
     if (categorySlug === "dynamic-website") {
-      return `/images/services/website-development/custom website.jpeg`;
+      return `/images/services/website-development/Dynamic web.jpg`;
     }
     if (categorySlug === "e-commerce") {
-      return `/images/services/website-development/Dynamic Website.jpeg`;
+      return `/images/services/website-development/E-commerce.jpg`;
     }
     if (categorySlug === "custom-website-development") {
-      return `/images/services/website-development/E-commerce pltform.jpeg`;
+      return `/images/services/website-development/custom web.jpg`;
     }
   }
   if (serviceSlug === "digital-marketing") {
     if (categorySlug === "seo-optimization") {
-      return `/images/services/digital-marketing/ppc.jpg`;
+      return `/images/services/digital-marketing/seo web.jpg`;
     }
     if (categorySlug === "ppc-campaigns") {
-      return `/images/services/digital-marketing/Social-media.jpg`;
+      return `/images/services/digital-marketing/ppc web.jpg`;
     }
     if (categorySlug === "social-media") {
-      return `/images/services/digital-marketing/contetstratergy.jpg`;
+      return `/images/services/digital-marketing/social web.jpg`;
     }
     if (categorySlug === "content-strategy") {
-      return `/images/services/digital-marketing/Seo.png`;
+      return `/images/services/digital-marketing/content web.jpg`;
     }
   }
   if (serviceSlug === "software-development") {
     if (categorySlug === "custom-saas") {
-      return `/images/services/software-development/api-devlopment.jpeg`;
+      return `/images/services/software-development/saas web.jpg`;
     }
     if (categorySlug === "api-development") {
-      return `/images/services/software-development/database-architecture.jpeg`;
+      return `/images/services/software-development/api web.jpg`;
     }
     if (categorySlug === "database-architecture") {
-      return `/images/services/software-development/cloud-infrastructure.jpeg`;
+      return `/images/services/software-development/database web.jpg`;
     }
     if (categorySlug === "cloud-infrastructure") {
-      return `/images/services/software-development/saas.jpeg`;
+      return `/images/services/software-development/cloud web.jpg`;
     }
   }
   if (serviceSlug === "logo-designing") {
     if (categorySlug === "brand-identity") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 17.19.53.jpeg`;
+      return `/images/services/logo-designing/Brand web.jpg`;
     }
     if (categorySlug === "vector-graphics") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 17.28.21.jpeg`;
+      return `/images/services/logo-designing/Vector web.jpg`;
     }
     if (categorySlug === "corporate-guidelines") {
-      return `/images/services/logo-designing/typography.jpg`;
+      return `/images/services/logo-designing/Corporate web.jpg`;
     }
     if (categorySlug === "typography") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 16.16.00.jpeg`;
+      return `/images/services/logo-designing/typography web.jpg`;
     }
   }
   if (serviceSlug === "application-development") {
@@ -165,55 +165,55 @@ export function getCategoryDetailSecondaryImagePath(serviceSlug, categorySlug) {
       return `/images/services/website-development/static Why.jpg`;
     }
     if (categorySlug === "dynamic-website") {
-      return `/images/services/website-development/E-commerce pltform.jpeg`;
+      return `/images/services/website-development/Dynamic Why.jpg`;
     }
     if (categorySlug === "e-commerce") {
-      return `/images/services/website-development/custom website.jpeg`;
+      return `/images/services/website-development/e-commerce why.jpg`;
     }
     if (categorySlug === "custom-website-development") {
-      return `/images/services/website-development/Dynamic Website.jpeg`;
+      return `/images/services/website-development/custom-why.jpg`;
     }
   }
   if (serviceSlug === "digital-marketing") {
     if (categorySlug === "seo-optimization") {
-      return `/images/services/digital-marketing/Social-media.jpg`;
+      return `/images/services/digital-marketing/seo why.jpg`;
     }
     if (categorySlug === "ppc-campaigns") {
-      return `/images/services/digital-marketing/contetstratergy.jpg`;
+      return `/images/services/digital-marketing/ppc why.jpg`;
     }
     if (categorySlug === "social-media") {
-      return `/images/services/digital-marketing/ppc.jpg`;
+      return `/images/services/digital-marketing/social why.jpg`;
     }
     if (categorySlug === "content-strategy") {
-      return `/images/services/digital-marketing/Seo.png`;
+      return `/images/services/digital-marketing/content why.jpg`;
     }
   }
   if (serviceSlug === "software-development") {
     if (categorySlug === "custom-saas") {
-      return `/images/services/software-development/database-architecture.jpeg`;
+      return `/images/services/software-development/saas why.jpg`;
     }
     if (categorySlug === "api-development") {
-      return `/images/services/software-development/cloud-infrastructure.jpeg`;
+      return `/images/services/software-development/api why.jpg`;
     }
     if (categorySlug === "database-architecture") {
-      return `/images/services/software-development/saas.jpeg`;
+      return `/images/services/software-development/database why.jpg`;
     }
     if (categorySlug === "cloud-infrastructure") {
-      return `/images/services/software-development/api-devlopment.jpeg`;
+      return `/images/services/software-development/cloud why.jpg`;
     }
   }
   if (serviceSlug === "logo-designing") {
     if (categorySlug === "brand-identity") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 17.28.21.jpeg`;
+      return `/images/services/logo-designing/Brand why.jpg`;
     }
     if (categorySlug === "vector-graphics") {
-      return `/images/services/logo-designing/typography.jpg`;
+      return `/images/services/logo-designing/vector why.jpg`;
     }
     if (categorySlug === "corporate-guidelines") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 16.16.00.jpeg`;
+      return `/images/services/logo-designing/corporate why.jpg`;
     }
     if (categorySlug === "typography") {
-      return `/images/services/logo-designing/WhatsApp Image 2026-06-05 at 17.19.53.jpeg`;
+      return `/images/services/logo-designing/typography why.jpg`;
     }
   }
   if (serviceSlug === "application-development") {
