@@ -55,7 +55,7 @@ If you want to protect and improve your Google rankings, here is the performance
     category: "Inside Sanmora",
     date: "Jun 02, 2026",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo 1522071820081 009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
     featured: false,
     content: `
 We’ve all been there. You’re working hard on a feature branch, and suddenly your phone buzzes. It’s a WhatsApp message from a client asking for a quick staging link, followed by another asking if the latest landing page design has been updated in Figma. 
@@ -91,8 +91,7 @@ Since deploying the portal for our active Ahmedabad and remote clients, our dail
     category: "Performance",
     date: "May 24, 2026",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo 1460925895917 afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    featured: false,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",    featured: false,
     content: `
 Every frontend developer has spent late nights chasing the holy grail: a perfect 100/100 score on Google Lighthouse. You optimize images, you defer scripts, you inline critical CSS, and you squeeze every byte out of your bundle. 
 
@@ -123,11 +122,11 @@ Here is the practical checklist we use for our builds:
   {
     id: 3,
     title: "Why most local businesses in Ahmedabad are losing clients online",
-    excerpt: "It's rarely a pricing issue—it's almost always a local search visibility gap. Here is a simple, no nonsense roadmap we use to help local brands get found on Google Maps.",
+    excerpt: "It's rarely a pricing issue it's almost always a local search visibility gap. Here is a simple, no nonsense roadmap we use to help local brands get found on Google Maps.",
     category: "Local SEO",
     date: "May 10, 2026",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo 1557804506 669a67965ba0?q=80&w=2074&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
     featured: false,
     content: `
 We speak with a lot of local business owners in Ahmedabad. From boutique design studios to manufacturing suppliers in GIDC, the complaint is often the same: *"We have a beautiful website, but we aren't getting inquiries through it. Everyone just contacts us via references."*
@@ -158,7 +157,7 @@ You don’t need a massive marketing agency budget to fix this. Here is the exac
     category: "Design & Dev",
     date: "Apr 18, 2026",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo 1507238691740 187a5b1d37b8?q=80&w=2055&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2055&auto=format&fit=crop",
     featured: false,
     content: `
 As frontend developers, we love eye candy. Seeing a card slide in smoothly or a menu morph gracefully gives us an instant dopamine hit. But as performance advocates, we also know that shipping heavy JavaScript libraries can kill page responsiveness.
@@ -191,7 +190,7 @@ Framer Motion adds roughly 30kb (gzipped) to your initial JavaScript bundle. For
     category: "E Commerce",
     date: "Mar 30, 2026",
     readTime: "9 min read",
-    image: "https://images.unsplash.com/photo 1511512578047 dfb367046420?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2070&auto=format&fit=crop",
     featured: false,
     content: `
 Shopify is a fantastic tool. It has democratized retail commerce and allowed thousands of founders to launch online storefronts in a weekend. But when an e commerce brand hits a certain scale—usually around 10,000 active visitors a day—standard Shopify templates start showing their limits.
