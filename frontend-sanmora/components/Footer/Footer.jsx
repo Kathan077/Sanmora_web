@@ -20,9 +20,11 @@ export default function Footer() {
         <div className={styles.linksGrid}>
           <div className={styles.linkGroup}>
             <h4 className={styles.groupTitle}>Services</h4>
-            <Link href="/#solutions" className={styles.link}>Solutions</Link>
-            <Link href="/case-studies" className={styles.link}>Showcase</Link>
-            <Link href="/services" className={styles.link}>Services</Link>
+            <Link href="/services/website-development" className={styles.link}>Website Development</Link>
+            <Link href="/services/software-development" className={styles.link}>Software Development</Link>
+            <Link href="/services/application-development" className={styles.link}>Application Development</Link>
+            <Link href="/services/digital-marketing" className={styles.link}>Digital Marketing</Link>
+            <Link href="/services/logo-designing" className={styles.link}>Logo Designing</Link>
           </div>
           <div className={styles.linkGroup}>
             <h4 className={styles.groupTitle}>Company</h4>

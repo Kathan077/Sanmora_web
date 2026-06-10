@@ -170,8 +170,7 @@ export default function HomeAboutUs() {
             <div className={styles.creativeAccent}></div>
             <h4 className={styles.companyName}>Our Philosophy</h4>
             <p className={styles.companyDesc}>
-              Blending avant garde design with engineering excellence. Every line of code and pixel we craft pushes boundaries to elevate your digital presence.
-            </p>
+We blend creativity, innovation, and expertise to create impactful solutions that help businesses stand out and achieve lasting success.            </p>
           </div>
         </div>
 
