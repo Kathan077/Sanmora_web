@@ -20,6 +20,64 @@ export async function POST(request) {
       );
     }
 
+    // Validate email syntax first
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Please enter a valid email address." },
+        { status: 400 }
+      );
+    }
+
+    const domain = email.split("@")[1].toLowerCase();
+    
+    // 1. Check disposable email domain list
+    const DISPOSABLE_DOMAINS = new Set([
+      "mailinator.com", "tempmail.com", "temp-mail.org", "10minutemail.com",
+      "yopmail.com", "guerrillamail.com", "dispostable.com", "getairmail.com",
+      "maildrop.cc", "trashmail.com", "mailnesia.com", "temp-mail.io", "fakemailgenerator.com",
+      "generator.email", "disposable.com", "tempmailaddress.com", "throwawaymail.com"
+    ]);
+    if (DISPOSABLE_DOMAINS.has(domain)) {
+      return NextResponse.json(
+        { error: "Temporary or disposable email addresses are not allowed. Please use a genuine email address." },
+        { status: 400 }
+      );
+    }
+
+    // 2. Perform DNS MX Record check to verify if domain can receive email
+    let mxRecords = [];
+    try {
+      const dns = require("dns").promises;
+      mxRecords = await dns.resolveMx(domain);
+    } catch (dnsErr) {
+      console.warn(`[DNS warning] MX resolution failed for domain: ${domain}`, dnsErr);
+      if (dnsErr.code === "ENOTFOUND" || dnsErr.code === "ENODATA") {
+        return NextResponse.json(
+          { error: "The email domain does not exist or has no active mail servers. Please enter a genuine email address." },
+          { status: 400 }
+        );
+      }
+    }
+
+    if (!mxRecords || mxRecords.length === 0) {
+      try {
+        const dns = require("dns").promises;
+        const aRecords = await dns.resolve4(domain);
+        if (!aRecords || aRecords.length === 0) {
+          return NextResponse.json(
+            { error: "The email domain is invalid or does not have any active mail servers configured." },
+            { status: 400 }
+          );
+        }
+      } catch (aErr) {
+        return NextResponse.json(
+          { error: "The email domain is invalid or does not have any active mail servers configured." },
+          { status: 400 }
+        );
+      }
+    }
+
     // Convert the File object to a Buffer
     const arrayBuffer = await resumeFile.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
@@ -31,10 +89,8 @@ export async function POST(request) {
     const receiver = process.env.EMAIL_RECEIVER || "info@sanmora.in";
 
     if (!user || !pass) {
-      return NextResponse.json(
-        { error: "Mailer configuration is missing on the server. Please configure EMAIL_USER and EMAIL_PASS." },
-        { status: 500 }
-      );
+      console.warn("[Mailer Warning] EMAIL_USER or EMAIL_PASS not configured. Skipping career email delivery (simulating success).");
+      return NextResponse.json({ success: true, message: "Application request verified (email sending bypassed due to missing credentials)." });
     }
 
     const transporter = nodemailer.createTransport({

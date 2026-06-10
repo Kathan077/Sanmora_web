@@ -9,6 +9,13 @@ import ParticleBackground from "@/components/Home/ParticleBackground";
 
 import { servicesData } from "@/components/Navbar/servicesData";
 
+const DISPOSABLE_DOMAINS = [
+  "mailinator.com", "tempmail.com", "temp-mail.org", "10minutemail.com",
+  "yopmail.com", "guerrillamail.com", "dispostable.com", "getairmail.com",
+  "maildrop.cc", "trashmail.com", "mailnesia.com", "temp-mail.io", "fakemailgenerator.com",
+  "generator.email", "disposable.com", "tempmailaddress.com", "throwawaymail.com"
+];
+
 export default function ConsultationClient() {
   const searchParams = useSearchParams();
   const [serviceName, setServiceName] = useState("");
@@ -68,16 +75,35 @@ export default function ConsultationClient() {
       tempErrors.emailId = "Email address is required.";
     } else if (!emailRegex.test(emailId)) {
       tempErrors.emailId = "Please enter a valid email address.";
+    } else {
+      const domain = emailId.split("@")[1].toLowerCase();
+      if (DISPOSABLE_DOMAINS.includes(domain)) {
+        tempErrors.emailId = "Temporary or disposable email addresses are not allowed. Please enter a genuine email.";
+      }
     }
     
     // Contact No
+    const cleanPhone = contactNo.replace(/\s|-|\(|\)/g, ""); // strip spaces, hyphens, brackets
     const phoneDigitsOnly = contactNo.replace(/\D/g, "");
     if (!contactNo) {
       tempErrors.contactNo = "Contact number is required.";
     } else if (!/^\+?[0-9\s\-\(\)]+$/.test(contactNo)) {
       tempErrors.contactNo = "Please enter a valid phone number (digits, spaces, hyphens, brackets, or '+' only).";
-    } else if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
-      tempErrors.contactNo = "Contact number must contain between 7 and 15 digits.";
+    } else {
+      // Check if it matches an Indian phone number format
+      const isIndianLength = phoneDigitsOnly.length === 10;
+      const hasIndianPrefix = cleanPhone.startsWith("+91") || cleanPhone.startsWith("91") || (cleanPhone.startsWith("0") && phoneDigitsOnly.length === 11);
+      
+      if (isIndianLength || hasIndianPrefix) {
+        const indianRegex = /^(?:\+91|91|0)?[6-9]\d{9}$/;
+        if (!indianRegex.test(cleanPhone)) {
+          tempErrors.contactNo = "Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.";
+        }
+      } else {
+        if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
+          tempErrors.contactNo = "Contact number must contain between 7 and 15 digits.";
+        }
+      }
     }
 
     setErrors(tempErrors);
@@ -268,7 +294,7 @@ export default function ConsultationClient() {
                 type="tel" 
                 id="contactNo" 
                 className={`${styles.input} ${errors.contactNo ? styles.inputError : ""}`} 
-                placeholder="+1 (555) 000-0000" 
+                placeholder="e.g. +91 98765 43210" 
                 value={contactNo}
                 onChange={(e) => handleFieldChange("contactNo", e.target.value, setContactNo)}
               />

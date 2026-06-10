@@ -6,6 +6,13 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "../careers.module.css";
 
+const DISPOSABLE_DOMAINS = [
+  "mailinator.com", "tempmail.com", "temp-mail.org", "10minutemail.com",
+  "yopmail.com", "guerrillamail.com", "dispostable.com", "getairmail.com",
+  "maildrop.cc", "trashmail.com", "mailnesia.com", "temp-mail.io", "fakemailgenerator.com",
+  "generator.email", "disposable.com", "tempmailaddress.com", "throwawaymail.com"
+];
+
 const jobsDetails = {
   "ui-ux": {
     title: "UI/UX Designer",
@@ -132,16 +139,35 @@ export default function JobDetailClient({ id }) {
       tempErrors.email = "Email address is required.";
     } else if (!emailRegex.test(formData.email)) {
       tempErrors.email = "Please enter a valid email address.";
+    } else {
+      const domain = formData.email.split("@")[1].toLowerCase();
+      if (DISPOSABLE_DOMAINS.includes(domain)) {
+        tempErrors.email = "Temporary or disposable email addresses are not allowed. Please enter a genuine email.";
+      }
     }
 
     // WhatsApp
+    const cleanWhatsapp = formData.whatsapp.replace(/\s|-|\(|\)/g, ""); // strip spaces, hyphens, brackets
     const phoneDigitsOnly = formData.whatsapp.replace(/\D/g, "");
     if (!formData.whatsapp) {
       tempErrors.whatsapp = "WhatsApp number is required.";
     } else if (!/^\+?[0-9\s\-\(\)]+$/.test(formData.whatsapp)) {
       tempErrors.whatsapp = "Please enter a valid WhatsApp number (digits, spaces, hyphens, brackets, or '+' only).";
-    } else if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
-      tempErrors.whatsapp = "WhatsApp number must contain between 7 and 15 digits.";
+    } else {
+      // Check if it matches an Indian phone number format
+      const isIndianLength = phoneDigitsOnly.length === 10;
+      const hasIndianPrefix = cleanWhatsapp.startsWith("+91") || cleanWhatsapp.startsWith("91") || (cleanWhatsapp.startsWith("0") && phoneDigitsOnly.length === 11);
+      
+      if (isIndianLength || hasIndianPrefix) {
+        const indianRegex = /^(?:\+91|91|0)?[6-9]\d{9}$/;
+        if (!indianRegex.test(cleanWhatsapp)) {
+          tempErrors.whatsapp = "Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.";
+        }
+      } else {
+        if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
+          tempErrors.whatsapp = "WhatsApp number must contain between 7 and 15 digits.";
+        }
+      }
     }
 
     // Resume File
