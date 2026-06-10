@@ -17,9 +17,9 @@ const jobsDetails = {
   "ui-ux": {
     title: "UI/UX Designer",
     type: "Full-Time",
-    location: "Offline (At our office)",
+    location: "Work in office",
     experience: "Freshers welcome",
-    description: "We are looking for a UI/UX Designer who is passionate about creating clean, premium, and human-centered design experiences. Freshers are highly welcome to apply! You will work offline at our office, collaborating closely with developers and product managers to build sleek SaaS dashboards, mobile apps, and interactive web properties.",
+    description: "We are looking for a UI/UX Designer who is passionate about creating clean, premium, and human-centered design experiences. Freshers are highly welcome to apply! You will work in our office, collaborating closely with developers and product managers to build sleek SaaS dashboards, mobile apps, and interactive web properties.",
     responsibilities: [
       "Collaborate on the design process: from research, wireframing, to interactive prototyping and design handoffs.",
       "Help build and maintain our premium design systems in Figma.",
@@ -30,7 +30,7 @@ const jobsDetails = {
       "Proficiency in Figma, layouts, and typography. A portfolio showcasing UI/UX concepts is required.",
       "Freshers are welcome. Any formal training or internship in UI/UX is a big plus.",
       "Basic understanding of components, auto-layout, and design systems in Figma.",
-      "Good communication and a strong desire to learn and collaborate offline."
+      "Good communication and a strong desire to learn and collaborate in office."
     ],
     benefits: [
       "Competitive salary and performance bonuses.",
@@ -42,20 +42,20 @@ const jobsDetails = {
   "bde": {
     title: "Business Development Executive (BDE)",
     type: "Full-Time",
-    location: "Offline (At our office)",
+    location: "Work in office",
     experience: "Freshers welcome",
-    description: "We are looking for an ambitious Business Development Executive (BDE) to join us offline at our office. Freshers are highly welcome! You will identify growth opportunities, generate high-quality outbound leads, and coordinate with the development team to convert inquiries into enterprise contracts.",
+    description: "We are looking for an ambitious Business Development Executive (BDE) to join us in our office. Freshers are highly welcome! You will identify growth opportunities, generate high-quality outbound leads, and coordinate with the development team to convert inquiries into enterprise contracts.",
     responsibilities: [
       "Research, identify, and qualify outbound leads within the startup and enterprise space.",
       "Present project pitches and demos to prospective clients alongside technical leads.",
-      "Help coordinate proposal submissions and follow-ups offline.",
+      "Help coordinate proposal submissions and follow-ups in office.",
       "Maintain a database of prospective clients."
     ],
     requirements: [
       "Strong interest in sales, business development, or client coordination. Freshers are welcome!",
       "Exceptional verbal and written communication skills.",
       "Eager learner who can adapt quickly to the tech/agency ecosystem.",
-      "Self-motivated and comfortable working offline in a fast-paced environment."
+      "Self-motivated and comfortable working in office in a fast-paced environment."
     ],
     benefits: [
       "Base salary + attractive uncapped performance commissions.",
