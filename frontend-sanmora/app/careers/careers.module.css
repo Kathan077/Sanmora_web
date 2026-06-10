@@ -1,4 +1,4 @@
-﻿.careersPage {
+.careersPage {
   position: relative;
   min-height: 100vh;
   background: transparent;
@@ -552,4 +552,19 @@
   .widgetCard {
     padding: 30px 24px;
   }
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12) !important;
+}
+
+.errorLabel {
+  color: #ef4444;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }

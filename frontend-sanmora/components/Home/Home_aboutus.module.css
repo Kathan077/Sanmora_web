@@ -1,4 +1,4 @@
-﻿/* ══════════════════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════════
    ABOUT US SECTION — BRUTALIST & ORGANIC GRID LAYOUT
    ═══════════════════════════════════════════════════════════ */
 
@@ -14,6 +14,7 @@
   font-family: var(--font-heading);
   z-index: 1;
   isolation: isolate;
+  cursor: default;
 }
 
 
@@ -515,7 +516,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: auto;
-  cursor: pointer;
+  cursor: default;
 }
 
 .glowingCore {

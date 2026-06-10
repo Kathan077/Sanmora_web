@@ -66,6 +66,7 @@ export default function JobDetailClient({ id }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   // Form State
   const [formData, setFormData] = useState({
@@ -94,23 +95,101 @@ export default function JobDetailClient({ id }) {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[name];
+        return updated;
+      });
+    }
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setFormData((prev) => ({ ...prev, resume: file }));
+    if (errors.resume) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated.resume;
+        return updated;
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const tempErrors = {};
+    
+    // Name
+    if (!formData.name || formData.name.trim().length < 2) {
+      tempErrors.name = "Name must be at least 2 characters long.";
+    } else if (!/^[A-Za-z\s\-']+$/.test(formData.name)) {
+      tempErrors.name = "Name can only contain letters, spaces, hyphens, and apostrophes.";
+    }
+
+    // Email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!formData.email) {
+      tempErrors.email = "Email address is required.";
+    } else if (!emailRegex.test(formData.email)) {
+      tempErrors.email = "Please enter a valid email address.";
+    }
+
+    // WhatsApp
+    const phoneDigitsOnly = formData.whatsapp.replace(/\D/g, "");
+    if (!formData.whatsapp) {
+      tempErrors.whatsapp = "WhatsApp number is required.";
+    } else if (!/^\+?[0-9\s\-\(\)]+$/.test(formData.whatsapp)) {
+      tempErrors.whatsapp = "Please enter a valid WhatsApp number (digits, spaces, hyphens, brackets, or '+' only).";
+    } else if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
+      tempErrors.whatsapp = "WhatsApp number must contain between 7 and 15 digits.";
+    }
+
+    // Resume File
+    if (!formData.resume) {
+      tempErrors.resume = "Please upload your resume.";
+    } else {
+      const allowedExtensions = /(\.pdf|\.doc|\.docx)$/i;
+      if (!allowedExtensions.exec(formData.resume.name)) {
+        tempErrors.resume = "Only PDF, DOC, and DOCX files are allowed.";
+      } else if (formData.resume.size > 10 * 1024 * 1024) {
+        tempErrors.resume = "Resume file size must be less than 10MB.";
+      }
+    }
+
+    // Portfolio
+    if (formData.portfolio && formData.portfolio.trim().length > 0) {
+      try {
+        new URL(formData.portfolio);
+      } catch (err) {
+        tempErrors.portfolio = "Please enter a valid URL (e.g., https://github.com/username).";
+      }
+    }
+
+    // Message
+    if (!formData.message || formData.message.trim().length < 10) {
+      tempErrors.message = "Message must be at least 10 characters long.";
+    }
+
+    setErrors(tempErrors);
+    return tempErrors;
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setErrorMessage("");
 
-    if (!formData.resume) {
-      setErrorMessage("Please upload your resume.");
-      setIsSubmitting(false);
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
       return;
     }
+
+    setIsSubmitting(true);
 
     try {
       const data = new FormData();
@@ -142,6 +221,7 @@ export default function JobDetailClient({ id }) {
           resume: null,
           message: ""
         });
+        setErrors({});
         setTimeout(() => {
           setIsSubmitted(false);
           setIsApplying(false);
@@ -310,7 +390,7 @@ export default function JobDetailClient({ id }) {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <form onSubmit={handleFormSubmit}>
+                    <form onSubmit={handleFormSubmit} noValidate>
                       <h4 className={styles.jobTitle} style={{ fontSize: "1.4rem", marginBottom: "20px" }}>Apply for Role</h4>
                        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                         <div className={styles.formGroup}>
@@ -318,8 +398,7 @@ export default function JobDetailClient({ id }) {
                           <select
                             id="jobType"
                             name="jobType"
-                            required
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.jobType ? styles.inputError : ""}`}
                             style={{ cursor: "pointer", background: "rgba(255, 255, 255, 0.75)" }}
                             value={formData.jobType}
                             onChange={handleInputChange}
@@ -327,6 +406,11 @@ export default function JobDetailClient({ id }) {
                             <option value="UI/UX Designer">UI/UX Designer</option>
                             <option value="Business Development Executive (BDE)">Business Development Executive (BDE)</option>
                           </select>
+                          {errors.jobType && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.jobType}
+                            </span>
+                          )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -335,12 +419,16 @@ export default function JobDetailClient({ id }) {
                             id="name"
                             name="name"
                             type="text"
-                            required
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.name ? styles.inputError : ""}`}
                             placeholder="Your Name"
                             value={formData.name}
                             onChange={handleInputChange}
                           />
+                          {errors.name && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.name}
+                            </span>
+                          )}
                         </div>
                         
                         <div className={styles.formGroup}>
@@ -349,12 +437,16 @@ export default function JobDetailClient({ id }) {
                             id="email"
                             name="email"
                             type="email"
-                            required
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.email ? styles.inputError : ""}`}
                             placeholder="your.email@example.com"
                             value={formData.email}
                             onChange={handleInputChange}
                           />
+                          {errors.email && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.email}
+                            </span>
+                          )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -363,19 +455,23 @@ export default function JobDetailClient({ id }) {
                             id="whatsapp"
                             name="whatsapp"
                             type="tel"
-                            required
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.whatsapp ? styles.inputError : ""}`}
                             placeholder="+91 XXXXX XXXXX"
                             value={formData.whatsapp}
                             onChange={handleInputChange}
                           />
+                          {errors.whatsapp && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.whatsapp}
+                            </span>
+                          )}
                         </div>
 
                         <div className={styles.formGroup}>
                           <label className={styles.label}>Resume / CV (PDF, DOC) *</label>
                           <div style={{
                             position: "relative",
-                            border: "2px dashed rgba(124, 58, 237, 0.25)",
+                            border: errors.resume ? "2px dashed #ef4444" : "2px dashed rgba(124, 58, 237, 0.25)",
                             borderRadius: "12px",
                             padding: "16px",
                             textAlign: "center",
@@ -387,7 +483,6 @@ export default function JobDetailClient({ id }) {
                               id="resume"
                               name="resume"
                               type="file"
-                              required
                               accept=".pdf,.doc,.docx"
                               onChange={handleFileChange}
                               style={{
@@ -397,12 +492,17 @@ export default function JobDetailClient({ id }) {
                                 cursor: "pointer"
                               }}
                             />
-                            <div style={{ color: "#7c3aed", fontSize: "1.25rem", marginBottom: "4px" }}>📁</div>
+                            <div style={{ color: errors.resume ? "#ef4444" : "#7c3aed", fontSize: "1.25rem", marginBottom: "4px" }}>📁</div>
                             <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#475569" }}>
                               {formData.resume ? formData.resume.name : "Click to upload resume"}
                             </span>
                             <p style={{ margin: "4px 0 0 0", fontSize: "0.7rem", color: "#94a3b8" }}>PDF, DOC, DOCX up to 10MB</p>
                           </div>
+                          {errors.resume && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.resume}
+                            </span>
+                          )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -411,11 +511,16 @@ export default function JobDetailClient({ id }) {
                             id="portfolio"
                             name="portfolio"
                             type="url"
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.portfolio ? styles.inputError : ""}`}
                             placeholder="https://myportfolio.com"
                             value={formData.portfolio}
                             onChange={handleInputChange}
                           />
+                          {errors.portfolio && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.portfolio}
+                            </span>
+                          )}
                         </div>
 
                         <div className={styles.formGroup}>
@@ -423,14 +528,18 @@ export default function JobDetailClient({ id }) {
                           <textarea
                             id="message"
                             name="message"
-                            required
                             rows="3"
-                            className={styles.formInput}
+                            className={`${styles.formInput} ${errors.message ? styles.inputError : ""}`}
                             placeholder="Why do you want to join Sanmora?"
                             style={{ resize: "none" }}
                             value={formData.message}
                             onChange={handleInputChange}
                           />
+                          {errors.message && (
+                            <span className={styles.errorLabel}>
+                              ⚠️ {errors.message}
+                            </span>
+                          )}
                         </div>
                       </div>
 

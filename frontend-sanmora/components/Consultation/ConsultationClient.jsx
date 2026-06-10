@@ -19,6 +19,7 @@ export default function ConsultationClient() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
   const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const serviceParam = searchParams.get("service");
@@ -30,8 +31,73 @@ export default function ConsultationClient() {
     }
   }, [searchParams]);
 
+  const handleFieldChange = (field, value, setter) => {
+    setter(value);
+    if (errors[field]) {
+      setErrors((prev) => {
+        const updated = { ...prev };
+        delete updated[field];
+        return updated;
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const tempErrors = {};
+    
+    // Service Name
+    if (!serviceName) {
+      tempErrors.serviceName = "Please select a service of interest.";
+    }
+    
+    // Full Name
+    if (!fullName || fullName.trim().length < 2) {
+      tempErrors.fullName = "Name must be at least 2 characters long.";
+    } else if (!/^[A-Za-z\s\-']+$/.test(fullName)) {
+      tempErrors.fullName = "Name can only contain letters, spaces, hyphens, and apostrophes.";
+    }
+    
+    // Company Name
+    if (!companyName || companyName.trim().length === 0) {
+      tempErrors.companyName = "Company name is required.";
+    }
+    
+    // Email ID
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailId) {
+      tempErrors.emailId = "Email address is required.";
+    } else if (!emailRegex.test(emailId)) {
+      tempErrors.emailId = "Please enter a valid email address.";
+    }
+    
+    // Contact No
+    const phoneDigitsOnly = contactNo.replace(/\D/g, "");
+    if (!contactNo) {
+      tempErrors.contactNo = "Contact number is required.";
+    } else if (!/^\+?[0-9\s\-\(\)]+$/.test(contactNo)) {
+      tempErrors.contactNo = "Please enter a valid phone number (digits, spaces, hyphens, brackets, or '+' only).";
+    } else if (phoneDigitsOnly.length < 7 || phoneDigitsOnly.length > 15) {
+      tempErrors.contactNo = "Contact number must contain between 7 and 15 digits.";
+    }
+
+    setErrors(tempErrors);
+    return tempErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      const firstErrorField = Object.keys(validationErrors)[0];
+      const element = document.getElementById(firstErrorField);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
     setErrorMessage("");
@@ -60,6 +126,7 @@ export default function ConsultationClient() {
         setCompanyName("");
         setEmailId("");
         setContactNo("");
+        setErrors({});
       } else {
         setSubmitStatus("error");
         setErrorMessage(data.error || "Something went wrong. Please try again.");
@@ -118,15 +185,14 @@ export default function ConsultationClient() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ margin: "0 auto", marginTop: "2rem" }}
         >
-          <form onSubmit={handleSubmit} className={styles.formGrid}>
+          <form onSubmit={handleSubmit} className={styles.formGrid} noValidate>
             <div className={styles.formGroupFull}>
               <label className={styles.label} htmlFor="serviceName">Service of Interest</label>
               <select 
                 id="serviceName" 
-                className={styles.input} 
+                className={`${styles.input} ${errors.serviceName ? styles.inputError : ""}`} 
                 value={serviceName} 
-                onChange={(e) => setServiceName(e.target.value)}
-                required
+                onChange={(e) => handleFieldChange("serviceName", e.target.value, setServiceName)}
               >
                 <option value="" disabled>Select a Service</option>
                 {servicesData.map(service => (
@@ -138,6 +204,11 @@ export default function ConsultationClient() {
                   </optgroup>
                 ))}
               </select>
+              {errors.serviceName && (
+                <span className={styles.errorLabel}>
+                  ⚠️ {errors.serviceName}
+                </span>
+              )}
             </div>
 
             <div className={styles.formGroup}>
@@ -145,12 +216,16 @@ export default function ConsultationClient() {
               <input 
                 type="text" 
                 id="fullName" 
-                className={styles.input} 
-                required 
+                className={`${styles.input} ${errors.fullName ? styles.inputError : ""}`} 
                 placeholder="John Doe" 
                 value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+                onChange={(e) => handleFieldChange("fullName", e.target.value, setFullName)}
               />
+              {errors.fullName && (
+                <span className={styles.errorLabel}>
+                  ⚠️ {errors.fullName}
+                </span>
+              )}
             </div>
 
             <div className={styles.formGroup}>
@@ -158,12 +233,16 @@ export default function ConsultationClient() {
               <input 
                 type="text" 
                 id="companyName" 
-                className={styles.input} 
-                required 
+                className={`${styles.input} ${errors.companyName ? styles.inputError : ""}`} 
                 placeholder="Acme Corp" 
                 value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
+                onChange={(e) => handleFieldChange("companyName", e.target.value, setCompanyName)}
               />
+              {errors.companyName && (
+                <span className={styles.errorLabel}>
+                  ⚠️ {errors.companyName}
+                </span>
+              )}
             </div>
 
             <div className={styles.formGroupFull}>
@@ -171,12 +250,16 @@ export default function ConsultationClient() {
               <input 
                 type="email" 
                 id="emailId" 
-                className={styles.input} 
-                required 
+                className={`${styles.input} ${errors.emailId ? styles.inputError : ""}`} 
                 placeholder="john@example.com" 
                 value={emailId}
-                onChange={(e) => setEmailId(e.target.value)}
+                onChange={(e) => handleFieldChange("emailId", e.target.value, setEmailId)}
               />
+              {errors.emailId && (
+                <span className={styles.errorLabel}>
+                  ⚠️ {errors.emailId}
+                </span>
+              )}
             </div>
 
             <div className={styles.formGroupFull}>
@@ -184,12 +267,16 @@ export default function ConsultationClient() {
               <input 
                 type="tel" 
                 id="contactNo" 
-                className={styles.input} 
-                required 
+                className={`${styles.input} ${errors.contactNo ? styles.inputError : ""}`} 
                 placeholder="+1 (555) 000-0000" 
                 value={contactNo}
-                onChange={(e) => setContactNo(e.target.value)}
+                onChange={(e) => handleFieldChange("contactNo", e.target.value, setContactNo)}
               />
+              {errors.contactNo && (
+                <span className={styles.errorLabel}>
+                  ⚠️ {errors.contactNo}
+                </span>
+              )}
             </div>
 
             {submitStatus === "success" && (
