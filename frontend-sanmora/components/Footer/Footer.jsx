@@ -10,7 +10,7 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.brandCol}>
           <div className={styles.logo}>
-            <img src="/logo/footer_logo.png" alt="Sanmora" style={{ height: '60px', width: 'auto', filter: 'drop-shadow(0 2px 8px rgba(124, 58, 237, 0.15))' }} />
+            <img src="/logo/Footer_logo.png" alt="Sanmora" style={{ height: '60px', width: 'auto', filter: 'drop-shadow(0 2px 8px rgba(124, 58, 237, 0.15))' }} />
           </div>
           <p className={styles.brandDesc}>
             Creating visually stunning, ultra-premium digital interfaces and high-performance brand ecosystems.
