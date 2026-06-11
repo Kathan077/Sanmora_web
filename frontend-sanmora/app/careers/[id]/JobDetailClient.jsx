@@ -140,9 +140,23 @@ export default function JobDetailClient({ id }) {
     } else if (!emailRegex.test(formData.email)) {
       tempErrors.email = "Please enter a valid email address.";
     } else {
-      const domain = formData.email.split("@")[1].toLowerCase();
+      const parts = formData.email.split("@");
+      const username = parts[0].toLowerCase();
+      const domain = parts[1].toLowerCase();
+
+      const fakePrefixes = ["abc", "xyz", "qwe", "asd", "zxc", "jkl", "qwerty", "test", "testing", "dummy", "example", "fake", "demo", "noreply", "no-reply", "null", "none", "temp"];
+      const prefixPattern = new RegExp(`^(${fakePrefixes.join("|")})[._-]?\\d*$`);
+      const forbiddenSubstrings = ["testing", "fakeemail", "exampleemail", "dummyemail"];
+
       if (DISPOSABLE_DOMAINS.includes(domain)) {
         tempErrors.email = "Temporary or disposable email addresses are not allowed. Please enter a genuine email.";
+      } else if (
+        prefixPattern.test(username) || 
+        forbiddenSubstrings.some(sub => username.includes(sub)) || 
+        /^(.)\1{2,}$/.test(username) || 
+        /^\d+$/.test(username)
+      ) {
+        tempErrors.email = "Please enter a genuine, professional email address. Fake or placeholder emails are not allowed.";
       }
     }
 

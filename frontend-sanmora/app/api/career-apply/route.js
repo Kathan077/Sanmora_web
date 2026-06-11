@@ -29,9 +29,28 @@ export async function POST(request) {
       );
     }
 
-    const domain = email.split("@")[1].toLowerCase();
+    const parts = email.split("@");
+    const username = parts[0].toLowerCase();
+    const domain = parts[1].toLowerCase();
+
+    // 1. Check fake or placeholder email addresses
+    const fakePrefixes = ["abc", "xyz", "qwe", "asd", "zxc", "jkl", "qwerty", "test", "testing", "dummy", "example", "fake", "demo", "noreply", "no-reply", "null", "none", "temp"];
+    const prefixPattern = new RegExp(`^(${fakePrefixes.join("|")})[._-]?\\d*$`);
+    const forbiddenSubstrings = ["testing", "fakeemail", "exampleemail", "dummyemail"];
+
+    if (
+      prefixPattern.test(username) || 
+      forbiddenSubstrings.some(sub => username.includes(sub)) || 
+      /^(.)\1{2,}$/.test(username) || 
+      /^\d+$/.test(username)
+    ) {
+      return NextResponse.json(
+        { error: "Please enter a genuine, professional email address. Fake or placeholder emails are not allowed." },
+        { status: 400 }
+      );
+    }
     
-    // 1. Check disposable email domain list
+    // 2. Check disposable email domain list
     const DISPOSABLE_DOMAINS = new Set([
       "mailinator.com", "tempmail.com", "temp-mail.org", "10minutemail.com",
       "yopmail.com", "guerrillamail.com", "dispostable.com", "getairmail.com",
