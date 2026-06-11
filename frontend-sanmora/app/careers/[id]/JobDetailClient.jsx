@@ -17,7 +17,7 @@ const jobsDetails = {
   "ui-ux": {
     title: "UI/UX Designer",
     type: "Full-Time",
-    location: "Work in office",
+    location: "On site",
     experience: "Freshers welcome",
     description: "We are looking for a UI/UX Designer who is passionate about creating clean, premium, and human-centered design experiences. Freshers are highly welcome to apply! You will work in our office, collaborating closely with developers and product managers to build sleek SaaS dashboards, mobile apps, and interactive web properties.",
     responsibilities: [
@@ -42,7 +42,7 @@ const jobsDetails = {
   "bde": {
     title: "Business Development Executive (BDE)",
     type: "Full-Time",
-    location: "Work in office",
+    location: "On Site",
     experience: "Freshers welcome",
     description: "We are looking for an ambitious Business Development Executive (BDE) to join us in our office. Freshers are highly welcome! You will identify growth opportunities, generate high-quality outbound leads, and coordinate with the development team to convert inquiries into enterprise contracts.",
     responsibilities: [
