@@ -11,7 +11,7 @@ const jobsData = [
     id: "ui-ux",
     title: "UI/UX Designer",
     type: "Full-Time",
-    location: "Work in office",
+    location: "On-site",
     experience: "Freshers welcome",
     brief: "Translate complex software into simple, beautiful, and fluid user interfaces. Freshers are welcome to apply!",
     icon: (
@@ -25,7 +25,7 @@ const jobsData = [
     id: "bde",
     title: "Business Development Executive (BDE)",
     type: "Full-Time",
-    location: "Work in office",
+    location: "On-site",
     experience: "Freshers welcome",
     brief: "Drive enterprise customer acquisition and build strategic relations for digital products. Freshers are welcome to apply!",
     icon: (
