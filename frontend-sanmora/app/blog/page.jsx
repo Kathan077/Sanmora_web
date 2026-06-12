@@ -12,7 +12,7 @@ export default function BlogPage() {
     <main>
       <Navbar />
       <BlogClient />
-      <Footer /> 
+      <Footer />
       {/* Assuming there might be a footer later, keeping it clean for now */}
     </main>
   );

@@ -17,6 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata = {
   title: "Sanmora - Premium Visual Design",
   description: "A state of the art web experience built with Next.js and Vanilla CSS.",
+  verification: {
+    google: "HmTa_ABl4g4bvL8xkwB0BUONqxT0Kp1vw_CR8fAfui8",
+  },
 };
 
 export default function RootLayout({ children }) {

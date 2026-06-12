@@ -16,22 +16,22 @@ const parseInlineFormatting = (text) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return <strong key={idx}>{part.slice(2, -2)}</strong>;
     }
-    
+
     // Parse inline code elements (e.g. `Next.js`)
     const codeParts = part.split(/(\:`.*?`)/g);
     const resolvedParts = part.includes('`') ? part.split(/(`.*?`)/g) : [part];
     return resolvedParts.map((subpart, subidx) => {
       if (subpart.startsWith("`") && subpart.endsWith("`")) {
         return (
-          <code 
-            key={`${idx}-${subidx}`} 
-            style={{ 
-              background: "rgba(124, 58, 237, 0.08)", 
-              padding: "2px 6px", 
-              borderRadius: "4px", 
-              fontSize: "0.9em", 
-              fontFamily: "monospace", 
-              color: "#7c3aed" 
+          <code
+            key={`${idx}-${subidx}`}
+            style={{
+              background: "rgba(124, 58, 237, 0.08)",
+              padding: "2px 6px",
+              borderRadius: "4px",
+              fontSize: "0.9em",
+              fontFamily: "monospace",
+              color: "#7c3aed"
             }}
           >
             {subpart.slice(1, -1)}
@@ -48,7 +48,7 @@ const renderContent = (text) => {
   const lines = text.split("\n");
   const elements = [];
   let listItems = [];
-  
+
   lines.forEach((line, index) => {
     const trimmed = line.trim();
     if (!trimmed) {
@@ -62,7 +62,7 @@ const renderContent = (text) => {
       }
       return;
     }
-    
+
     if (trimmed.startsWith("###")) {
       if (listItems.length > 0) {
         elements.push(
@@ -113,7 +113,7 @@ const renderContent = (text) => {
       const content = trimmed.replace(/^\d+\.\s*/, "");
       elements.push(
         <p key={index}>
-          <strong>{numPrefix}. </strong> 
+          <strong>{numPrefix}. </strong>
           {parseInlineFormatting(content)}
         </p>
       );
@@ -157,7 +157,7 @@ const splitContent = (content) => {
 export default function BlogDetailClient({ id }) {
   const router = useRouter();
   const [copied, setCopied] = React.useState(false);
-  
+
   // Find matching blog post
   const post = blogPosts.find(p => p.id === parseInt(id));
 
@@ -224,76 +224,76 @@ export default function BlogDetailClient({ id }) {
 
           <div className={servicesStyles.servicesListContainer} style={{ padding: 0 }}>
 
-          {/* Row 1: Cover Image on Left, Intro Text + Author Block on Right */}
-          <motion.div 
-            className={servicesStyles.serviceRow}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <ServiceVisual 
-              src={post.image} 
-              alt={post.title} 
-              priority 
-              badge={post.category} 
-            />
-
-            <div className={servicesStyles.serviceContentBox}>
-              {/* Author Block */}
-              <div className={styles.authorBlock} style={{ width: "100%" }}>
-                <div className={styles.authorAvatar}>
-                  <span>S</span>
-                </div>
-                <div className={styles.authorInfo}>
-                  <h5 className={styles.authorName}>Sanmora Team</h5>
-                  <p className={styles.authorMeta}>Published in {post.category} • {post.date}</p>
-                </div>
-                <div className={styles.shareButtons}>
-                  <span className={styles.shareLabel}>Share:</span>
-                  <button className={styles.shareBtn} onClick={handleCopyLink}>
-                    {copied ? "✓ Copied!" : "🔗 Copy Link"}
-                  </button>
-                </div>
-              </div>
-
-              <div className={styles.richParagraphs}>
-                {renderContent(intro)}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Row 2: Detailed Guide on Left, Dynamic CTA/Consultation Widget on Right */}
-          {details && (
-            <motion.div 
-              className={servicesStyles.serviceRowReverse}
+            {/* Row 1: Cover Image on Left, Intro Text + Author Block on Right */}
+            <motion.div
+              className={servicesStyles.serviceRow}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className={servicesStyles.serviceContentBox} style={{ width: "100%" }}>
-                <div className={styles.richParagraphs}>
-                  {renderContent(details)}
-                </div>
-              </div>
+              <ServiceVisual
+                src={post.image}
+                alt={post.title}
+                priority
+                badge={post.category}
+              />
 
-              {/* Consultation / CTA Card matching Service styling */}
-              <div className={styles.stickyCtaContainer}>
-                <div className={styles.ctaSection} style={{ marginTop: "0", width: "100%", maxWidth: "440px" }}>
-                  <h4 className={styles.ctaTitle}>Have a project?</h4>
-                  <p className={styles.ctaDesc}>
-                    Let&apos;s build something exceptional together. Speak with our specialists today.
-                  </p>
-                  <Link href="/consultation" className={styles.ctaBtn} style={{ width: "100%" }}>
-                    Schedule Consultation
-                  </Link>
+              <div className={servicesStyles.serviceContentBox}>
+                {/* Author Block */}
+                <div className={styles.authorBlock} style={{ width: "100%" }}>
+                  <div className={styles.authorAvatar}>
+                    <span>S</span>
+                  </div>
+                  <div className={styles.authorInfo}>
+                    <h5 className={styles.authorName}>Sanmora Team</h5>
+                    <p className={styles.authorMeta}>Published in {post.category} • {post.date}</p>
+                  </div>
+                  <div className={styles.shareButtons}>
+                    <span className={styles.shareLabel}>Share:</span>
+                    <button className={styles.shareBtn} onClick={handleCopyLink}>
+                      {copied ? "✓ Copied!" : "🔗 Copy Link"}
+                    </button>
+                  </div>
+                </div>
+
+                <div className={styles.richParagraphs}>
+                  {renderContent(intro)}
                 </div>
               </div>
             </motion.div>
-          )}
 
+            {/* Row 2: Detailed Guide on Left, Dynamic CTA/Consultation Widget on Right */}
+            {details && (
+              <motion.div
+                className={servicesStyles.serviceRowReverse}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className={servicesStyles.serviceContentBox} style={{ width: "100%" }}>
+                  <div className={styles.richParagraphs}>
+                    {renderContent(details)}
+                  </div>
+                </div>
+
+                {/* Consultation / CTA Card matching Service styling */}
+                <div className={styles.stickyCtaContainer}>
+                  <div className={styles.ctaSection} style={{ marginTop: "0", width: "100%", maxWidth: "440px" }}>
+                    <h4 className={styles.ctaTitle}>Have a project?</h4>
+                    <p className={styles.ctaDesc}>
+                      Let&apos;s build something exceptional together. Speak with our specialists today.
+                    </p>
+                    <Link href="/consultation" className={styles.ctaBtn} style={{ width: "100%" }}>
+                      Schedule Consultation
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+          </div>
         </div>
-      </div>
       </section>
     </div>
   );

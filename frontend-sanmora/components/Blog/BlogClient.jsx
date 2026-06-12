@@ -34,7 +34,7 @@ export default function BlogClient() {
       <div className={servicesStyles.ambientGlowPrimary} />
       <div className={servicesStyles.ambientGlowSecondary} />
       <div className={servicesStyles.ambientGlowTertiary} />
-      
+
       {/* Page Hero */}
       <section className={styles.heroSection}>
         <div className={styles.container}>
@@ -62,7 +62,7 @@ export default function BlogClient() {
       </section>
 
       <div className={styles.blogContainer}>
-        <motion.div 
+        <motion.div
           className={styles.blogGrid}
           variants={containerVariants}
           initial="hidden"
