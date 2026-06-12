@@ -5,10 +5,22 @@ import ParticleBackground from '@/components/Home/ParticleBackground';
 import BlogDetailClient from './BlogDetailClient';
 import styles from '@/app/page.module.css';
 
-export const metadata = {
-  title: "Insights & Articles | Sanmora Studio",
-  description: "Read the full article and gain insights from the engineering, design, and marketing team at Sanmora Studio."
-};
+import { blogPosts } from '@/components/Blog/blogData';
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const post = blogPosts.find(p => p.id === parseInt(id));
+  if (!post) {
+    return {
+      title: "Article Not Found | Sanmora Studio",
+      description: "The article you are looking for does not exist."
+    };
+  }
+  return {
+    title: `${post.title} | Sanmora Studio`,
+    description: post.excerpt || "Read the latest article from Sanmora Studio."
+  };
+}
 
 export default async function BlogDetailPage({ params }) {
   const { id } = await params;
