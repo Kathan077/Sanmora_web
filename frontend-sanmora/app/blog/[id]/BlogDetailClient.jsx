@@ -9,37 +9,60 @@ import ServiceVisual from '@/components/Services/ServiceVisual';
 import servicesStyles from '@/app/services/services.module.css';
 import styles from './BlogDetailClient.module.css';
 
-// Simple markdown-style inline renderer for bold and inline code format
+// Simple markdown-style inline renderer for links, bold, and inline code format
 const parseInlineFormatting = (text) => {
-  const parts = text.split(/(\*\*.*?\*\*)/g);
+  if (!text) return "";
+  
+  // Match markdown links [text](url), bold **text**, and code `text`
+  const tokenRegex = /(\[.*?\]\(.*?\)|`.*?`|\*\*.*?\*\*)/g;
+  const parts = text.split(tokenRegex);
+  
   return parts.map((part, idx) => {
+    if (!part) return null;
+    
+    // Check if it's a markdown link
+    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+      const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+      if (match) {
+        const linkText = match[1];
+        const linkUrl = match[2];
+        return (
+          <Link 
+            key={idx} 
+            href={linkUrl} 
+            className={styles.inlineLink}
+          >
+            {linkText}
+          </Link>
+        );
+      }
+    }
+    
+    // Check if it's bold text
     if (part.startsWith("**") && part.endsWith("**")) {
       return <strong key={idx}>{part.slice(2, -2)}</strong>;
     }
-
-    // Parse inline code elements (e.g. `Next.js`)
-    const codeParts = part.split(/(\:`.*?`)/g);
-    const resolvedParts = part.includes('`') ? part.split(/(`.*?`)/g) : [part];
-    return resolvedParts.map((subpart, subidx) => {
-      if (subpart.startsWith("`") && subpart.endsWith("`")) {
-        return (
-          <code
-            key={`${idx}-${subidx}`}
-            style={{
-              background: "rgba(124, 58, 237, 0.08)",
-              padding: "2px 6px",
-              borderRadius: "4px",
-              fontSize: "0.9em",
-              fontFamily: "monospace",
-              color: "#7c3aed"
-            }}
-          >
-            {subpart.slice(1, -1)}
-          </code>
-        );
-      }
-      return subpart;
-    });
+    
+    // Check if it's inline code
+    if (part.startsWith("`") && part.endsWith("`")) {
+      return (
+        <code
+          key={idx}
+          style={{
+            background: "rgba(124, 58, 237, 0.08)",
+            padding: "2px 6px",
+            borderRadius: "4px",
+            fontSize: "0.9em",
+            fontFamily: "monospace",
+            color: "#7c3aed"
+          }}
+        >
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    
+    return part;
   });
 };
 

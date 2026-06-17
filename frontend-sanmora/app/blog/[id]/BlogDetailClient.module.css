@@ -456,3 +456,20 @@
     top: 0;
   }
 }
+
+.inlineLink {
+  color: #7c3aed;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px dashed rgba(124, 58, 237, 0.4);
+  transition: all 0.2s ease-in-out;
+  padding: 0 4px;
+  margin: 0 -4px;
+  border-radius: 4px;
+}
+
+.inlineLink:hover {
+  color: #2563eb;
+  background-color: rgba(124, 58, 237, 0.08);
+  border-bottom: 2px solid #2563eb;
+}

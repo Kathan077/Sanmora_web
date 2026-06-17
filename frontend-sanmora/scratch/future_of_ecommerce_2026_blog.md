@@ -108,8 +108,6 @@ The future of e-commerce will belong to brands that emphasize speed, security, p
 
 Are you ready to improve your storefront's load speeds and increase your digital conversions?
 
-Book an E-Commerce Architecture Strategy Call: [Sanmora Consultation](/consultation)
-
-Review Our Headless Case Studies: [Sanmora Case Studies](/case-studies)
-
-Email Us: info@sanmora.in
+- Book an E-Commerce Architecture Strategy Call: [Sanmora Consultation](/consultation)
+- Review Our Headless Case Studies: [Sanmora Case Studies](/case-studies/ecommerce-conversion-optimization)
+- Email Us: info@sanmora.in
