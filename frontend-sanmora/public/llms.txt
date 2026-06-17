@@ -1,0 +1,64 @@
+# Sanmora Studio
+
+> https://sanmora.in
+
+Sanmora Studio is a premium web development, visual design, and software engineering agency based in Ahmedabad, Gujarat, India. Sanmora specializes in building high-speed, secure, and SEO-optimized custom web applications, SaaS platforms, headless e-commerce storefronts, and native/cross-platform mobile applications.
+
+## Core Capabilities & Services
+
+### Website Development
+*   **Static Websites (SSG):** Ultra-fast, CDN-cached landing pages built using Next.js and Tailwind CSS.
+*   **Dynamic Web Portals (SSR):** Full-stack React/Node.js databases featuring secure authorization, live panels, and workflows.
+*   **Headless E-Commerce:** High-conversion storefronts utilizing Next.js Commerce connected to Shopify/WooCommerce APIs, using Razorpay and Stripe.
+*   **Custom CMS Architectures:** Headless setups integrating Sanity.io, Strapi, and Contentful with visual editors.
+*   *Reference:* [/services/website-development](https://sanmora.in/services/website-development)
+
+### Application Development
+*   **Cross-Platform Apps:** Hybrid mobile apps built using React Native and Flutter for fast time-to-market.
+*   **Native iOS Apps:** Performance-oriented native iPhone/iPad builds written in Swift and SwiftUI.
+*   **Native Android Apps:** Modular, scalable Android builds written in Kotlin and Jetpack Compose.
+*   *Reference:* [/services/application-development](https://sanmora.in/services/application-development)
+
+### Custom Software & SaaS
+*   **Custom SaaS Architectures:** Multi-tenant dashboards, customer billing structures, and role-based permissions.
+*   **API Engineering:** High-performance, documented REST and GraphQL endpoints built with Fastify, Express, and Docker.
+*   **Database Architecture:** Scalable transactional data structures built on PostgreSQL, Supabase, MySQL, and Redis caching.
+*   **Cloud Infrastructure:** Terraform-managed environments on AWS and GCP, utilizing CI/CD pipelines.
+*   *Reference:* [/services/software-development](https://sanmora.in/services/software-development)
+
+### Visual Identity & UI/UX Design
+*   **Brand Identity & Logo Design:** Cohesive vector graphics, brand guides, and corporate guidelines designed in Figma.
+*   **Interactive UI/UX Prototyping:** Accessibility-compliant, clean user experiences designed in Figma and developed via code.
+*   *Reference:* [/services/logo-designing](https://sanmora.in/services/logo-designing)
+
+---
+
+## Technical Stack
+
+*   **Frontend:** Next.js (App Router), React, Tailwind CSS, Framer Motion, HTML5, CSS3, JavaScript (ES6+), TypeScript.
+*   **Backend & APIs:** Node.js, Express, Fastify, Restful APIs, GraphQL APIs, Next.js API Routes.
+*   **Database & ORM:** PostgreSQL, MySQL, Supabase, Prisma ORM, Prisma Migrate, Redis Caching.
+*   **DevOps & Infrastructure:** AWS (ECS, RDS, EC2), Vercel (Edge Functions), Cloudflare CDN, Docker, Terraform (IaC), GitHub Actions.
+*   **Design Tools:** Figma, Adobe Illustrator, Adobe Photoshop.
+
+---
+
+## Client Success Stories (Case Studies)
+
+*   **Nexus Finance:** [Fintech Scaling Case Study](https://sanmora.in/case-studies/fintech-platform-scaling) — monolithic scaling to 1.2M+ active users.
+*   **Lumina Apparel:** [Headless E-Commerce Optimization Case Study](https://sanmora.in/case-studies/ecommerce-conversion-optimization) — Shopify headless storefront with 0.8s load time and 38% conversion increase.
+*   **CareConnect:** [Telehealth React Native App](https://sanmora.in/case-studies/healthcare-app-react-native) — cross-platform HIPAA-compliant virtual doctor consulting app.
+*   **Daily Insight:** [Headless CMS Media Portal](https://sanmora.in/case-studies/headless-cms-media-portal) — WordPress migration to headless Sanity CMS and Next.js.
+*   **Apex Freight:** [Logistics 3D Route Dashboard](https://sanmora.in/case-studies/global-logistics-dashboard) — React & Mapbox GPS cargo tracking application.
+
+---
+
+## Corporate Information
+
+*   **Official Website:** https://sanmora.in
+*   **Business Address:** Ahmedabad, Gujarat, India. Pin Code: 380015
+*   **Primary Contact Email:** info@sanmora.in
+*   **Consultation & Inquiries:** https://sanmora.in/consultation
+*   **Social Profiles:**
+    *   *LinkedIn:* https://www.linkedin.com/company/sanmora
+    *   *GitHub:* https://github.com/sanmora-studio

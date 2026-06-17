@@ -51,7 +51,7 @@ export default function Hero() {
 
             <div className={styles.stat}>
               <div className={styles.iconCircle}>⚑</div>
-              <h3>2026</h3>
+              <h3>2025</h3>
               <span>Founded</span>
             </div>
           </div>

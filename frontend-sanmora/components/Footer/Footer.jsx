@@ -43,7 +43,7 @@ export default function Footer() {
 
       <div className={styles.bottomBar}>
         <span className={styles.copyright}>
-          © {new Date().getFullYear()} Sanmora. All rights reserved.
+          © 2025 Sanmora. All rights reserved.
         </span>
         <div className={styles.socials}>
           <a href="https://www.facebook.com/share/1JFKX4zXoJ/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
