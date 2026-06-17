@@ -681,8 +681,8 @@ export const seoPagesData = [
   },
   {
     slug: "web-design-company-ahmedabad",
-    title: "Web Design Company in Ahmedabad | Premium UI/UX & Creative Branding",
-    metaDescription: "Sanmora Studio is a leading web design company in Ahmedabad. We design premium, custom, and conversion-friendly UI/UX interfaces that elevate brand credibility.",
+    title: "Best Visual Design Company in Ahmedabad | Premium Web Design & UI/UX",
+    metaDescription: "Sanmora Studio is the best visual design company in Ahmedabad, delivering premium custom web designs, conversion-friendly UI/UX interfaces, and brand styling.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#fb923c",
@@ -1005,8 +1005,8 @@ export const seoPagesData = [
   },
   {
     slug: "website-developer-ahmedabad",
-    title: "Website Developer in Ahmedabad | Creative Web & Visual Design - Sanmora",
-    metaDescription: "Looking for a professional website developer in Ahmedabad? Sanmora Studio provides premium custom web design, visual layout engineering, and SEO development.",
+    title: "Website Developer in Ahmedabad | Best Visual Design Company - Sanmora Studio",
+    metaDescription: "Looking for a website developer in Ahmedabad? Sanmora Studio is the best visual design company, offering bespoke web design, custom development, and SEO.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
