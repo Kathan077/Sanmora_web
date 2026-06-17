@@ -10,27 +10,7 @@ import { servicesData } from "@/components/Navbar/servicesData";
 import blogStyles from "@/components/Blog/BlogClient.module.css";
 import servicesStyles from "@/app/services/services.module.css";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 }
-  }
-};
-
 export default function ServicesPageClient() {
-  const featuredService = servicesData[0];
-  const regularServices = servicesData.slice(1);
-
   return (
     <div className={servicesStyles.page}>
       <ParticleBackground />
@@ -68,76 +48,70 @@ export default function ServicesPageClient() {
         </div>
       </section>
 
-      {/* Grid List Framework matching Blog layout */}
-      <div className={blogStyles.blogContainer}>
-        <motion.div
-          className={blogStyles.blogGrid}
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-        >
-          {/* Featured Service */}
-          {featuredService && (
-            <motion.div className={blogStyles.featuredCard} variants={itemVariants}>
-              <div className={blogStyles.featuredImageWrapper}>
-                <img
-                  src="/images/services/WebDevlopment.jpeg"
-                  alt={featuredService.name}
-                  className={blogStyles.featuredImage}
-                />
-              </div>
-              <div className={blogStyles.featuredContent}>
-                <div className={blogStyles.meta}>
-                  <span className={blogStyles.category}>Featured Service</span>
-                  <span className={blogStyles.readTime}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    Enterprise Scale
-                  </span>
-                </div>
-                <h2 className={blogStyles.postTitle}>{featuredService.name}</h2>
-                <p className={blogStyles.postExcerpt}>{featuredService.description}</p>
-                <Link href={`/services/${featuredService.slug}`} className={blogStyles.readMoreBtn}>
-                  Explore Service
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </Link>
-              </div>
-            </motion.div>
-          )}
-
-          {/* Regular Services */}
-          {regularServices.map((item) => {
-            const imageSrc =
-              item.slug === "digital-marketing" ? "/images/services/Digital Marketing.jpeg" :
-              item.slug === "software-development" ? "/images/services/Software Devlopment.jpeg" :
-              item.slug === "application-development" ? "/images/services/Android Devlopment.jpeg" :
-              item.slug === "logo-designing" ? "/images/services/Logo Designing.jpeg" :
-              `/images/services/${item.slug}.svg`;
-
+      {/* Alternating Row Services Layout */}
+      <section className={servicesStyles.workspaceSection}>
+        <div className={servicesStyles.servicesListContainer}>
+          {servicesData.map((item, index) => {
+            const isReverse = index % 2 !== 0;
             return (
-              <motion.div key={item.id} className={blogStyles.regularCard} variants={itemVariants}>
-                <div className={blogStyles.regularImageWrapper}>
-                  <img src={imageSrc} alt={item.name} className={blogStyles.regularImage} />
-                </div>
-                <div className={blogStyles.regularContent}>
-                  <div className={blogStyles.meta}>
-                    <span className={blogStyles.category}>Service</span>
-                    <span className={blogStyles.readTime}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                      Premium Solution
-                    </span>
+              <motion.div
+                key={item.id}
+                className={isReverse ? servicesStyles.serviceRowReverse : servicesStyles.serviceRow}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div className={servicesStyles.serviceVisualBox}>
+                  <div className={servicesStyles.serviceImageCard}>
+                    <img
+                      src={
+                        item.slug === "website-development" ? "/images/services/WebDevlopment.jpeg" :
+                        item.slug === "digital-marketing" ? "/images/services/Digital Marketing.jpeg" :
+                        item.slug === "software-development" ? "/images/services/Software Devlopment.jpeg" :
+                        item.slug === "application-development" ? "/images/services/Android Devlopment.jpeg" :
+                        item.slug === "logo-designing" ? "/images/services/Logo Designing.jpeg" :
+                        `/images/services/${item.slug}.svg`
+                      }
+                      alt={item.name}
+                      className={servicesStyles.serviceImage}
+                    />
                   </div>
-                  <h3 className={blogStyles.postTitle}>{item.name}</h3>
-                  <p className={blogStyles.postExcerpt}>{item.description}</p>
-                  <Link href={`/services/${item.slug}`} className={blogStyles.readMoreBtn}>
-                    Explore Service
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+
+                {/* Clean Typographic Content Block */}
+                <div className={servicesStyles.serviceContentBox}>
+                  <h2 className={servicesStyles.serviceRowTitle}>{item.name}</h2>
+                  <h4 className={servicesStyles.serviceRowSubtitle}>{item.subtitle}</h4>
+                  <p className={servicesStyles.serviceRowDesc}>{item.description}</p>
+
+                  {item.features?.length > 0 && (
+                    <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
+                      {item.features.slice(0, 3).map((feat, i) => (
+                        <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                          <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)", boxShadow: "0 0 8px rgba(124, 58, 237, 0.4), 0 0 12px rgba(6, 182, 212, 0.2)", flexShrink: 0, marginTop: "6px" }} />
+                          {feat}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <Link
+                    href={`/services/${item.slug}`}
+                    className={servicesStyles.serviceRowCta}
+                  >
+                    <span style={{ position: "relative", zIndex: 2 }}>Explore Service Details</span>
+                    <span className={servicesStyles.btnShine}></span>
+                    <svg className={servicesStyles.serviceRowCtaArrow} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                   </Link>
                 </div>
               </motion.div>
             );
           })}
-        </motion.div>
-      </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
