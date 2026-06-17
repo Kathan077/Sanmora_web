@@ -678,5 +678,365 @@ export const seoPagesData = [
         answer: "We analyze your niche market search volume and ad bidding rates to suggest a budget that covers search clicks, graphics, and landing setups."
       }
     ]
+  },
+  {
+    slug: "web-design-company-ahmedabad",
+    title: "Web Design Company in Ahmedabad | Premium UI/UX & Creative Branding",
+    metaDescription: "Sanmora Studio is a leading web design company in Ahmedabad. We design premium, custom, and conversion-friendly UI/UX interfaces that elevate brand credibility.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#fb923c",
+    icon: "pen-tool",
+    headline: "Web Design Company in Ahmedabad",
+    subtitle: "High-end design aesthetics and flawless user experience crafted for local and global brands.",
+    overview: "At Sanmora Studio, we believe premium design is not an afterthought—it is the foundation of business growth. As a dedicated web design company in Ahmedabad, we translate complex business logic into intuitive, visually stunning, and highly engaging digital products. We reject generic templates and create custom Figma designs from scratch, ensuring your brand stands out, holds user attention, and converts traffic into customers.",
+    features: [
+      "Bespoke UI/UX wireframing and prototyping built custom in Figma.",
+      "Responsive, mobile-first design layouts tested across multiple resolutions.",
+      "High-fidelity custom graphics, illustrations, and visual assets.",
+      "Clear visual hierarchy designed to streamline customer journeys.",
+      "Accessibility-compliant color palettes and modern typography pairing."
+    ],
+    benefits: [
+      "Establish immediate market credibility with a premium visual presence.",
+      "Maximize visitor session length and reduce user drop-offs.",
+      "Complete hand-off of vector-perfect raw Figma source files.",
+      "Seamless transitions from approved layouts directly to clean code."
+    ],
+    techStack: ["Figma", "Adobe Illustrator", "Photoshop", "CSS Variables", "Tailwind CSS", "Lottie"],
+    faqs: [
+      {
+        question: "What is your web design process?",
+        answer: "Our design process begins with a brand discovery phase, followed by conceptual wireframes. We then develop high-fidelity visual prototypes in Figma, gathering your feedback at every iteration before handing off the layout to our development team."
+      },
+      {
+        question: "Do you design custom graphics and icons?",
+        answer: "Yes, we design custom vector icons, illustrations, and visual guidelines to ensure your website's layout is completely unique and aligns with your brand voice."
+      }
+    ]
+  },
+  {
+    slug: "ecommerce-website-development-ahmedabad",
+    title: "Ecommerce Website Development in Ahmedabad | Sanmora Studio",
+    metaDescription: "Build a fast, high-converting online store with the premier ecommerce website development agency in Ahmedabad. We build custom checkouts and headless shops.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "shopping-cart",
+    headline: "Ecommerce Website Development in Ahmedabad",
+    subtitle: "High-speed storefronts, customized checkout flows, and automated inventory sync systems.",
+    overview: "In online retail, speed and simplicity determine your revenue. As an expert agency for ecommerce website development in Ahmedabad, Sanmora Studio crafts shopping experiences designed to sell. We eliminate complex, heavy pages and implement fast catalogs, optimized single-page checkouts, and clean product filtering—ensuring your store works flawlessly under heavy festive traffic spikes.",
+    features: [
+      "Custom storefront design with lightning-fast catalog search filters.",
+      "Optimized single-page checkout flows to minimize cart abandonment.",
+      "Secure local payment gateway integrations (Razorpay, Paytm, Stripe).",
+      "Automated inventory levels tracking and stock notifications dashboard.",
+      "Mobile-first checkout configurations optimized for UPI and wallets."
+    ],
+    benefits: [
+      "Increase average order value with customized cross-selling funnels.",
+      "Catalog loading speeds under 800ms keep shoppers from bouncing.",
+      "Manage product listings, variants, and coupon codes with ease.",
+      "Hardened transactional security keeping database data safe."
+    ],
+    techStack: ["Next.js Commerce", "React.js", "Shopify Hydrogen", "Node.js", "Razorpay", "PostgreSQL"],
+    faqs: [
+      {
+        question: "Which payment gateways do you support?",
+        answer: "We integrate all popular payment systems including Razorpay, Cashfree, Stripe, and PayPal, enabling secure payments via UPI, Credit Cards, NetBanking, and wallets."
+      },
+      {
+        question: "Can you build multi-vendor marketplaces?",
+        answer: "Yes, we build scalable multi-vendor marketplaces with dedicated vendor dashboards, commission rules, and split-payment configurations."
+      }
+    ]
+  },
+  {
+    slug: "shopify-development-company-ahmedabad",
+    title: "Shopify Development Company in Ahmedabad | Custom Stores - Sanmora",
+    metaDescription: "Looking for a Shopify development company in Ahmedabad? We build premium Shopify storefronts, custom Liquid themes, and headless Liquid/React setups.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "shopping-cart",
+    headline: "Shopify Development Company in Ahmedabad",
+    subtitle: "Bespoke Shopify setups, custom theme development, and high-performance apps integration.",
+    overview: "Shopify is the global engine for ecommerce, but a standard generic template won't help you outshine competitors. As a specialized Shopify development company in Ahmedabad, Sanmora Studio builds high-converting stores that represent your brand aesthetics. We specialize in custom theme programming, headless Shopify configurations (Hydrogen/React), and custom app integrations—delivering visual storefronts that load instantly.",
+    features: [
+      "Bespoke Shopify theme development customized to your specific design.",
+      "Headless Shopify Hydrogen setups for ultra-fast performance.",
+      "Custom Shopify app configurations and private APIs connections.",
+      "Optimized store migrations from WooCommerce or Magento to Shopify.",
+      "Advanced tracking setups (Meta Pixel, GA4 Conversions API)."
+    ],
+    benefits: [
+      "Own a unique Shopify store free from templated layouts.",
+      "Speed optimizations to raise your Shopify speed score.",
+      "Manage order logistics, analytics, and stock levels in one hub.",
+      "Future-proof codebase that easily adapts as your catalog scales."
+    ],
+    techStack: ["Shopify Liquid", "Hydrogen", "GraphQL", "Tailwind CSS", "React.js", "Vercel"],
+    faqs: [
+      {
+        question: "Do you work with headless Shopify?",
+        answer: "Yes, we build headless Shopify stores using Shopify Hydrogen and Next.js, allowing you to combine Shopify's robust backend checkout with a custom, light-speed React frontend."
+      },
+      {
+        question: "Can you help migrate my existing store to Shopify?",
+        answer: "Yes, we handle complete data migration including product catalogs, customer histories, and past order details securely with zero downtime."
+      }
+    ]
+  },
+  {
+    slug: "seo-agency-ahmedabad",
+    title: "SEO Agency in Ahmedabad | Professional Search Optimization - Sanmora",
+    metaDescription: "Partner with Sanmora Studio, a leading SEO agency in Ahmedabad. We design custom keyword strategies, technical optimization audits, and organic traffic funnels.",
+    parentService: "SEO",
+    parentSlug: "digital-marketing",
+    color: "#ec4899",
+    icon: "search",
+    headline: "SEO Agency in Ahmedabad",
+    subtitle: "Rank page 1 on Google, capture customer intent, and scale organic pipeline growth.",
+    overview: "SEO is not about tricking algorithms—it is about relevance and technical excellence. As an expert SEO agency in Ahmedabad, Sanmora Studio builds search optimization campaigns that yield actual revenue. We audit your website's technical health, construct keyword content clusters, write semantic articles, and secure high-authority backlinks—placing your brand directly in front of buyers searching for your services.",
+    features: [
+      "Exhaustive technical SEO audits analyzing crawl errors and index status.",
+      "Targeted keyword mapping matching commercial and search intents.",
+      "On-page content optimization aligning header structures and schemas.",
+      "White-hat organic authority building and link acquisition outreach.",
+      "Monthly ranking reports using Google Analytics 4 and Search Console."
+    ],
+    benefits: [
+      "Drive consistent inbound business leads without recurring ad costs.",
+      "Build long-lasting digital equity that compounds in value over time.",
+      "Outrank larger industry competitors by winning key search queries.",
+      "Raise Google trust scores with excellent Core Web Vitals health."
+    ],
+    techStack: ["Ahrefs", "Semrush", "Google Search Console", "GA4", "Screaming Frog"],
+    faqs: [
+      {
+        question: "How long does it take for SEO campaigns to show results?",
+        answer: "While technical optimization fixes show early improvements in 4 to 6 weeks, competitive keyword ranking growth and organic traffic scaling typically require 3 to 6 months of steady work."
+      },
+      {
+        question: "Do you handle copywriting for SEO?",
+        answer: "Yes, our digital copywriters research your industry niche and compose informative, engaging content designed to satisfy search intent and convert readers."
+      }
+    ]
+  },
+  {
+    slug: "digital-marketing-agency-ahmedabad",
+    title: "Digital Marketing Agency in Ahmedabad | ROI-Driven Marketing - Sanmora",
+    metaDescription: "Sanmora Studio is a leading digital marketing agency in Ahmedabad. We design, optimize, and scale performance advertising campaigns across Google & Meta.",
+    parentService: "Digital Marketing",
+    parentSlug: "digital-marketing",
+    color: "#ec4899",
+    icon: "line-chart",
+    headline: "Digital Marketing Agency in Ahmedabad",
+    subtitle: "Acquire qualified leads, scale online sales, and optimize ad budget profitability.",
+    overview: "Many agencies focus on clicks and vanity impressions. At Sanmora Studio, we focus on revenue. As a performance-led digital marketing agency in Ahmedabad, we build paid advertising pipelines and conversion-driven funnels. We define target user profiles, program conversion-tracking integrations, audit search terms to stop budget leaks, and A/B test ad graphics—delivering predictable business growth.",
+    features: [
+      "Performance marketing campaigns across Meta Ads and Google Search.",
+      "Advanced pixel, event tracking, and Google Tag Manager setups.",
+      "High-impact copywriting and creative design for ad layouts.",
+      "Structured retargeting funnels to capture past website visitors.",
+      "Conversion rate optimization (CRO) targeting landing pages."
+    ],
+    benefits: [
+      "Generate predictable sales leads with transparent acquisition costs.",
+      "Minimize wasted ad budget on unqualified, bouncing click traffic.",
+      "Scale marketing campaigns confidently backed by audited analytics.",
+      "Unify search, social, and email channels under one strategy."
+    ],
+    techStack: ["Meta Business Manager", "Google Ads", "Tag Manager", "GA4", "Looker Studio"],
+    faqs: [
+      {
+        question: "How do you track conversion data?",
+        answer: "We set up tracking triggers using Google Tag Manager and GA4, allowing us to record exact customer actions like calls, contact submissions, and sales checkouts."
+      },
+      {
+        question: "What is a typical onboarding timeline for paid ads?",
+        answer: "We configure campaign structures, audit tag setups, design creative templates, and launch initial ad sets within 7 to 10 business days."
+      }
+    ]
+  },
+  {
+    slug: "nextjs-development-company-ahmedabad",
+    title: "Next.js Development Company in Ahmedabad | React Experts - Sanmora",
+    metaDescription: "Sanmora Studio is the premier Next.js development company in Ahmedabad, building high-speed React applications, static landing pages, and SaaS portals.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "code",
+    headline: "Next.js Development Company in Ahmedabad",
+    subtitle: "Build fast, secure, and SEO-native React platforms utilizing the App Router.",
+    overview: "As a dedicated Next.js development company in Ahmedabad, Sanmora Studio leverages this modern framework to build web experiences that score perfectly on Google Lighthouse. Next.js combines the component architecture of React with Server-Side Rendering (SSR) and Static Site Generation (SSG)—delivering fast, responsive interfaces that rank at the top of search listings.",
+    features: [
+      "Expert implementation of Next.js App Router and Server Components.",
+      "Advanced rendering options configuration (SSR, SSG, ISR).",
+      "Built-in optimization of images, scripts, and typography.",
+      "Seamless integrations of headless databases and GraphQL APIs.",
+      "Production deployments on Vercel Edge networks and AWS."
+    ],
+    benefits: [
+      "Server-pre-rendered HTML ensures instant Google crawling.",
+      "Core Web Vitals compliance leads to lower client acquisition costs.",
+      "Ultra-fast loading times lower page bounce rates.",
+      "Secure static assets generation with zero database vulnerabilities."
+    ],
+    techStack: ["Next.js", "React.js", "TypeScript", "Vercel", "Tailwind CSS", "GraphQL"],
+    faqs: [
+      {
+        question: "Why should we use Next.js instead of standard React?",
+        answer: "Standard React renders pages in the browser, leaving search engines with empty HTML to crawl. Next.js pre-renders content on the server, ensuring search engines index complete content instantly for elite SEO."
+      },
+      {
+        question: "Can Next.js handle dynamic data applications?",
+        answer: "Yes, Next.js supports dynamic server actions and API routes, allowing secure database queries and real-time page rendering."
+      }
+    ]
+  },
+  {
+    slug: "react-development-company-ahmedabad",
+    title: "React Development Company in Ahmedabad | Component-Based Web - Sanmora",
+    metaDescription: "Partner with a top React development company in Ahmedabad. We design highly interactive single-page applications, custom SaaS dashboards, and widgets.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "code",
+    headline: "React Development Company in Ahmedabad",
+    subtitle: "Interactive frontend applications built with modular state management and animations.",
+    overview: "Complex software dashboards and interactive frontends require a scalable structural framework. As an experienced React development company in Ahmedabad, Sanmora Studio builds modular frontends with clean, state-controlled data models. By programming reusable component systems and optimizing rendering layers, we deliver interfaces that respond instantly to user actions.",
+    features: [
+      "Custom React.js application programming matching Figmas.",
+      "Modular state controls configured in Zustand or Redux Toolkit.",
+      "Fast client-side routing, code splitting, and asset bundling.",
+      "Secure data fetching using RESTful APIs and GraphQL clients.",
+      "Rigorous testing using Jest and React Testing Library."
+    ],
+    benefits: [
+      "Provide desktop-speed user interaction responsiveness.",
+      "Speed up development cycles with modular, reusable components.",
+      "Clean modular codebase simplifying post-launch maintenance.",
+      "Easily port web code logic to mobile apps using React Native."
+    ],
+    techStack: ["React.js", "TypeScript", "Zustand", "Redux", "Vite", "Framer Motion"],
+    faqs: [
+      {
+        question: "What kinds of platforms do you build with React?",
+        answer: "We build interactive SaaS client portals, dynamic checkout screens, booking calendars, analytics dashboards, and complex single-page applications."
+      },
+      {
+        question: "How do you ensure React apps load quickly?",
+        answer: "We optimize bundle sizes through code splitting, lazy load components, compress assets, and configure intelligent client-side caching strategies."
+      }
+    ]
+  },
+  {
+    slug: "custom-software-development-ahmedabad",
+    title: "Custom Software Development in Ahmedabad | Enterprise Solutions - Sanmora",
+    metaDescription: "Sanmora Studio is a leading custom software development company in Ahmedabad, engineering robust backend databases, custom APIs, and scalable SaaS.",
+    parentService: "Software Development",
+    parentSlug: "software-development",
+    color: "#8b5cf6",
+    icon: "cube",
+    headline: "Custom Software Development in Ahmedabad",
+    subtitle: "Turn unique corporate workflows and logic into secure, scalable software products.",
+    overview: "Off-the-shelf software packages often restrict your operational workflows. At Sanmora Studio, as a custom software development company in Ahmedabad, we build software designed to adapt to your business rules. From scalable multi-tenant SaaS products and internal CRM portals to secure API systems, we build architectures that solve operational bottlenecks and scale seamlessly.",
+    features: [
+      "Bespoke software design aligned with your exact company workflows.",
+      "Scalable backend database designs (PostgreSQL, MongoDB).",
+      "High-throughput custom API endpoints development and integration.",
+      "Secure multi-tenant access models with JWT authorization.",
+      "Dockerized deployments with CI/CD automation parameters."
+    ],
+    benefits: [
+      "Automate manual business tasks to save weekly labor costs.",
+      "Retain complete ownership of code without licensing fees.",
+      "Build on secure database setups preventing vulnerabilities.",
+      "Integrate all company tools into one centralized interface."
+    ],
+    techStack: ["Node.js", "Express.js", "PostgreSQL", "Docker", "AWS", "Prisma ORM"],
+    faqs: [
+      {
+        question: "What database architectures do you prefer?",
+        answer: "We utilize PostgreSQL for relational, transactional systems, and MongoDB or Redis for dynamic, scalable document storage and caching needs."
+      },
+      {
+        question: "Will we own the software code?",
+        answer: "Yes, we transfer 100% codebase ownership and repositories access to you on project sign-off. You are never locked into a subscription."
+      }
+    ]
+  },
+  {
+    slug: "best-web-development-company-in-ahmedabad",
+    title: "Best Web Development Company in Ahmedabad | Premium Solutions - Sanmora",
+    metaDescription: "Sanmora Studio is voted the best web development company in Ahmedabad. We design custom Next.js websites, mobile apps, and results-oriented SEO.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "lightning",
+    headline: "Best Web Development Company in Ahmedabad",
+    subtitle: "Top-rated engineering capability, modern visual styles, and SEO optimization.",
+    overview: "Ahmedabad's digital market is scaling fast, and a slow generic website will hold your brand back. Sanmora Studio has earned recognition as the best web development company in Ahmedabad by focusing on high-performance execution. We eliminate slow page builders, coding lightweight, secure Next.js templates that load in under 1 second, keeping bounce rates low and conversion rates high.",
+    features: [
+      "Pixel-perfect custom visual layouts crafted in Figma.",
+      "Perfect Lighthouse metrics (100% speed, SEO, accessibility).",
+      "Secure backend logic, payment gateways, and custom database setups.",
+      "Optimized metadata, schema codes, and sitemaps configuration.",
+      "Support, maintenance, and edge hosting configurations."
+    ],
+    benefits: [
+      "Build a prominent search footprint outranking local competitors.",
+      "Secure visitor trust with lightning-fast page responsiveness.",
+      "Own a premium custom codebase with zero recurring fees.",
+      "Acquire sales leads with conversion-optimized layouts."
+    ],
+    techStack: ["Next.js", "React.js", "Node.js", "Tailwind CSS", "Prisma ORM", "Vercel"],
+    faqs: [
+      {
+        question: "What makes Sanmora Studio the best choice in Ahmedabad?",
+        answer: "Unlike agencies using heavy page templates, we write clean, custom-coded web architectures. This ensures your site is faster, more secure, and ranks significantly higher on search crawlers."
+      },
+      {
+        question: "Do you offer monthly maintenance support?",
+        answer: "Yes, we supply monthly site optimization, security auditing, dependency updates, and content additions to keep your site running perfectly."
+      }
+    ]
+  },
+  {
+    slug: "website-developer-ahmedabad",
+    title: "Website Developer in Ahmedabad | Creative Web & Visual Design - Sanmora",
+    metaDescription: "Looking for a professional website developer in Ahmedabad? Sanmora Studio provides premium custom web design, visual layout engineering, and SEO development.",
+    parentService: "Website Development",
+    parentSlug: "website-development",
+    color: "#0ea5e9",
+    icon: "layout",
+    headline: "Website Developer in Ahmedabad",
+    subtitle: "Bespoke visual design combined with elite software engineering to rank your website top.",
+    overview: "When looking for a website developer in Ahmedabad who excels in visual design, Sanmora Studio is your premier choice. We believe a website should be both a visual masterpiece and a high-performance software system. Our development process integrates stunning graphics, interactive animations, and responsive structures with lightweight, clean code—ensuring your website dominates local search results.",
+    features: [
+      "Custom graphic layouts designed specifically for your target market.",
+      "Clean custom code architecture with zero heavy template overhead.",
+      "Optimized interactive animations and responsive layout structures.",
+      "Integrated Local Business schemas and geographical tags.",
+      "Secure contact forms, lead funnels, and CRM connections."
+    ],
+    benefits: [
+      "Dominate search listings for local services queries.",
+      "Wow visitors with premium visual aesthetics and layouts.",
+      "Enjoy flawless rendering on all smartphones and browsers.",
+      "Retain absolute ownership of clean, premium source files."
+    ],
+    techStack: ["Next.js", "React.js", "Figma", "Framer Motion", "Tailwind CSS", "Vercel"],
+    faqs: [
+      {
+        question: "How do we get started on a project?",
+        answer: "We schedule an initial discovery consultation to outline your business goals, followed by wireframe visual concepts in Figma. Once approved, we code and launch the platform."
+      },
+      {
+        question: "Will you optimize my website to rank on local maps?",
+        answer: "Yes, we configure local business search indicators, geographical tags, map schema markups, and structure pages to maximize local map packs visibility."
+      }
+    ]
   }
 ];

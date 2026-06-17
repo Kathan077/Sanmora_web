@@ -15,8 +15,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Sanmora - Premium Visual Design",
-  description: "A state of the art web experience built with Next.js and Vanilla CSS.",
+  title: "Sanmora Studio | Web Development & Digital Marketing Company in Ahmedabad",
+  description: "Sanmora Studio is the premier web development company, web design agency, and digital marketing company in Ahmedabad. We build premium Next.js websites, Shopify ecommerce stores, custom software, and high-impact SEO.",
   verification: {
     google: "HmTa_ABl4g4bvL8xkwB0BUONqxT0Kp1vw_CR8fAfui8",
   },
@@ -26,6 +26,52 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} data-scroll-behavior="smooth">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Sanmora Studio",
+              "image": "https://sanmora.in/logo/Footer_logo.png",
+              "@id": "https://sanmora.in/#localbusiness",
+              "url": "https://sanmora.in",
+              "telephone": "+91 95864 74211",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Ahmedabad",
+                "addressLocality": "Ahmedabad",
+                "addressRegion": "Gujarat",
+                "postalCode": "380001",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 23.0225,
+                "longitude": 72.5714
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "19:00"
+              },
+              "sameAs": [
+                "https://www.facebook.com/share/1JFKX4zXoJ/",
+                "https://www.instagram.com/_sanmora/",
+                "https://youtube.com/@sanmoratechno?si=9SxRVDpHOLFUtYDV",
+                "https://in.linkedin.com/company/sanmora"
+              ]
+            })
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

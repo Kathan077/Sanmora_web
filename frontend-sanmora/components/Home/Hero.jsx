@@ -22,9 +22,9 @@ export default function HeroSection() {
               <h1 className={styles.heading}>
                 SANMORA <span className={styles.highlight}>Web-Tech</span>
                 <br />
-                Web Development
+                Web Development &
                 <br />
-                And <span className={styles.gradientText}>Digital Marketing</span>
+                <span className={styles.gradientText}>Digital Marketing in Ahmedabad</span>
               </h1>
             </div>
 
