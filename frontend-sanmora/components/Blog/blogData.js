@@ -1,7 +1,7 @@
 export const blogPosts = [
   {
     id: 8,
-    title: "The Future of E-Commerce: Trends Shaping Online Shopping in 2026",
+    title: "How to Grow an Online Store in 2026: Latest E-Commerce Trends",
     excerpt: "Explore the latest e-commerce trends in 2026, including AI-powered personalization, mobile commerce, faster deliveries, sustainable practices, and personalized customer experiences.",
     category: "E-Commerce",
     date: "Jun 17, 2026",
