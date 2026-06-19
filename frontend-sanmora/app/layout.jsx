@@ -18,7 +18,10 @@ export const metadata = {
   title: "Sanmora Studio | Web Development & Digital Marketing Company in Ahmedabad",
   description: "Sanmora Studio is the premier web development company, web design agency, and digital marketing company in Ahmedabad. We build premium Next.js websites, Shopify ecommerce stores, custom software, and high-impact SEO.",
   verification: {
-    google: "HmTa_ABl4g4bvL8xkwB0BUONqxT0Kp1vw_CR8fAfui8",
+    google: [
+      "HmTa_ABl4g4bvL8xkwB0BUONqxT0Kp1vw_CR8fAfui8",
+      "o3_CNqfLHCEqDGLl8tAipZePLzsUZfi97_xJEtmE_SU",
+    ],
   },
 };
 
