@@ -38,6 +38,18 @@ export default function Footer() {
             <Link href="/#docs" className={styles.link}>Documentation</Link>
             <Link href="/#terms" className={styles.link}>Terms of Service</Link>
           </div>
+          <div className={styles.linkGroup}>
+            <h4 className={styles.groupTitle}>Contact Us</h4>
+            <span className={styles.contactText}>
+              13, Virat Apartment,<br />
+              Opp. B.R.T. Bus Stand,<br />
+              Opp. Shakuntala Bunglow,<br />
+              Sola Road, Ghatlodiya,<br />
+              Ahmedabad, Gujarat 380061
+            </span>
+            <a href="tel:+919265269981" className={styles.contactLink}>+91 92652 69981</a>
+            <a href="mailto:sanmora.techno@gmail.com" className={styles.contactLink}>sanmora.techno@gmail.com</a>
+          </div>
         </div>
       </div>
 
@@ -64,6 +76,11 @@ export default function Footer() {
           <a href="https://in.linkedin.com/company/sanmora" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+          <a href="https://wa.me/919265269981" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="WhatsApp">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.017 0C5.385 0 0 5.339 0 11.923c0 2.107.551 4.165 1.6 5.975L0 24l6.335-1.644c1.731.935 3.678 1.427 5.674 1.427 6.633 0 12.018-5.337 12.018-11.922C24.027 5.34 18.647 0 12.017 0zm.019 21.902c-1.792 0-3.553-.477-5.1-1.378l-.365-.213-3.793.985.999-3.659-.235-.371a9.78 9.78 0 01-1.503-5.263c.001-5.4 4.416-9.792 9.833-9.792 2.623 0 5.09 1.011 6.945 2.85 1.854 1.839 2.875 4.288 2.872 6.897-.003 5.4-4.417 9.792-9.83 9.792zM17.37 14.54c-.292-.144-1.727-.842-1.993-.938-.266-.096-.46-.144-.653.144-.193.288-.748.938-.918 1.13-.17.192-.34.216-.632.072-.292-.144-1.232-.448-2.347-1.43-.867-.764-1.453-1.708-1.624-1.995-.17-.287-.018-.442.128-.585.13-.13.292-.336.438-.504.146-.168.194-.288.292-.48.097-.192.048-.36-.024-.504-.073-.144-.653-1.554-.895-2.125-.236-.557-.497-.482-.678-.49-.175-.008-.376-.01-.577-.01s-.527.074-.803.37c-.276.297-1.054 1.018-1.054 2.484 0 1.466 1.08 2.883 1.23 3.076.15.193 2.125 3.208 5.148 4.492.719.306 1.28.489 1.718.627.722.227 1.38.195 1.9.117.58-.086 1.728-.696 1.97-.1.242-.51.242-.947.168-1.024-.074-.076-.27-.12-.562-.264z" />
             </svg>
           </a>
         </div>

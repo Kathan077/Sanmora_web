@@ -77,6 +77,10 @@ export default function CaseStudiesClient() {
                 <Link href={`/case-studies/${cs.slug}`} className={styles.card}>
                   
                   <div className={styles.cardImagePlaceholder} style={{ background: `linear-gradient(135deg, ${cs.color}15 0%, #FAFAFB 100%)` }}>
+                    {cs.image && (
+                      <img src={cs.image} alt={cs.title} className={styles.cardImage} />
+                    )}
+                    <div className={styles.cardImageOverlay} />
                     <div className={styles.cardImageAccent} style={{ backgroundColor: cs.color }} />
                     <div className={styles.cardBadge} style={{ color: cs.color, borderColor: `${cs.color}30` }}>
                       {cs.category}

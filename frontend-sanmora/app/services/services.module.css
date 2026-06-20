@@ -511,3 +511,210 @@
   line-height: 1.6;
   margin: 0;
 }
+
+/* ── Related Case Studies Section ── */
+.caseStudiesSection {
+  padding: 6rem 5%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(124, 58, 237, 0.02) 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.caseStudiesContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.caseStudiesHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.caseStudiesTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.caseStudiesSubtitle {
+  color: #64748B;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+.caseStudiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .caseStudiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.csCardWrapper {
+  transition: transform 0.3s ease;
+}
+
+.csCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.csCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.12);
+}
+
+.csCardImageContainer {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.csCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.csCard:hover .csCardImage {
+  transform: scale(1.05);
+}
+
+.csCardImagePlaceholder {
+  width: 100%;
+  height: 100%;
+}
+
+.csCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0) 50%, rgba(15, 23, 42, 0.05) 100%);
+  z-index: 1;
+}
+
+.csCardBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #ffffff;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.csCardContent {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  flex-grow: 1;
+}
+
+.csClientName {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+}
+
+.csCardTitle {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+.csCardSummary {
+  font-size: 0.95rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+.csCardMetrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.csMetricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.csMetricValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.csMetricLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.csCardFooter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #0F172A;
+  transition: color 0.3s ease;
+  margin-top: auto;
+}
+
+.csReadMore {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.csArrow {
+  transition: transform 0.3s ease;
+}
+
+.csCard:hover .csCardFooter {
+  color: var(--primary);
+}
+
+.csCard:hover .csArrow {
+  transform: translateX(4px);
+}

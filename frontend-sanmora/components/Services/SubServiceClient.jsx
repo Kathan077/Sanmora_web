@@ -9,6 +9,7 @@ import ParticleBackground from "@/components/Home/ParticleBackground";
 import ServiceVisual from "@/components/Services/ServiceVisual";
 import { getCategoryImagePath } from "@/components/Services/serviceImages";
 import styles from "@/app/services/services.module.css";
+import { caseStudiesData } from "@/components/CaseStudies/caseStudiesData";
 
 export default function SubServiceClient({ service }) {
   if (!service) {
@@ -28,6 +29,30 @@ export default function SubServiceClient({ service }) {
   }
 
   const { name, slug, color, description, subtitle, categories } = service;
+
+  const relatedCaseStudies = caseStudiesData.filter(cs => {
+    const serviceSlug = slug.toLowerCase();
+    const csCat = cs.category.toLowerCase();
+    
+    // Map main service slug to allowed case study categories
+    if (serviceSlug === "website-development") {
+      return ["static website", "dynamic website", "e-commerce", "custom website development", "website development"].includes(csCat);
+    }
+    if (serviceSlug === "digital-marketing") {
+      return ["seo optimization", "ppc campaigns", "digital marketing"].includes(csCat);
+    }
+    if (serviceSlug === "logo-designing") {
+      return ["brand identity", "typography"].includes(csCat);
+    }
+    if (serviceSlug === "software-development") {
+      return ["custom saas"].includes(csCat);
+    }
+    if (serviceSlug === "application-development") {
+      return ["application development"].includes(csCat);
+    }
+    
+    return false;
+  });
 
   return (
     <div className={styles.page}>
@@ -141,6 +166,61 @@ export default function SubServiceClient({ service }) {
           )}
         </div>
       </section>
+
+      {/* ── Related Case Studies Section ── */}
+      {relatedCaseStudies.length > 0 && (
+        <section className={styles.caseStudiesSection}>
+          <div className={styles.caseStudiesContainer}>
+            <div className={styles.caseStudiesHeader}>
+              <h2 className={styles.caseStudiesTitle}>Recent Success Stories</h2>
+              <p className={styles.caseStudiesSubtitle}>
+                See how we help clients achieve outstanding results in {name}.
+              </p>
+            </div>
+            
+            <div className={styles.caseStudiesGrid}>
+              {relatedCaseStudies.map((cs) => (
+                <div key={cs.id} className={styles.csCardWrapper}>
+                  <Link href={`/case-studies/${cs.slug}`} className={styles.csCard}>
+                    <div className={styles.csCardImageContainer}>
+                      {cs.image ? (
+                        <img src={cs.image} alt={cs.title} className={styles.csCardImage} />
+                      ) : (
+                        <div className={styles.csCardImagePlaceholder} style={{ background: `linear-gradient(135deg, ${cs.color}15 0%, #FAFAFB 100%)` }} />
+                      )}
+                      <div className={styles.csCardOverlay} />
+                      <div className={styles.csCardBadge} style={{ color: cs.color, borderColor: `${cs.color}30` }}>
+                        {cs.category}
+                      </div>
+                    </div>
+                    <div className={styles.csCardContent}>
+                      <h4 className={styles.csClientName} style={{ color: cs.color }}>{cs.client}</h4>
+                      <h3 className={styles.csCardTitle}>{cs.title}</h3>
+                      <p className={styles.csCardSummary}>{cs.summary}</p>
+                      
+                      <div className={styles.csCardMetrics}>
+                        {cs.results.slice(0, 2).map((res, i) => (
+                          <div key={i} className={styles.csMetricItem}>
+                            <span className={styles.csMetricValue} style={{ color: cs.color }}>{res.value}</span>
+                            <span className={styles.csMetricLabel}>{res.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className={styles.csCardFooter}>
+                        <span className={styles.csReadMore}>View Case Study</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.csArrow}>
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

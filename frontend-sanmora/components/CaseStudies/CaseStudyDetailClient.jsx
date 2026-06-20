@@ -9,7 +9,7 @@ import ParticleBackground from "@/components/Home/ParticleBackground";
 import styles from "./CaseStudyDetailClient.module.css";
 
 export default function CaseStudyDetailClient({ caseStudy }) {
-  const { title, client, category, summary, challenge, solution, results, color } = caseStudy;
+  const { title, client, category, summary, challenge, solution, results, color, image } = caseStudy;
 
   return (
     <div className={styles.page}>
@@ -43,9 +43,18 @@ export default function CaseStudyDetailClient({ caseStudy }) {
           </motion.div>
         </div>
       </section>
-
       <section className={styles.contentSection}>
         <div className={styles.container}>
+          {image && (
+            <motion.div 
+              className={styles.heroImageContainer}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <img src={image} alt={title} className={styles.heroImage} />
+            </motion.div>
+          )}
           
           <div className={styles.twoColumnGrid}>
             

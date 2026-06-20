@@ -9,6 +9,7 @@ import ParticleBackground from "@/components/Home/ParticleBackground";
 import ServiceVisual from "@/components/Services/ServiceVisual";
 import { getCategoryDetailPrimaryImagePath, getCategoryDetailSecondaryImagePath } from "@/components/Services/serviceImages";
 import styles from "@/app/services/services.module.css";
+import { caseStudiesData } from "@/components/CaseStudies/caseStudiesData";
 
 export default function CategoryDetailClient({ service, category }) {
   if (!service || !category) {
@@ -32,6 +33,22 @@ export default function CategoryDetailClient({ service, category }) {
   const categoryPrimaryImage = getCategoryDetailPrimaryImagePath(serviceSlug, category.slug);
   const categorySecondaryImage = getCategoryDetailSecondaryImagePath(serviceSlug, category.slug);
   const catNameParts = catName.split(" ");
+
+  const relatedCaseStudies = caseStudiesData.filter(cs => {
+    const nameMatch = cs.category.toLowerCase() === catName.toLowerCase();
+    const slugMatch = cs.category.toLowerCase() === category.slug.toLowerCase();
+    
+    if (nameMatch || slugMatch) return true;
+    
+    // Custom mappings:
+    if (category.slug.toLowerCase() === "ppc-campaigns" && cs.category.toLowerCase() === "ppc campaigns") return true;
+    
+    // Telehealth or fitness tracking apps mapped to React Native / Flutter / iOS / Android
+    const isAppDevSubcategory = ["react-native", "flutter", "ios-development", "android-development"].includes(category.slug.toLowerCase());
+    if (isAppDevSubcategory && cs.category.toLowerCase() === "application development") return true;
+    
+    return false;
+  });
 
   const heroText = category.longDescription ?? catDesc;
   const deliverOverview = category.overview ?? `Specialized ${catName.toLowerCase()} solutions tailored to your goals.`;
@@ -173,6 +190,61 @@ export default function CategoryDetailClient({ service, category }) {
 
         </div>
       </section>
+
+      {/* ── Related Case Studies Section ── */}
+      {relatedCaseStudies.length > 0 && (
+        <section className={styles.caseStudiesSection}>
+          <div className={styles.caseStudiesContainer}>
+            <div className={styles.caseStudiesHeader}>
+              <h2 className={styles.caseStudiesTitle}>Recent Success Stories</h2>
+              <p className={styles.caseStudiesSubtitle}>
+                See how we help clients achieve outstanding results in {catName}.
+              </p>
+            </div>
+            
+            <div className={styles.caseStudiesGrid}>
+              {relatedCaseStudies.map((cs) => (
+                <div key={cs.id} className={styles.csCardWrapper}>
+                  <Link href={`/case-studies/${cs.slug}`} className={styles.csCard}>
+                    <div className={styles.csCardImageContainer}>
+                      {cs.image ? (
+                        <img src={cs.image} alt={cs.title} className={styles.csCardImage} />
+                      ) : (
+                        <div className={styles.csCardImagePlaceholder} style={{ background: `linear-gradient(135deg, ${cs.color}15 0%, #FAFAFB 100%)` }} />
+                      )}
+                      <div className={styles.csCardOverlay} />
+                      <div className={styles.csCardBadge} style={{ color: cs.color, borderColor: `${cs.color}30` }}>
+                        {cs.category}
+                      </div>
+                    </div>
+                    <div className={styles.csCardContent}>
+                      <h4 className={styles.csClientName} style={{ color: cs.color }}>{cs.client}</h4>
+                      <h3 className={styles.csCardTitle}>{cs.title}</h3>
+                      <p className={styles.csCardSummary}>{cs.summary}</p>
+                      
+                      <div className={styles.csCardMetrics}>
+                        {cs.results.slice(0, 2).map((res, i) => (
+                          <div key={i} className={styles.csMetricItem}>
+                            <span className={styles.csMetricValue} style={{ color: cs.color }}>{res.value}</span>
+                            <span className={styles.csMetricLabel}>{res.label}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className={styles.csCardFooter}>
+                        <span className={styles.csReadMore}>View Case Study</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={styles.csArrow}>
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <Footer />
     </div>

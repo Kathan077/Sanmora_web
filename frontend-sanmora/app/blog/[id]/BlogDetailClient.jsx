@@ -71,9 +71,46 @@ const renderContent = (text) => {
   const lines = text.split("\n");
   const elements = [];
   let listItems = [];
+  let codeBlockLines = [];
+  let inCodeBlock = false;
+  let codeLang = "";
 
   lines.forEach((line, index) => {
     const trimmed = line.trim();
+
+    // Check if starting or ending a code block
+    if (trimmed.startsWith("```") || trimmed.startsWith("\\`\\`\\`") || trimmed.startsWith("`\\`\\`")) {
+      if (inCodeBlock) {
+        elements.push(
+          <pre key={`code-${index}`} style={{
+            background: "#1E293B",
+            color: "#F8FAFC",
+            padding: "20px",
+            borderRadius: "12px",
+            overflowX: "auto",
+            fontSize: "0.85rem",
+            fontFamily: "monospace",
+            margin: "20px 0",
+            lineHeight: 1.5,
+            border: "1px solid rgba(255, 255, 255, 0.05)"
+          }}>
+            <code className={codeLang}>{codeBlockLines.join("\n")}</code>
+          </pre>
+        );
+        codeBlockLines = [];
+        inCodeBlock = false;
+      } else {
+        inCodeBlock = true;
+        codeLang = trimmed.replace(/^[\\`]+/, "");
+      }
+      return;
+    }
+
+    if (inCodeBlock) {
+      codeBlockLines.push(line);
+      return;
+    }
+
     if (!trimmed) {
       if (listItems.length > 0) {
         elements.push(
@@ -160,6 +197,26 @@ const renderContent = (text) => {
       </ul>
     );
   }
+
+  if (inCodeBlock && codeBlockLines.length > 0) {
+    elements.push(
+      <pre key="code-end" style={{
+        background: "#1E293B",
+        color: "#F8FAFC",
+        padding: "20px",
+        borderRadius: "12px",
+        overflowX: "auto",
+        fontSize: "0.85rem",
+        fontFamily: "monospace",
+        margin: "20px 0",
+        lineHeight: 1.5,
+        border: "1px solid rgba(255, 255, 255, 0.05)"
+      }}>
+        <code>{codeBlockLines.join("\n")}</code>
+      </pre>
+    );
+  }
+
 
   return elements;
 };
