@@ -7,7 +7,7 @@ export async function generateMetadata({ params }) {
   const service = servicesData.find((s) => s.slug === slug);
   const cat = service?.categories?.find((c) => c.slug === category);
   return {
-    title: `${cat?.name ?? "Category"} | ${service?.name ?? "Services"} | Sanmora Studio`,
+    title: `${cat?.name ?? "Category"} | ${service?.name ?? "Services"} | Sanmora Technologies`,
     description: cat?.longDescription ?? cat?.description ?? service?.description,
   };
 }

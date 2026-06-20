@@ -2,10 +2,10 @@ import React from "react";
 import ServicesPageClient from "@/components/Services/ServicesPageClient";
 
 export const metadata = {
-  title: "Our Services | Sanmora Studio",
+  title: "Our Services | Sanmora Technologies",
   description: "Explore Sanmora Studio's premium visual design, custom software engineering, and technical SEO scaling systems.",
   openGraph: {
-    title: "Our Services | Sanmora Studio",
+    title: "Our Services | Sanmora Technologies",
     description: "Explore Sanmora Studio's premium visual design, custom software engineering, and technical SEO scaling systems.",
   }
 };

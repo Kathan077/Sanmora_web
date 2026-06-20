@@ -1,19 +1,19 @@
-// Data structure containing the SEO-targeted landing page details for Sanmora Studio.
+// Data structure containing the SEO-targeted landing page details for Sanmora Technologies.
 // Slugs are matched against the root-level dynamic route [slug].
 
 export const seoPagesData = [
   // --- WEBSITE DEVELOPMENT TOPICS ---
   {
     slug: "website-development-company-ahmedabad",
-    title: "Website Development Company in Ahmedabad | Sanmora Studio",
-    metaDescription: "Sanmora Studio is a leading website development company in Ahmedabad, delivering ultra-fast, customized Next.js and MERN stack websites that maximize conversions and Google rankings.",
+    title: "Website Development Company in Ahmedabad | Sanmora Technologies",
+    metaDescription: "Sanmora Technologies is a leading website development company in Ahmedabad, delivering ultra-fast, customized Next.js and MERN stack websites that maximize conversions and Google rankings.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "code",
     headline: "Website Development Company in Ahmedabad",
     subtitle: "Speed, security, and premium user experience crafted for Ahmedabad's fastest-growing brands.",
-    overview: "In a digital landscape crowded with slow, templated sites, Sanmora Studio builds hand-coded web experiences designed to perform. As a premier website development company in Ahmedabad, we eliminate bloated page builders and replace them with high-fidelity, light-speed static and dynamic systems. From startup landing pages to enterprise portals, we ensure your site scores 100% on Core Web Vitals, keeps bounce rates low, and converts visitors into loyal customers.",
+    overview: "In a digital landscape crowded with slow, templated sites, Sanmora Technologies builds hand-coded web experiences designed to perform. As a premier website development company in Ahmedabad, we eliminate bloated page builders and replace them with high-fidelity, light-speed static and dynamic systems. From startup landing pages to enterprise portals, we ensure your site scores 100% on Core Web Vitals, keeps bounce rates low, and converts visitors into loyal customers.",
     features: [
       "Custom UI/UX designs built specifically for your brand identity.",
       "Blazing-fast page loading speeds (under 1 second) to maximize retention.",
@@ -45,7 +45,7 @@ export const seoPagesData = [
   },
   {
     slug: "web-development-agency-ahmedabad",
-    title: "Web Development Agency in Ahmedabad | Sanmora Studio",
+    title: "Web Development Agency in Ahmedabad | Sanmora Technologies",
     metaDescription: "Looking for an expert web development agency in Ahmedabad? We craft highly scalable web applications, API integrations, and corporate portals tailored to fuel business growth.",
     parentService: "Website Development",
     parentSlug: "website-development",
@@ -53,7 +53,7 @@ export const seoPagesData = [
     icon: "layout",
     headline: "Web Development Agency in Ahmedabad",
     subtitle: "High-end development capabilities combined with modern design aesthetics to grow your business.",
-    overview: "As a forward-thinking web development agency in Ahmedabad, Sanmora Studio bridges the gap between complex software engineering and beautiful client-facing design. We serve local and international clients by building reliable web systems, database architectures, and custom workflows. Our structured development process ensures your digital platform is ready to scale, handle traffic surges, and support your business goals seamlessly.",
+    overview: "As a forward-thinking web development agency in Ahmedabad, Sanmora Technologies bridges the gap between complex software engineering and beautiful client-facing design. We serve local and international clients by building reliable web systems, database architectures, and custom workflows. Our structured development process ensures your digital platform is ready to scale, handle traffic surges, and support your business goals seamlessly.",
     features: [
       "Full-stack custom application development matching your business logic.",
       "Secure API integrations, third-party payment gateways, and custom logins.",
@@ -70,7 +70,7 @@ export const seoPagesData = [
     techStack: ["React.js", "Node.js", "Express", "PostgreSQL", "Prisma ORM", "Docker"],
     faqs: [
       {
-        question: "What kinds of web systems can Sanmora Studio develop?",
+        question: "What kinds of web systems can Sanmora Technologies develop?",
         answer: "We develop custom CRM portals, booking engines, client dashboards, interactive maps, internal company management systems, and high-performance business applications tailored to your specific operational workflows."
       },
       {
@@ -85,15 +85,15 @@ export const seoPagesData = [
   },
   {
     slug: "custom-website-development-india",
-    title: "Custom Website Development India | Sanmora Studio",
-    metaDescription: "Partner with Sanmora Studio for top-tier custom website development in India. We construct hand-coded, secure, and SEO-optimized solutions for global startups and enterprises.",
+    title: "Custom Website Development India | Sanmora Technologies",
+    metaDescription: "Partner with Sanmora Technologies for top-tier custom website development in India. We construct hand-coded, secure, and SEO-optimized solutions for global startups and enterprises.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "layers",
     headline: "Custom Website Development India",
     subtitle: "Premium digital solutions engineered from the ground up to outperform global competitors.",
-    overview: "India is at the center of global digital innovation, and Sanmora Studio represents the peak of premium, custom-coded execution. We design and develop tailor-made websites that do not rely on slow themes or generic builders. Our engineering team builds clean, highly performant frontends connected to modern headless CMS systems, allowing your marketing teams to update content seamlessly while maintaining standard-setting page speeds and top-tier security profiles.",
+    overview: "India is at the center of global digital innovation, and Sanmora Technologies represents the peak of premium, custom-coded execution. We design and develop tailor-made websites that do not rely on slow themes or generic builders. Our engineering team builds clean, highly performant frontends connected to modern headless CMS systems, allowing your marketing teams to update content seamlessly while maintaining standard-setting page speeds and top-tier security profiles.",
     features: [
       "Bespoke, pixel-perfect custom designs with zero dependency on templates.",
       "Headless CMS setups (Sanity, Strapi, Contentful) for frictionless content editing.",
@@ -125,15 +125,15 @@ export const seoPagesData = [
   },
   {
     slug: "nextjs-development-company",
-    title: "Next.js Development Company | Sanmora Studio",
-    metaDescription: "Sanmora Studio is a leading Next.js development company, building high-speed React applications, static landing pages, and server-rendered SaaS platforms.",
+    title: "Next.js Development Company | Sanmora Technologies",
+    metaDescription: "Sanmora Technologies is a leading Next.js development company, building high-speed React applications, static landing pages, and server-rendered SaaS platforms.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "cube",
     headline: "Next.js Development Company",
     subtitle: "Harness the power of React, server-side rendering, and instant edge deployments.",
-    overview: "As a specialized Next.js development company, Sanmora Studio knows how to push the limits of modern web frameworks. Next.js has revolutionized web architecture by combining the interactivity of React with flexible rendering options like Server-Side Rendering (SSR) and Static Site Generation (SSG). We design applications that optimize data fetching, implement incremental static regeneration, and load instantaneously—delivering the ultimate UX that ranks at the top of search engines.",
+    overview: "As a specialized Next.js development company, Sanmora Technologies knows how to push the limits of modern web frameworks. Next.js has revolutionized web architecture by combining the interactivity of React with flexible rendering options like Server-Side Rendering (SSR) and Static Site Generation (SSG). We design applications that optimize data fetching, implement incremental static regeneration, and load instantaneously—delivering the ultimate UX that ranks at the top of search engines.",
     features: [
       "Expert implementation of Next.js App Router and Server Components.",
       "Hybrid rendering strategies (SSR, SSG, ISR) matching your page requirements.",
@@ -165,7 +165,7 @@ export const seoPagesData = [
   },
   {
     slug: "ecommerce-development-company",
-    title: "Ecommerce Development Company | Sanmora Studio",
+    title: "Ecommerce Development Company | Sanmora Technologies",
     metaDescription: "Build high-converting online stores with a premier ecommerce development company. We craft custom checkouts, headless Shopify setups, and fast catalogues.",
     parentService: "Website Development",
     parentSlug: "website-development",
@@ -173,7 +173,7 @@ export const seoPagesData = [
     icon: "shopping-cart",
     headline: "Ecommerce Development Company",
     subtitle: "Engineered checkouts, fast catalogues, and smart funnels designed to increase sales.",
-    overview: "E-commerce success hinges on milliseconds. A slow cart or a complicated checkout process directly costs you revenue. At Sanmora Studio, as a premium e-commerce development company, we build custom online storefronts that keep shoppers engaged. Whether you need a headless Shopify setup, a WooCommerce engine, or a fully custom online marketplace, we optimize the shopping journey from catalog browsing to the final receipt.",
+    overview: "E-commerce success hinges on milliseconds. A slow cart or a complicated checkout process directly costs you revenue. At Sanmora Technologies, as a premium e-commerce development company, we build custom online storefronts that keep shoppers engaged. Whether you need a headless Shopify setup, a WooCommerce engine, or a fully custom online marketplace, we optimize the shopping journey from catalog browsing to the final receipt.",
     features: [
       "Highly performant product listing grids with instant filters and search.",
       "Optimized, single-page checkout flows designed to minimize abandonment.",
@@ -205,15 +205,15 @@ export const seoPagesData = [
   },
   {
     slug: "react-development-company",
-    title: "React Development Company | Sanmora Studio",
-    metaDescription: "Sanmora Studio is a premium React development company, engineering fast interactive web interfaces, single-page applications, and component-based SaaS platforms.",
+    title: "React Development Company | Sanmora Technologies",
+    metaDescription: "Sanmora Technologies is a premium React development company, engineering fast interactive web interfaces, single-page applications, and component-based SaaS platforms.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "code",
     headline: "React Development Company",
     subtitle: "Highly interactive, modular, and component-based frontend web applications.",
-    overview: "When your product requires complex user dashboards, dynamic UI state updates, and modular layouts, React.js is the world-class choice. As an experienced React development company, Sanmora Studio constructs scalable frontends with clean state management models. By building reusable UI components and optimizing rendering performance, we deliver exceptionally smooth visual flows that feel as fast as desktop software.",
+    overview: "When your product requires complex user dashboards, dynamic UI state updates, and modular layouts, React.js is the world-class choice. As an experienced React development company, Sanmora Technologies constructs scalable frontends with clean state management models. By building reusable UI components and optimizing rendering performance, we deliver exceptionally smooth visual flows that feel as fast as desktop software.",
     features: [
       "Custom React.js application design matching high-fidelity wireframes.",
       "State-controlled UI structures powered by Redux, Zustand, or Context API.",
@@ -245,15 +245,15 @@ export const seoPagesData = [
   },
   {
     slug: "web-development-ahmedabad",
-    title: "Web Development in Ahmedabad | Web Design Ahmedabad | Sanmora Studio",
-    metaDescription: "Partner with Sanmora Studio for premium web development in Ahmedabad. We build custom-coded, dynamic, and search-optimized websites that grow local brands.",
+    title: "Web Development in Ahmedabad | Web Design Ahmedabad | Sanmora Technologies",
+    metaDescription: "Partner with Sanmora Technologies for premium web development in Ahmedabad. We build custom-coded, dynamic, and search-optimized websites that grow local brands.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "globe",
     headline: "Web Development in Ahmedabad",
     subtitle: "Fuel your business growth with lightning-fast, custom coded web systems.",
-    overview: "Ahmedabad's business ecosystem is scaling fast, and a generic template website won't make you stand out. As a premier partner for web development in Ahmedabad, Sanmora Studio designs and codes high-performance web systems tailored to your specific commercial goals. We eliminate bloated, generic themes to build lightweight code architectures that load instantly, secure your database queries, and score perfectly on Google speed metrics.",
+    overview: "Ahmedabad's business ecosystem is scaling fast, and a generic template website won't make you stand out. As a premier partner for web development in Ahmedabad, Sanmora Technologies designs and codes high-performance web systems tailored to your specific commercial goals. We eliminate bloated, generic themes to build lightweight code architectures that load instantly, secure your database queries, and score perfectly on Google speed metrics.",
     features: [
       "Pixel-perfect visual interfaces crafted specifically for your target audience.",
       "Performance optimization to secure Core Web Vitals pass scores.",
@@ -283,15 +283,15 @@ export const seoPagesData = [
   // --- SEO SERVICES TOPICS ---
   {
     slug: "seo-company-ahmedabad",
-    title: "SEO Company in Ahmedabad | SEO Services Ahmedabad | Sanmora Studio",
-    metaDescription: "Sanmora Studio is a premier SEO company in Ahmedabad, crafting data-driven organic strategies, keyword mapping, technical audits, and link profiles that drive sales.",
+    title: "SEO Company in Ahmedabad | SEO Services Ahmedabad | Sanmora Technologies",
+    metaDescription: "Sanmora Technologies is a premier SEO company in Ahmedabad, crafting data-driven organic strategies, keyword mapping, technical audits, and link profiles that drive sales.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
     color: "#ec4899",
     icon: "search",
     headline: "SEO Company in Ahmedabad",
     subtitle: "Drive highly qualified, buyer-intent search traffic without paying for costly advertising click costs.",
-    overview: "Ranking on the first page of Google isn't a matter of luck—it's a matter of technical execution and content relevance. As a dedicated SEO company in Ahmedabad, Sanmora Studio creates organic campaigns that deliver measurable business pipeline growth. We don't use shortcut tricks that get your site penalized. Instead, we audit your code speed, map keyword intent, build high-authority links, and write content that answers your customer's questions.",
+    overview: "Ranking on the first page of Google isn't a matter of luck—it's a matter of technical execution and content relevance. As a dedicated SEO company in Ahmedabad, Sanmora Technologies creates organic campaigns that deliver measurable business pipeline growth. We don't use shortcut tricks that get your site penalized. Instead, we audit your code speed, map keyword intent, build high-authority links, and write content that answers your customer's questions.",
     features: [
       "Thorough SEO audits analyzing site health, speed metrics, and index errors.",
       "Strategic keyword research targeting transactional, high-value search terms.",
@@ -323,7 +323,7 @@ export const seoPagesData = [
   },
   {
     slug: "seo-services-ahmedabad",
-    title: "SEO Services in Ahmedabad | Rank Page 1 Google | Sanmora Studio",
+    title: "SEO Services in Ahmedabad | Rank Page 1 Google | Sanmora Technologies",
     metaDescription: "Elevate your business visibility with professional SEO services in Ahmedabad. We optimize technical search factors, map content clusters, and grow domain authority.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
@@ -363,7 +363,7 @@ export const seoPagesData = [
   },
   {
     slug: "local-seo-services",
-    title: "Local SEO Services | Sanmora Studio",
+    title: "Local SEO Services | Sanmora Technologies",
     metaDescription: "Dominate local search queries with professional local SEO services. We optimize Google Business Profiles, local map citations, and geo-targeted listings.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
@@ -403,7 +403,7 @@ export const seoPagesData = [
   },
   {
     slug: "ecommerce-seo-services",
-    title: "Ecommerce SEO Services | Sanmora Studio",
+    title: "Ecommerce SEO Services | Sanmora Technologies",
     metaDescription: "Maximize your online store sales with professional ecommerce SEO services. We specialize in product schema, category page ranking, and shop crawl budget audits.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
@@ -443,7 +443,7 @@ export const seoPagesData = [
   },
   {
     slug: "technical-seo-services",
-    title: "Technical SEO Services | Sanmora Studio",
+    title: "Technical SEO Services | Sanmora Technologies",
     metaDescription: "Optimize crawler efficiency, Core Web Vitals, and index rates with premier technical SEO services. We clean sitemaps, fix redirects, and audit server headers.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
@@ -451,7 +451,7 @@ export const seoPagesData = [
     icon: "gauge",
     headline: "Technical SEO Services",
     subtitle: "Establish a flawless foundation that allows search engines to crawl and rank your pages.",
-    overview: "If search engines cannot crawl your pages, even the best copywriting in the world will not help you rank. Sanmora Studio's technical SEO services focus on resolving code-level site errors, server hosting speeds, sitemap architectures, and redirection loops. We ensure your website is perfectly structured, secure, and lightning-fast—making it easy for search engine crawlers to parse, index, and rank your content.",
+    overview: "If search engines cannot crawl your pages, even the best copywriting in the world will not help you rank. Sanmora Technologies's technical SEO services focus on resolving code-level site errors, server hosting speeds, sitemap architectures, and redirection loops. We ensure your website is perfectly structured, secure, and lightning-fast—making it easy for search engine crawlers to parse, index, and rank your content.",
     features: [
       "Core Web Vitals optimizations targeting LCP, FID/INP, and CLS scores.",
       "Audit of sitemaps, robots.txt directives, and canonical indexing setups.",
@@ -485,15 +485,15 @@ export const seoPagesData = [
   // --- DIGITAL MARKETING TOPICS ---
   {
     slug: "digital-marketing-company-ahmedabad",
-    title: "Digital Marketing Company in Ahmedabad | Sanmora Studio",
-    metaDescription: "Sanmora Studio is an elite digital marketing company in Ahmedabad, specialized in performance marketing, ROI-led ad funnels, and expert conversion tracking.",
+    title: "Digital Marketing Company in Ahmedabad | Sanmora Technologies",
+    metaDescription: "Sanmora Technologies is an elite digital marketing company in Ahmedabad, specialized in performance marketing, ROI-led ad funnels, and expert conversion tracking.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
     color: "#ec4899",
     icon: "line-chart",
     headline: "Digital Marketing Company in Ahmedabad",
     subtitle: "Omit hollow vanity metrics. We focus on lead acquisitions, sales pipeline, and ROI.",
-    overview: "Many agencies measure success in terms of impressions, views, and empty clicks. At Sanmora Studio, we think differently. As a performance-focused digital marketing company in Ahmedabad, we align our campaigns with your bottom-line sales revenue. We research your ideal customer profiles, structure targeted marketing funnels across search and social channels, optimize your landing pages, and install detailed tracking integrations—ensuring every rupee of your ad spend works to acquire real buyers.",
+    overview: "Many agencies measure success in terms of impressions, views, and empty clicks. At Sanmora Technologies, we think differently. As a performance-focused digital marketing company in Ahmedabad, we align our campaigns with your bottom-line sales revenue. We research your ideal customer profiles, structure targeted marketing funnels across search and social channels, optimize your landing pages, and install detailed tracking integrations—ensuring every rupee of your ad spend works to acquire real buyers.",
     features: [
       "Omnichannel strategy design mapping search, social, and email pipelines.",
       "Deep conversion rate optimization (CRO) targeting landing page layouts.",
@@ -525,8 +525,8 @@ export const seoPagesData = [
   },
   {
     slug: "performance-marketing-agency",
-    title: "Performance Marketing Agency | Sanmora Studio",
-    metaDescription: "Scale your customer acquisition with Sanmora Studio, a leading performance marketing agency. We specialize in Meta Ads, Google Ads, and CPA optimization.",
+    title: "Performance Marketing Agency | Sanmora Technologies",
+    metaDescription: "Scale your customer acquisition with Sanmora Technologies, a leading performance marketing agency. We specialize in Meta Ads, Google Ads, and CPA optimization.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
     color: "#ec4899",
@@ -565,7 +565,7 @@ export const seoPagesData = [
   },
   {
     slug: "google-ads-management",
-    title: "Google Ads Management Services | Sanmora Studio",
+    title: "Google Ads Management Services | Sanmora Technologies",
     metaDescription: "Partner with a leading Google Ads management agency. We design high-yielding Search, Display, and Performance Max PPC campaigns that capture active buyers.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
@@ -573,7 +573,7 @@ export const seoPagesData = [
     icon: "search",
     headline: "Google Ads Management",
     subtitle: "Capture high-intent searches exactly when customers are ready to buy your products.",
-    overview: "When someone searches for your services on Google, you want your business to appear at the very top. As an expert Google Ads management partner, Sanmora Studio builds PPC (Pay-Per-Click) campaigns that convert searches into sales. We manage keyword bidding structures, eliminate wasted budget by maintaining strict negative keyword lists, write compelling search descriptions, and improve ad Quality Scores—helping you secure top placements at the lowest cost per click.",
+    overview: "When someone searches for your services on Google, you want your business to appear at the very top. As an expert Google Ads management partner, Sanmora Technologies builds PPC (Pay-Per-Click) campaigns that convert searches into sales. We manage keyword bidding structures, eliminate wasted budget by maintaining strict negative keyword lists, write compelling search descriptions, and improve ad Quality Scores—helping you secure top placements at the lowest cost per click.",
     features: [
       "Custom Search, Display, and Performance Max campaign setups.",
       "Exhaustive keyword bidding strategies targeting high-volume terms.",
@@ -605,7 +605,7 @@ export const seoPagesData = [
   },
   {
     slug: "social-media-marketing",
-    title: "Social Media Marketing Company | Sanmora Studio",
+    title: "Social Media Marketing Company | Sanmora Technologies",
     metaDescription: "Build a loyal brand following with a professional social media marketing agency. We design high-end content systems, visual calendars, and target audience pools.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
@@ -613,7 +613,7 @@ export const seoPagesData = [
     icon: "share-2",
     headline: "Social Media Marketing",
     subtitle: "Grow an active, engaged online community that supports your brand values.",
-    overview: "Social media is the virtual lobby of your business. If your profiles look outdated or output generic content, potential customers will take their business elsewhere. At Sanmora Studio, we act as a strategic social media marketing partner. We map out content schedules, write compelling posts, design premium graphics matching your brand identity guidelines, and coordinate community interactions—transforming your social profiles into assets that build credibility.",
+    overview: "Social media is the virtual lobby of your business. If your profiles look outdated or output generic content, potential customers will take their business elsewhere. At Sanmora Technologies, we act as a strategic social media marketing partner. We map out content schedules, write compelling posts, design premium graphics matching your brand identity guidelines, and coordinate community interactions—transforming your social profiles into assets that build credibility.",
     features: [
       "Custom content schedules containing custom graphics and copywriting.",
       "Optimizations of channel profiles matching corporate visual standards.",
@@ -645,15 +645,15 @@ export const seoPagesData = [
   },
   {
     slug: "digital-marketing-ahmedabad",
-    title: "Digital Marketing in Ahmedabad | Performance Ads | Sanmora Studio",
-    metaDescription: "Partner with Sanmora Studio for elite digital marketing in Ahmedabad. We design custom advertising pipelines and tracking systems built for sales ROI.",
+    title: "Digital Marketing in Ahmedabad | Performance Ads | Sanmora Technologies",
+    metaDescription: "Partner with Sanmora Technologies for elite digital marketing in Ahmedabad. We design custom advertising pipelines and tracking systems built for sales ROI.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
     color: "#ec4899",
     icon: "line-chart",
     headline: "Digital Marketing in Ahmedabad",
     subtitle: "Grow your customer footprint in Ahmedabad with structured performance funnels.",
-    overview: "To succeed in Ahmedabad's competitive market, you need a marketing strategy that directly impacts sales revenue. Sanmora Studio constructs paid acquisition funnels, local search maps presence, and social calendars built to convert. We implement custom analytics tags, audit search terms to reduce budget leaks, and split-test ad creatives—ensuring every rupee spent delivers high-intent leads.",
+    overview: "To succeed in Ahmedabad's competitive market, you need a marketing strategy that directly impacts sales revenue. Sanmora Technologies constructs paid acquisition funnels, local search maps presence, and social calendars built to convert. We implement custom analytics tags, audit search terms to reduce budget leaks, and split-test ad creatives—ensuring every rupee spent delivers high-intent leads.",
     features: [
       "Paid customer acquisition campaigns on Google Search and Meta.",
       "Conversion tracking event setups using Tag Manager and GA4.",
@@ -682,14 +682,14 @@ export const seoPagesData = [
   {
     slug: "web-design-company-ahmedabad",
     title: "Best Visual Design Company in Ahmedabad | Premium Web Design & UI/UX",
-    metaDescription: "Sanmora Studio is the best visual design company in Ahmedabad, delivering premium custom web designs, conversion-friendly UI/UX interfaces, and brand styling.",
+    metaDescription: "Sanmora Technologies is the best visual design company in Ahmedabad, delivering premium custom web designs, conversion-friendly UI/UX interfaces, and brand styling.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#fb923c",
     icon: "pen-tool",
     headline: "Web Design Company in Ahmedabad",
     subtitle: "High-end design aesthetics and flawless user experience crafted for local and global brands.",
-    overview: "At Sanmora Studio, we believe premium design is not an afterthought—it is the foundation of business growth. As a dedicated web design company in Ahmedabad, we translate complex business logic into intuitive, visually stunning, and highly engaging digital products. We reject generic templates and create custom Figma designs from scratch, ensuring your brand stands out, holds user attention, and converts traffic into customers.",
+    overview: "At Sanmora Technologies, we believe premium design is not an afterthought—it is the foundation of business growth. As a dedicated web design company in Ahmedabad, we translate complex business logic into intuitive, visually stunning, and highly engaging digital products. We reject generic templates and create custom Figma designs from scratch, ensuring your brand stands out, holds user attention, and converts traffic into customers.",
     features: [
       "Bespoke UI/UX wireframing and prototyping built custom in Figma.",
       "Responsive, mobile-first design layouts tested across multiple resolutions.",
@@ -717,7 +717,7 @@ export const seoPagesData = [
   },
   {
     slug: "ecommerce-website-development-ahmedabad",
-    title: "Ecommerce Website Development in Ahmedabad | Sanmora Studio",
+    title: "Ecommerce Website Development in Ahmedabad | Sanmora Technologies",
     metaDescription: "Build a fast, high-converting online store with the premier ecommerce website development agency in Ahmedabad. We build custom checkouts and headless shops.",
     parentService: "Website Development",
     parentSlug: "website-development",
@@ -725,7 +725,7 @@ export const seoPagesData = [
     icon: "shopping-cart",
     headline: "Ecommerce Website Development in Ahmedabad",
     subtitle: "High-speed storefronts, customized checkout flows, and automated inventory sync systems.",
-    overview: "In online retail, speed and simplicity determine your revenue. As an expert agency for ecommerce website development in Ahmedabad, Sanmora Studio crafts shopping experiences designed to sell. We eliminate complex, heavy pages and implement fast catalogs, optimized single-page checkouts, and clean product filtering—ensuring your store works flawlessly under heavy festive traffic spikes.",
+    overview: "In online retail, speed and simplicity determine your revenue. As an expert agency for ecommerce website development in Ahmedabad, Sanmora Technologies crafts shopping experiences designed to sell. We eliminate complex, heavy pages and implement fast catalogs, optimized single-page checkouts, and clean product filtering—ensuring your store works flawlessly under heavy festive traffic spikes.",
     features: [
       "Custom storefront design with lightning-fast catalog search filters.",
       "Optimized single-page checkout flows to minimize cart abandonment.",
@@ -761,7 +761,7 @@ export const seoPagesData = [
     icon: "shopping-cart",
     headline: "Shopify Development Company in Ahmedabad",
     subtitle: "Bespoke Shopify setups, custom theme development, and high-performance apps integration.",
-    overview: "Shopify is the global engine for ecommerce, but a standard generic template won't help you outshine competitors. As a specialized Shopify development company in Ahmedabad, Sanmora Studio builds high-converting stores that represent your brand aesthetics. We specialize in custom theme programming, headless Shopify configurations (Hydrogen/React), and custom app integrations—delivering visual storefronts that load instantly.",
+    overview: "Shopify is the global engine for ecommerce, but a standard generic template won't help you outshine competitors. As a specialized Shopify development company in Ahmedabad, Sanmora Technologies builds high-converting stores that represent your brand aesthetics. We specialize in custom theme programming, headless Shopify configurations (Hydrogen/React), and custom app integrations—delivering visual storefronts that load instantly.",
     features: [
       "Bespoke Shopify theme development customized to your specific design.",
       "Headless Shopify Hydrogen setups for ultra-fast performance.",
@@ -790,14 +790,14 @@ export const seoPagesData = [
   {
     slug: "seo-agency-ahmedabad",
     title: "SEO Agency in Ahmedabad | Professional Search Optimization - Sanmora",
-    metaDescription: "Partner with Sanmora Studio, a leading SEO agency in Ahmedabad. We design custom keyword strategies, technical optimization audits, and organic traffic funnels.",
+    metaDescription: "Partner with Sanmora Technologies, a leading SEO agency in Ahmedabad. We design custom keyword strategies, technical optimization audits, and organic traffic funnels.",
     parentService: "SEO",
     parentSlug: "digital-marketing",
     color: "#ec4899",
     icon: "search",
     headline: "SEO Agency in Ahmedabad",
     subtitle: "Rank page 1 on Google, capture customer intent, and scale organic pipeline growth.",
-    overview: "SEO is not about tricking algorithms—it is about relevance and technical excellence. As an expert SEO agency in Ahmedabad, Sanmora Studio builds search optimization campaigns that yield actual revenue. We audit your website's technical health, construct keyword content clusters, write semantic articles, and secure high-authority backlinks—placing your brand directly in front of buyers searching for your services.",
+    overview: "SEO is not about tricking algorithms—it is about relevance and technical excellence. As an expert SEO agency in Ahmedabad, Sanmora Technologies builds search optimization campaigns that yield actual revenue. We audit your website's technical health, construct keyword content clusters, write semantic articles, and secure high-authority backlinks—placing your brand directly in front of buyers searching for your services.",
     features: [
       "Exhaustive technical SEO audits analyzing crawl errors and index status.",
       "Targeted keyword mapping matching commercial and search intents.",
@@ -826,14 +826,14 @@ export const seoPagesData = [
   {
     slug: "digital-marketing-agency-ahmedabad",
     title: "Digital Marketing Agency in Ahmedabad | ROI-Driven Marketing - Sanmora",
-    metaDescription: "Sanmora Studio is a leading digital marketing agency in Ahmedabad. We design, optimize, and scale performance advertising campaigns across Google & Meta.",
+    metaDescription: "Sanmora Technologies is a leading digital marketing agency in Ahmedabad. We design, optimize, and scale performance advertising campaigns across Google & Meta.",
     parentService: "Digital Marketing",
     parentSlug: "digital-marketing",
     color: "#ec4899",
     icon: "line-chart",
     headline: "Digital Marketing Agency in Ahmedabad",
     subtitle: "Acquire qualified leads, scale online sales, and optimize ad budget profitability.",
-    overview: "Many agencies focus on clicks and vanity impressions. At Sanmora Studio, we focus on revenue. As a performance-led digital marketing agency in Ahmedabad, we build paid advertising pipelines and conversion-driven funnels. We define target user profiles, program conversion-tracking integrations, audit search terms to stop budget leaks, and A/B test ad graphics—delivering predictable business growth.",
+    overview: "Many agencies focus on clicks and vanity impressions. At Sanmora Technologies, we focus on revenue. As a performance-led digital marketing agency in Ahmedabad, we build paid advertising pipelines and conversion-driven funnels. We define target user profiles, program conversion-tracking integrations, audit search terms to stop budget leaks, and A/B test ad graphics—delivering predictable business growth.",
     features: [
       "Performance marketing campaigns across Meta Ads and Google Search.",
       "Advanced pixel, event tracking, and Google Tag Manager setups.",
@@ -862,14 +862,14 @@ export const seoPagesData = [
   {
     slug: "nextjs-development-company-ahmedabad",
     title: "Next.js Development Company in Ahmedabad | React Experts - Sanmora",
-    metaDescription: "Sanmora Studio is the premier Next.js development company in Ahmedabad, building high-speed React applications, static landing pages, and SaaS portals.",
+    metaDescription: "Sanmora Technologies is the premier Next.js development company in Ahmedabad, building high-speed React applications, static landing pages, and SaaS portals.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "code",
     headline: "Next.js Development Company in Ahmedabad",
     subtitle: "Build fast, secure, and SEO-native React platforms utilizing the App Router.",
-    overview: "As a dedicated Next.js development company in Ahmedabad, Sanmora Studio leverages this modern framework to build web experiences that score perfectly on Google Lighthouse. Next.js combines the component architecture of React with Server-Side Rendering (SSR) and Static Site Generation (SSG)—delivering fast, responsive interfaces that rank at the top of search listings.",
+    overview: "As a dedicated Next.js development company in Ahmedabad, Sanmora Technologies leverages this modern framework to build web experiences that score perfectly on Google Lighthouse. Next.js combines the component architecture of React with Server-Side Rendering (SSR) and Static Site Generation (SSG)—delivering fast, responsive interfaces that rank at the top of search listings.",
     features: [
       "Expert implementation of Next.js App Router and Server Components.",
       "Advanced rendering options configuration (SSR, SSG, ISR).",
@@ -905,7 +905,7 @@ export const seoPagesData = [
     icon: "code",
     headline: "React Development Company in Ahmedabad",
     subtitle: "Interactive frontend applications built with modular state management and animations.",
-    overview: "Complex software dashboards and interactive frontends require a scalable structural framework. As an experienced React development company in Ahmedabad, Sanmora Studio builds modular frontends with clean, state-controlled data models. By programming reusable component systems and optimizing rendering layers, we deliver interfaces that respond instantly to user actions.",
+    overview: "Complex software dashboards and interactive frontends require a scalable structural framework. As an experienced React development company in Ahmedabad, Sanmora Technologies builds modular frontends with clean, state-controlled data models. By programming reusable component systems and optimizing rendering layers, we deliver interfaces that respond instantly to user actions.",
     features: [
       "Custom React.js application programming matching Figmas.",
       "Modular state controls configured in Zustand or Redux Toolkit.",
@@ -934,14 +934,14 @@ export const seoPagesData = [
   {
     slug: "custom-software-development-ahmedabad",
     title: "Custom Software Development in Ahmedabad | Enterprise Solutions - Sanmora",
-    metaDescription: "Sanmora Studio is a leading custom software development company in Ahmedabad, engineering robust backend databases, custom APIs, and scalable SaaS.",
+    metaDescription: "Sanmora Technologies is a leading custom software development company in Ahmedabad, engineering robust backend databases, custom APIs, and scalable SaaS.",
     parentService: "Software Development",
     parentSlug: "software-development",
     color: "#8b5cf6",
     icon: "cube",
     headline: "Custom Software Development in Ahmedabad",
     subtitle: "Turn unique corporate workflows and logic into secure, scalable software products.",
-    overview: "Off-the-shelf software packages often restrict your operational workflows. At Sanmora Studio, as a custom software development company in Ahmedabad, we build software designed to adapt to your business rules. From scalable multi-tenant SaaS products and internal CRM portals to secure API systems, we build architectures that solve operational bottlenecks and scale seamlessly.",
+    overview: "Off-the-shelf software packages often restrict your operational workflows. At Sanmora Technologies, as a custom software development company in Ahmedabad, we build software designed to adapt to your business rules. From scalable multi-tenant SaaS products and internal CRM portals to secure API systems, we build architectures that solve operational bottlenecks and scale seamlessly.",
     features: [
       "Bespoke software design aligned with your exact company workflows.",
       "Scalable backend database designs (PostgreSQL, MongoDB).",
@@ -970,14 +970,14 @@ export const seoPagesData = [
   {
     slug: "best-web-development-company-in-ahmedabad",
     title: "Best Web Development Company in Ahmedabad | Premium Solutions - Sanmora",
-    metaDescription: "Sanmora Studio is voted the best web development company in Ahmedabad. We design custom Next.js websites, mobile apps, and results-oriented SEO.",
+    metaDescription: "Sanmora Technologies is voted the best web development company in Ahmedabad. We design custom Next.js websites, mobile apps, and results-oriented SEO.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "lightning",
     headline: "Best Web Development Company in Ahmedabad",
     subtitle: "Top-rated engineering capability, modern visual styles, and SEO optimization.",
-    overview: "Ahmedabad's digital market is scaling fast, and a slow generic website will hold your brand back. Sanmora Studio has earned recognition as the best web development company in Ahmedabad by focusing on high-performance execution. We eliminate slow page builders, coding lightweight, secure Next.js templates that load in under 1 second, keeping bounce rates low and conversion rates high.",
+    overview: "Ahmedabad's digital market is scaling fast, and a slow generic website will hold your brand back. Sanmora Technologies has earned recognition as the best web development company in Ahmedabad by focusing on high-performance execution. We eliminate slow page builders, coding lightweight, secure Next.js templates that load in under 1 second, keeping bounce rates low and conversion rates high.",
     features: [
       "Pixel-perfect custom visual layouts crafted in Figma.",
       "Perfect Lighthouse metrics (100% speed, SEO, accessibility).",
@@ -994,7 +994,7 @@ export const seoPagesData = [
     techStack: ["Next.js", "React.js", "Node.js", "Tailwind CSS", "Prisma ORM", "Vercel"],
     faqs: [
       {
-        question: "What makes Sanmora Studio the best choice in Ahmedabad?",
+        question: "What makes Sanmora Technologies the best choice in Ahmedabad?",
         answer: "Unlike agencies using heavy page templates, we write clean, custom-coded web architectures. This ensures your site is faster, more secure, and ranks significantly higher on search crawlers."
       },
       {
@@ -1005,15 +1005,15 @@ export const seoPagesData = [
   },
   {
     slug: "website-developer-ahmedabad",
-    title: "Website Developer in Ahmedabad | Best Visual Design Company - Sanmora Studio",
-    metaDescription: "Looking for a website developer in Ahmedabad? Sanmora Studio is the best visual design company, offering bespoke web design, custom development, and SEO.",
+    title: "Website Developer in Ahmedabad | Best Visual Design Company - Sanmora Technologies",
+    metaDescription: "Looking for a website developer in Ahmedabad? Sanmora Technologies is the best visual design company, offering bespoke web design, custom development, and SEO.",
     parentService: "Website Development",
     parentSlug: "website-development",
     color: "#0ea5e9",
     icon: "layout",
     headline: "Website Developer in Ahmedabad",
     subtitle: "Bespoke visual design combined with elite software engineering to rank your website top.",
-    overview: "When looking for a website developer in Ahmedabad who excels in visual design, Sanmora Studio is your premier choice. We believe a website should be both a visual masterpiece and a high-performance software system. Our development process integrates stunning graphics, interactive animations, and responsive structures with lightweight, clean code—ensuring your website dominates local search results.",
+    overview: "When looking for a website developer in Ahmedabad who excels in visual design, Sanmora Technologies is your premier choice. We believe a website should be both a visual masterpiece and a high-performance software system. Our development process integrates stunning graphics, interactive animations, and responsive structures with lightweight, clean code—ensuring your website dominates local search results.",
     features: [
       "Custom graphic layouts designed specifically for your target market.",
       "Clean custom code architecture with zero heavy template overhead.",
