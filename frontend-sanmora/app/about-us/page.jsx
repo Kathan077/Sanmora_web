@@ -13,8 +13,8 @@ import WhatWeDo from '@/components/Aboutus/WhatWeDo';
 import WhyClientsChooseUs from '@/components/Aboutus/WhyClientsChooseUs';
 
 export const metadata = {
-  title: "About Us | Sanmora Studio",
-  description: "Learn more about Sanmora Studio, our agile execution, and enterprise scaling solutions."
+  title: "About Us | Sanmora Technologies",
+  description: "Learn more about Sanmora Technologies, our agile execution, and enterprise scaling solutions."
 };
 
 export default function AboutUsPage() {
