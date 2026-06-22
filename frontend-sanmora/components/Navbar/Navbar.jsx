@@ -79,7 +79,7 @@ export default function Navbar() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo/sanmora-logo.png"
-            alt="Sanmora Studio Logo"
+            alt="Sanmora Technologies Logo"
             className={styles.brandImageLogo}
           />
         </div>
@@ -273,7 +273,7 @@ export default function Navbar() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo/sanmora-logo.png"
-              alt="Sanmora Studio Logo"
+              alt="Sanmora Technologies Logo"
               className={styles.mobileBrandLogo}
             />
           </div>

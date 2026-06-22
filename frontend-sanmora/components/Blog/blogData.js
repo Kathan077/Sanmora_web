@@ -97,7 +97,7 @@ To dominate the Ahmedabad market, startups must execute a structured, technical,
 
 ### Strategy A: Google Business Profile (GBP) Optimization
 Your Google Business Profile is the absolute foundation of local search visibility.
-- **Claim and Verify:** Ensure your business name matches your legal registration. Do not stuff keywords like "Best Software Ahmedabad Startup" into your title; Google will suspend your listing. Use your clean brand name, e.g., "Sanmora Studio".
+- **Claim and Verify:** Ensure your business name matches your legal registration. Do not stuff keywords like "Best Software Ahmedabad Startup" into your title; Google will suspend your listing. Use your clean brand name, e.g., "Sanmora Technologies".
 - **Select the Right Primary Category:** Choose the primary category that matches your core service (e.g., "Website Designer", "Software Company", "Internet Marketing Service").
 - **Write a Detailed Description:** Include your key target keywords naturally. Mention the city name, the neighborhoods you serve, and what makes your startup unique.
 - **Add High-Quality Photos:** Upload real photos of your office interior, your team, and your client meetings. Active profiles with real visual assets receive 35% more clicks.

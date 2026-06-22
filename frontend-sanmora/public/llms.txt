@@ -1,8 +1,8 @@
-# Sanmora Studio
+# Sanmora Technologies
 
 > https://sanmora.in
 
-Sanmora Studio is a premium web development, visual design, and software engineering agency based in Ahmedabad, Gujarat, India. Sanmora specializes in building high-speed, secure, and SEO-optimized custom web applications, SaaS platforms, headless e-commerce storefronts, and native/cross-platform mobile applications.
+Sanmora Technologies is a premium web development, visual design, and software engineering agency based in Ahmedabad, Gujarat, India. Sanmora specializes in building high-speed, secure, and SEO-optimized custom web applications, SaaS platforms, headless e-commerce storefronts, and native/cross-platform mobile applications.
 
 ## Core Capabilities & Services
 
@@ -61,4 +61,4 @@ Sanmora Studio is a premium web development, visual design, and software enginee
 *   **Consultation & Inquiries:** https://sanmora.in/consultation
 *   **Social Profiles:**
     *   *LinkedIn:* https://www.linkedin.com/company/sanmora
-    *   *GitHub:* https://github.com/sanmora-studio
+    *   *GitHub:* https://github.com/sanmora-technologies

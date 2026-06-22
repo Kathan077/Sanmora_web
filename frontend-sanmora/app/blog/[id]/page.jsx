@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   }
   return {
     title: `${post.title} | Sanmora Technologies`,
-    description: post.excerpt || "Read the latest article from Sanmora Studio."
+    description: post.excerpt || "Read the latest article from Sanmora Technologies."
   };
 }
 

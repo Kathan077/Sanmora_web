@@ -1,4 +1,4 @@
-// Shared service data for Sanmora Studio.
+// Shared service data for Sanmora Technologies.
 // This serves as the single source of truth for the Navbar dropdown,
 // the main Services page, and all dynamic category and sub-service pages.
 

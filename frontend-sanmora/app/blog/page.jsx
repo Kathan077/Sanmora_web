@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer"; // Assuming a Footer exists
 
 export const metadata = {
   title: "Blog | Sanmora Technologies",
-  description: "Insights and articles from the Sanmora Studio team.",
+  description: "Insights and articles from the Sanmora Technologies team.",
 };
 
 export default function BlogPage() {

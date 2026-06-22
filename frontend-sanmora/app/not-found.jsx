@@ -12,7 +12,7 @@ import pageStyles from "./page.module.css";
 export default function NotFound() {
   useEffect(() => {
     // Set descriptive page title dynamically in client-side
-    document.title = "Page Not Found | Sanmora Studio";
+    document.title = "Page Not Found | Sanmora Technologies";
   }, []);
 
   // Framer Motion Animation Variants

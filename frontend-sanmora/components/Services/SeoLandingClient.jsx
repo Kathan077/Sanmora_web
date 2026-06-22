@@ -332,7 +332,7 @@ export default function SeoLandingClient({ pageData }) {
             </div>
             <h3 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#0F172A", margin: "0 0 12px" }}>Why Partner With Us?</h3>
             <p style={{ color: "#64748B", fontSize: "0.95rem", lineHeight: 1.6, margin: "0 0 24px" }}>
-              At Sanmora Studio, we combine specialized skills with direct communication. You work directly with engineers and planners to ship performant, high-yielding interfaces.
+              At Sanmora Technologies, we combine specialized skills with direct communication. You work directly with engineers and planners to ship performant, high-yielding interfaces.
             </p>
             
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -447,7 +447,7 @@ export default function SeoLandingClient({ pageData }) {
                 </div>
                 <div>
                   <h5 className={styles.contactLabel}>Email Us</h5>
-                  <p className={styles.contactValue}>info@sanmorastudio.com</p>
+                  <p className={styles.contactValue}>info@sanmora.in</p>
                 </div>
               </div>
               
