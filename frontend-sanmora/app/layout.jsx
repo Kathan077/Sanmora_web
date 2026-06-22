@@ -1,4 +1,5 @@
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
+import WhatsAppButton from "@/components/Shared/WhatsAppButton";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ScrollToTop />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
