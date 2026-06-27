@@ -396,78 +396,6 @@
   margin-bottom: 2rem;
 }
 
-/* Responsive queries */
-@media (max-width: 1024px) {
-  .heroSection {
-    padding: 7rem 4% 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroSection {
-    padding: 6rem 1.25rem 2.5rem;
-    border-radius: 0 0 30px 30px;
-  }
-
-  .breadcrumbActive {
-    max-width: 180px;
-  }
-
-  .imageWrapper {
-    height: 320px;
-    margin-bottom: 2rem;
-    border-radius: 16px;
-  }
-
-  .contentCard {
-    padding: 2rem 1.5rem;
-    border-radius: 16px;
-  }
-
-  .contentCard p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  .contentCard h3 {
-    font-size: 1.5rem;
-    margin: 2rem 0 1rem 0;
-  }
-
-  .ctaSection {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .ctaTitle {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroSection {
-    padding: 5.5rem 1rem 2rem;
-  }
-
-  .imageWrapper {
-    height: 220px;
-    border-radius: 12px;
-  }
-
-  .contentCard {
-    padding: 1.25rem 1rem;
-  }
-
-  .meta {
-    gap: 0.75rem 1.25rem;
-  }
-}
-
-.contentSection {
-  padding: 0 0 6rem 0;
-  position: relative;
-  z-index: 10;
-}
-
 .articleLayoutGrid {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -524,6 +452,13 @@
   color: #2563eb;
 }
 
+/* Responsive queries */
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 7rem 4% 3rem;
+  }
+}
+
 @media (max-width: 992px) {
   .articleLayoutGrid {
     grid-template-columns: 1fr;
@@ -533,6 +468,125 @@
     position: relative;
     top: 0;
   }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 6rem 1.25rem 2.5rem;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .breadcrumbActive {
+    max-width: 180px;
+  }
+
+  .imageWrapper {
+    height: 320px;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+  }
+
+  .articleContainer {
+    padding: 0 1rem;
+  }
+
+  .richParagraphs p {
+    font-size: 1.025rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .richParagraphs h2 {
+    font-size: 1.45rem;
+    margin: 2rem 0 1rem 0;
+    padding-left: 1rem;
+  }
+
+  .richParagraphs h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.75rem 0;
+    padding-left: 1rem;
+  }
+
+  .richParagraphs h4 {
+    font-size: 1.15rem;
+    margin: 1.25rem 0 0.6rem 0;
+  }
+
+  .richParagraphs li {
+    font-size: 0.975rem;
+    line-height: 1.65;
+    margin-bottom: 0.5rem;
+    padding-left: 1.15rem;
+  }
+
+  .blockquote {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 1.25rem 0;
+  }
+
+  .authorBlock {
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .authorInfo {
+    min-width: 120px;
+  }
+
+  .ctaSection {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 5.5rem 1rem 2rem;
+  }
+
+  .headline {
+    font-size: 1.6rem;
+  }
+
+  .imageWrapper {
+    height: 200px;
+    border-radius: 12px;
+  }
+
+  .meta {
+    gap: 0.75rem 1.25rem;
+  }
+
+  .authorBlock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .authorInfo {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .shareButtons {
+    width: 100%;
+    justify-content: flex-start;
+    border-top: 1px solid rgba(0, 0, 0, 0.04);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.contentSection {
+  padding: 0 0 6rem 0;
+  position: relative;
+  z-index: 10;
 }
 
 .inlineLink {
@@ -550,4 +604,140 @@
   color: #2563eb;
   background-color: rgba(124, 58, 237, 0.08);
   border-bottom: 2px solid #2563eb;
+}
+
+/* Table Styles */
+.tableWrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.02);
+}
+
+.blogTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.blogTable th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid rgba(124, 58, 237, 0.1);
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.blogTable td {
+  padding: 12px 16px;
+  border: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.blogTable tr {
+  border-bottom: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.blogTable tr:nth-child(even) {
+  background: rgba(124, 58, 237, 0.01);
+}
+
+@media (max-width: 600px) {
+  .blogTable {
+    font-size: 0.85rem;
+  }
+  .blogTable th, .blogTable td {
+    padding: 8px 10px;
+  }
+}
+
+/* FAQ Accordion Styles */
+.faqItem {
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 16px;
+  margin-bottom: 1.25rem;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faqItemOpen {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.12);
+}
+
+.faqButton {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #0f172a;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faqQuestionText {
+  padding-right: 1.5rem;
+  line-height: 1.4;
+}
+
+.faqIcon {
+  color: #7c3aed;
+  font-size: 1.4rem;
+  font-weight: 300;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  line-height: 1;
+}
+
+.faqIconOpen {
+  transform: rotate(45deg);
+}
+
+.faqAnswerContainer {
+  max-height: 0px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.faqAnswerContainerOpen {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.faqAnswerContent {
+  padding: 0 24px 24px;
+  line-height: 1.8;
+  color: #475569;
+  font-size: 1.025rem;
+  border-top: 1px solid rgba(124, 58, 237, 0.06);
+}
+
+@media (max-width: 600px) {
+  .faqButton {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  .faqQuestionText {
+    padding-right: 1rem;
+  }
+  .faqIcon {
+    font-size: 1.1rem;
+  }
+  .faqAnswerContent {
+    padding: 0 16px 16px;
+    font-size: 0.925rem;
+    line-height: 1.6;
+  }
 }

@@ -70,62 +70,19 @@ const FaqAccordionItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   
   return (
-    <div style={{
-      border: "1px solid rgba(124, 58, 237, 0.12)",
-      borderRadius: "16px",
-      marginBottom: "1.25rem",
-      background: isOpen ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.35)",
-      backdropFilter: "blur(10px)",
-      boxShadow: isOpen ? "0 10px 30px -10px rgba(124, 58, 237, 0.12)" : "none",
-      overflow: "hidden",
-      transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
-    }}>
+    <div className={`${styles.faqItem} ${isOpen ? styles.faqItemOpen : ""}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        style={{
-          width: "100%",
-          padding: "20px 24px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          textAlign: "left",
-          fontWeight: "700",
-          fontSize: "1.1rem",
-          color: "#0f172a",
-          background: "transparent",
-          border: "none",
-          outline: "none",
-          cursor: "pointer",
-          transition: "all 0.3s ease"
-        }}
+        className={styles.faqButton}
       >
-        <span style={{ paddingRight: "1.5rem", lineHeight: "1.4" }}>{question}</span>
-        <span style={{
-          color: "#7c3aed",
-          fontSize: "1.4rem",
-          fontWeight: "300",
-          transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-          transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-          display: "inline-block",
-          lineHeight: "1"
-        }}>
+        <span className={styles.faqQuestionText}>{question}</span>
+        <span className={`${styles.faqIcon} ${isOpen ? styles.faqIconOpen : ""}`}>
           ＋
         </span>
       </button>
       
-      <div style={{
-        maxHeight: isOpen ? "500px" : "0px",
-        opacity: isOpen ? 1 : 0,
-        transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-        overflow: "hidden"
-      }}>
-        <div style={{
-          padding: "0 24px 24px",
-          lineHeight: "1.8",
-          color: "#475569",
-          fontSize: "1.025rem",
-          borderTop: "1px solid rgba(124, 58, 237, 0.06)"
-        }}>
+      <div className={`${styles.faqAnswerContainer} ${isOpen ? styles.faqAnswerContainerOpen : ""}`}>
+        <div className={styles.faqAnswerContent}>
           {parseInlineFormatting(answer)}
         </div>
       </div>
@@ -159,12 +116,12 @@ const renderContent = (text) => {
   const flushTable = (index) => {
     if (tableRows.length > 0) {
       elements.push(
-        <div key={`table-wrapper-${index}`} className={styles.tableWrapper} style={{ overflowX: "auto", margin: "1.5rem 0", width: "100%" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", color: "#334155", fontSize: "1rem" }}>
+        <div key={`table-wrapper-${index}`} className={styles.tableWrapper}>
+          <table className={styles.blogTable}>
             <thead>
-              <tr style={{ borderBottom: "2px solid rgba(124, 58, 237, 0.2)", background: "rgba(124, 58, 237, 0.05)" }}>
+              <tr>
                 {tableRows[0].map((col, idx) => (
-                  <th key={idx} style={{ padding: "12px 16px", textAlign: "left", fontWeight: "700", border: "1px solid rgba(124, 58, 237, 0.1)" }}>
+                  <th key={idx}>
                     {parseInlineFormatting(col)}
                   </th>
                 ))}
@@ -172,9 +129,9 @@ const renderContent = (text) => {
             </thead>
             <tbody>
               {tableRows.slice(1).map((row, rIdx) => (
-                <tr key={rIdx} style={{ borderBottom: "1px solid rgba(124, 58, 237, 0.08)", background: rIdx % 2 === 1 ? "rgba(124, 58, 237, 0.01)" : "transparent" }}>
+                <tr key={rIdx}>
                   {row.map((col, cIdx) => (
-                    <td key={cIdx} style={{ padding: "12px 16px", border: "1px solid rgba(124, 58, 237, 0.08)" }}>
+                    <td key={cIdx}>
                       {parseInlineFormatting(col)}
                     </td>
                   ))}
@@ -457,6 +414,127 @@ export default function BlogDetailClient({ id }) {
             })
           }}
         />
+      )}
+      {post.id === 11 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "How much does a logo design cost in India for a startup?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "For a startup in India, a professional custom logo design typically costs between ₹8,000 and ₹25,000 when hiring an experienced freelancer. If you need a comprehensive visual identity system—including stationery layouts, packaging files, and corporate stylebooks—prices usually range from ₹30,000 to ₹75,000 with a boutique design studio."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Why is agency logo design so much more expensive than freelancer design?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Agencies charge more because their scope goes beyond graphic design. When you hire an agency, you work with a team of researchers, strategists, designers, and project managers. They conduct target market research, analyze competitors, test the logo across digital applications, and build a unified visual identity system, resulting in a more durable and effective business asset."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Can I trademark a logo designed using a template or AI?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "It is highly unlikely. The Trademark Registry of India requires design marks to be distinct and original. Templates and AI logos are built using shared public databases and graphics, meaning multiple companies may have highly similar designs, which will result in trademark rejection or legal conflicts."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What file formats should I receive from a logo designer?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "You should receive editable vector source files—including SVG, EPS, and AI (Adobe Illustrator) formats—which allow you to scale the logo to any size. Additionally, you should receive high-resolution web formats, including transparent PNGs and JPEGs for social media and website profiles."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How many initial concepts and revisions should a logo package include?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A standard professional logo package typically offers 2 to 4 initial design concepts. Once you select a concept, the package should include 2 to 3 rounds of revisions to adjust colors, fonts, and details. Be sure to confirm the exact number of concepts and revisions in writing before starting the project."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How long does the professional logo design process take?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A professional design process usually takes between 2 and 6 weeks. This timeline includes research and competitor audits (1 week), initial concept creation (1–2 weeks), feedback and revisions (1 week), and final file exports and brand guide documentation (1 week)."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is a brand style guide, and do I need one?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A brand style guide (or corporate book) outlines the rules for using your brand assets. It defines color codes (HEX, RGB, CMYK), typography setups, and clear spacing rules. Yes, you need one to ensure your marketing teams keep visuals consistent."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Are fonts included in the logo design price?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "The designer will provide font files or download links. However, if your design uses a premium, proprietary typeface, you must purchase the commercial license to use it on your website, app, or corporate materials. Open-source options like Google Fonts require no licensing fees."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Can I update my existing logo instead of designing a new one?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes, this is called a brand refresh. A refresh keeps your core elements (like your primary color or symbol) but updates the typography, spacing, and styling to make it look modern. Brand refreshes are a great option for established companies that want to update their look without losing customer recognition."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What makes a logo successful and memorable?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A successful logo is simple, memorable, scalable, and timeless. It should be easily readable on a small mobile screen, work in a single color (black or white) for physical prints, look distinct from competitors, and represent your brand's core values clearly."
+                    }
+                  }
+                ]
+              })
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "Logo Design Cost in India (2026): Complete Pricing Guide for Startups & Small Businesses",
+                "image": "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop",
+                "author": {
+                  "@type": "Organization",
+                  "name": "Sanmora Team",
+                  "url": "https://sanmora.in"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Sanmora Technologies",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://sanmora.in/logo/sanmora-logo.png"
+                  }
+                },
+                "datePublished": "2026-06-27",
+                "description": "How much does a professional logo design cost in India in 2026? From freelancers and design agencies to DIY and AI, here is the complete pricing breakdown, hidden costs, and how to choose the right partner for your startup."
+              })
+            }}
+          />
+        </>
       )}
       {/* Blog Hero section */}
       <section className={styles.heroSection}>

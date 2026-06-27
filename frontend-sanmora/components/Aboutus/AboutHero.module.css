@@ -223,13 +223,13 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(124, 58, 237, 0.08);
-  padding: 24px 20px;
+  padding: 24px 24px;
   border-radius: 20px;
   box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -373,7 +373,8 @@
 
   .heroContainer {
     flex-direction: column;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     min-height: auto;
     gap: 48px;
   }
@@ -382,7 +383,7 @@
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .title {
@@ -397,13 +398,14 @@
 
   .stats {
     width: 100%;
-    justify-content: center;
-    max-width: 600px;
+    justify-content: flex-start;
+    max-width: 100%;
   }
 
   .visual {
     width: 100%;
     margin-top: 20px;
+    justify-content: flex-start;
   }
 
   .globe {
@@ -438,6 +440,8 @@
 
   .stat {
     padding: 20px;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .stat h3 {
