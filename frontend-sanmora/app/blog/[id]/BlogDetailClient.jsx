@@ -695,6 +695,19 @@ export default function BlogDetailClient({ id }) {
                   <button className={styles.shareBtn} onClick={handleCopyLink}>
                     {copied ? "✓ Copied!" : "🔗 Copy Link"}
                   </button>
+                  {post.redditLink && (
+                    <a
+                      href={post.redditLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.redditShareBtn}
+                    >
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.29-1.72l1.25-3.91 3.43.77c.04.9.78 1.63 1.7 1.63 1.1 0 2-1 2-2s-.9-2-2-2c-.73 0-1.37.4-1.72 1L14.7 3.5c-.15-.04-.32.02-.39.17l-1.48 4.62c-2.58.05-4.9.7-6.59 1.72-.56-.76-1.46-1.24-2.42-1.24-1.65 0-3 1.35-3 3 0 1.05.54 1.97 1.37 2.53-.08.4-.13.82-.13 1.24 0 4.14 4.93 7.5 11 7.5s11-3.36 11-7.5c0-.42-.05-.84-.13-1.24.83-.56 1.37-1.48 1.37-2.53zM5 13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm13 5c-1.8 1.8-5.2 1.8-7 0-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0 1.4 1.4 4.2 1.4 5.6 0 .2-.2.5-.2.7 0 .2.2.2.5 0 .7zm-1-3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                      </svg>
+                      Discuss on Reddit
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -702,6 +715,28 @@ export default function BlogDetailClient({ id }) {
               <div className={styles.richParagraphs}>
                 {renderContent(post.content)}
               </div>
+
+              {post.redditLink && (
+                <div className={styles.redditDiscussionBox}>
+                  <div className={styles.redditIconContainer}>
+                    <svg viewBox="0 0 24 24" className={styles.redditLargeIcon} fill="currentColor">
+                      <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.29-1.72l1.25-3.91 3.43.77c.04.9.78 1.63 1.7 1.63 1.1 0 2-1 2-2s-.9-2-2-2c-.73 0-1.37.4-1.72 1L14.7 3.5c-.15-.04-.32.02-.39.17l-1.48 4.62c-2.58.05-4.9.7-6.59 1.72-.56-.76-1.46-1.24-2.42-1.24-1.65 0-3 1.35-3 3 0 1.05.54 1.97 1.37 2.53-.08.4-.13.82-.13 1.24 0 4.14 4.93 7.5 11 7.5s11-3.36 11-7.5c0-.42-.05-.84-.13-1.24.83-.56 1.37-1.48 1.37-2.53zM5 13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm13 5c-1.8 1.8-5.2 1.8-7 0-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0 1.4 1.4 4.2 1.4 5.6 0 .2-.2.5-.2.7 0 .2.2.2.5 0 .7zm-1-3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                  </div>
+                  <div className={styles.redditDiscussionContent}>
+                    <h4>Discuss on Reddit</h4>
+                    <p>Have thoughts or questions about this article? Join the discussion in our official Reddit community thread.</p>
+                    <a
+                      href={post.redditLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.redditDiscussBtn}
+                    >
+                      Open Reddit Thread
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Sidebar with sticky CTA */}

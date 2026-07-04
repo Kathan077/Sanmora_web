@@ -8,6 +8,7 @@ export const blogPosts = [
     readTime: "18 min read",
     image: "/images/smarter_software_generative_ai.png",
     featured: true,
+    redditLink: "https://www.reddit.com/r/Sanmora/s/kOlBClLSFW",
     content: `
 # How Businesses Can Build Smarter Software With Generative AI
 
