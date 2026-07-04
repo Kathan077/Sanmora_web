@@ -1,4 +1,5 @@
 import { seoPagesData } from "@/data/seoPagesData";
+import { blogPosts } from "@/components/Blog/blogData";
 
 // Next.js dynamic sitemap.xml route configuration.
 // Accessible at https://sanmora.in/sitemap.xml
@@ -30,6 +31,14 @@ export default async function sitemap() {
     priority: 0.9,
   }));
 
-  // Combine static and dynamic arrays
-  return [...staticRoutes, ...seoRoutes];
+  // 3. Dynamic Blog Post Pages
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  // Combine static, dynamic, and blog arrays
+  return [...staticRoutes, ...seoRoutes, ...blogRoutes];
 }
