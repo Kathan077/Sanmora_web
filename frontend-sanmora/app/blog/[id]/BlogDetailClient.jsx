@@ -238,13 +238,20 @@ const renderContent = (text) => {
       elements.push(<h4 key={index}>{trimmed.replace(/^####\s*/, "")}</h4>);
     } else if (trimmed.startsWith("###")) {
       flushList(index);
-      elements.push(<h3 key={index}>{trimmed.replace(/^###\s*/, "")}</h3>);
+      const textVal = trimmed.replace(/^###\s*/, "");
+      const id = textVal.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+      elements.push(<h3 key={index} id={id}>{textVal}</h3>);
     } else if (trimmed.startsWith("##")) {
       flushList(index);
-      elements.push(<h2 key={index}>{trimmed.replace(/^##\s*/, "")}</h2>);
+      const textVal = trimmed.replace(/^##\s*/, "");
+      const id = textVal.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+      elements.push(<h2 key={index} id={id}>{textVal}</h2>);
+    } else if (trimmed.startsWith("#")) {
+      // Skip single # headings (like # SEO Title:, # Meta Title:, etc.)
+      return;
     } else if (trimmed.match(/^[-]{3,}$/)) {
       flushList(index);
-      elements.push(<hr key={index} style={{ border: 0, height: "1px", background: "rgba(124, 58, 237, 0.15)", margin: "2.5rem 0" }} />);
+      elements.push(<hr key={index} className={styles.blogHr} />);
     } else if (trimmed.startsWith(">")) {
       flushList(index);
       elements.push(
@@ -309,12 +316,158 @@ const splitContent = (content) => {
   };
 };
 
+const stripTableOfContents = (content) => {
+  if (!content) return "";
+  const lines = content.split("\n");
+  const filteredLines = [];
+  let inTOC = false;
+  
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    
+    if (trimmed.toLowerCase().includes("## table of contents")) {
+      inTOC = true;
+      continue;
+    }
+    
+    if (inTOC) {
+      // TOC section terminates when hitting another subheading or horizontal rule
+      if (trimmed.startsWith("##") || trimmed.match(/^[-]{3,}$/)) {
+        inTOC = false;
+        if (trimmed.match(/^[-]{3,}$/)) {
+          continue; // Skip the separator following TOC to avoid double separators
+        }
+      } else {
+        continue; // Skip all TOC links and list elements
+      }
+    }
+    
+    filteredLines.push(line);
+  }
+  
+  return filteredLines.join("\n");
+};
+
+const parseHeadings = (content) => {
+  if (!content) return [];
+  const lines = content.split("\n");
+  const headings = [];
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (trimmed.startsWith("## ") || trimmed.startsWith("### ")) {
+      const level = trimmed.startsWith("## ") ? 2 : 3;
+      const text = trimmed.replace(/^##+\s*/, "");
+      const lowerText = text.toLowerCase();
+      
+      // Filter out meta headings, TOC header itself, intro headers etc.
+      if (
+        lowerText.includes("table of contents") ||
+        lowerText.includes("blog introduction") ||
+        lowerText.includes("main article") ||
+        lowerText.includes("call to action") ||
+        lowerText.includes("conclusion & key takeaways") ||
+        lowerText.includes("conclusion & call to action") ||
+        lowerText.includes("key takeaways") ||
+        lowerText.includes("need a custom logo") ||
+        lowerText.includes("frequently asked questions") ||
+        lowerText.includes("expert seo checklist") ||
+        lowerText.includes("common seo myths") ||
+        lowerText.includes("why every business needs") ||
+        lowerText.includes("factors that affect") ||
+        lowerText.includes("freelancer vs agency") ||
+        lowerText.includes("logo pricing by") ||
+        lowerText.includes("what is included in") ||
+        lowerText.includes("hidden costs to") ||
+        lowerText.includes("how to choose the") ||
+        lowerText.includes("common mistakes businesses") ||
+        lowerText.includes("real-world pricing") ||
+        lowerText.includes("why cheap logos") ||
+        lowerText.includes("final thoughts")
+      ) {
+        return;
+      }
+      
+      const id = text.toLowerCase().replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-");
+      headings.push({ text, level, id });
+    }
+  });
+  return headings;
+};
+
 export default function BlogDetailClient({ id }) {
   const router = useRouter();
   const [copied, setCopied] = React.useState(false);
+  const [activeId, setActiveId] = React.useState("");
+  const [shareUrl, setShareUrl] = React.useState("");
 
   // Find matching blog post
   const post = blogPosts.find(p => p.id === parseInt(id));
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      setShareUrl(window.location.href);
+    }
+  }, [id]);
+
+  const cleanContent = React.useMemo(() => {
+    return post ? stripTableOfContents(post.content) : "";
+  }, [post]);
+
+  const headings = React.useMemo(() => {
+    return cleanContent ? parseHeadings(cleanContent) : [];
+  }, [cleanContent]);
+
+  React.useEffect(() => {
+    if (!post || headings.length === 0) return;
+    
+    let observer;
+    const timer = setTimeout(() => {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveId(entry.target.id);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -60% 0px", threshold: 0.1 }
+      );
+
+      headings.forEach((heading) => {
+        const el = document.getElementById(heading.id);
+        if (el) observer.observe(el);
+      });
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, [post, headings]);
+
+  // Auto-scroll the active TOC link inside the sticky sidebar container when it changes
+  React.useEffect(() => {
+    if (activeId) {
+      const activeElement = document.querySelector(`.${styles.tocLinkActive}`);
+      if (activeElement) {
+        activeElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest"
+        });
+      }
+    }
+  }, [activeId]);
+
+  const relatedPosts = React.useMemo(() => {
+    if (!post) return [];
+    const filtered = blogPosts.filter(p => p.id !== post.id);
+    const sameCategory = filtered.filter(p => p.category === post.category);
+    const otherCategory = filtered.filter(p => p.category !== post.category);
+    return [...sameCategory, ...otherCategory].slice(0, 2); // 2 posts as shown in screenshot
+  }, [post]);
 
   if (!post) {
     return (
@@ -333,6 +486,16 @@ export default function BlogDetailClient({ id }) {
       navigator.clipboard.writeText(window.location.href);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleScrollTo = (e, targetId) => {
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.pushState(null, null, `#${targetId}`);
+      setActiveId(targetId);
     }
   };
 
@@ -414,6 +577,127 @@ export default function BlogDetailClient({ id }) {
             })
           }}
         />
+      )}
+      {post.id === 13 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What are the main SEO mistakes that stop websites from ranking?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "The primary SEO mistakes include ignoring search intent, choosing high-competition keywords, publishing duplicate or thin content, having slow page load speeds (poor Core Web Vitals), and failing to configure technical foundations like XML sitemaps and search console verification."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does search intent affect Google rankings?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Search intent is the primary reason why a user performs a search. If your page layout does not match that intent (e.g., displaying a service catalog when a user wants a guide), visitors will bounce immediately. Google monitors this behavior and lowers your rankings."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Why is website performance important for SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Website performance, especially mobile rendering speed and visual stability, directly impacts SEO. Google uses Core Web Vitals (LCP, CLS, INP) as direct ranking factors. Slow or unstable websites frustrate users, leading to high bounce rates and lower search rankings."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is the difference between On-Page and Technical SEO?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "On-Page SEO focuses on optimizing the elements visible to users, such as content quality, headings, title tags, and meta descriptions. Technical SEO focuses on code-level elements, such as sitemaps, robots.txt, redirect paths, SSL certificates, and server speeds."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Can I rank a website without backlinks?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes. For low-competition or hyper-local search terms, you can rank page one of Google through technical optimization, speed improvements, and high-quality content. However, for highly competitive national keywords, high-authority backlinks remain crucial."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Why is Google Search Console important?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Google Search Console is a free tool that shows how search engine crawlers interact with your website. It alerts you to indexing errors, sitemap bugs, security warnings, and provides exact data on the keywords driving traffic to your site."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How long does it take to see results from an SEO campaign?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "SEO is a long-term marketing strategy. While technical fixes can yield quick improvements in crawl rates within weeks, significant organic keyword rankings and organic traffic growth typically require 4 to 6 months of consistent effort."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Does duplicate content trigger a search penalty?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Google does not have a formal \"duplicate content penalty.\" Instead, the algorithm filters out duplicate results to keep search listings unique, meaning your duplicate pages will simply not be indexed or rank, wasting your crawl budget."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is Schema Markup and why should I use it?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Schema markup is structured data code (JSON-LD) that helps search engines parse the details of your page. Implementing schema helps you earn rich snippets (star ratings, prices, FAQs) in search results, boosting your click-through rates."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How often should I update my website's content?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "You should audit and update your high-value pages at least once a year. Focus on correcting outdated statistics, verifying external links, expanding thin paragraphs with new data, and refining headings to target fresh keywords."
+                    }
+                  }
+                ]
+              })
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": "25 SEO Mistakes That Stop Your Website from Ranking",
+                "image": "https://sanmora.in/images/seo_mistakes_banner.png",
+                "author": {
+                  "@type": "Organization",
+                  "name": "Sanmora Team",
+                  "url": "https://sanmora.in"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Sanmora Technologies",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://sanmora.in/logo/sanmora-logo.png"
+                  }
+                },
+                "datePublished": "2026-07-18",
+                "description": "Struggling to get your site to the first page of Google? Discover the 25 most common SEO errors that kill organic rankings—from search intent misalignment to technical Core Web Vitals issues—and learn how to audit and fix them."
+              })
+            }}
+          />
+        </>
       )}
       {post.id === 12 && (
         <>
@@ -633,54 +917,45 @@ export default function BlogDetailClient({ id }) {
           />
         </>
       )}
-      {/* Blog Hero section */}
-      <section className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <div className={styles.breadcrumb}>
-            <Link href="/" className={styles.breadcrumbLink}>Home</Link>
-            <span className={styles.breadcrumbSeparator}>/</span>
-            <Link href="/blog" className={styles.breadcrumbLink}>Blog</Link>
-            <span className={styles.breadcrumbSeparator}>/</span>
-            <span className={styles.breadcrumbActive}>{post.title}</span>
-          </div>
-
-          <span className={styles.category}>{post.category}</span>
-          <h1 className={styles.headline}>
-            <span className={styles.blinkWord}>{post.title}</span>
-          </h1>
-
-          <div className={styles.meta}>
-            <span className={styles.metaItem}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              {post.date}
-            </span>
-            <span className={styles.metaItem}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              {post.readTime}
-            </span>
-          </div>
-        </div>
-      </section>
-
       {/* Main content body */}
       <section className={styles.contentSection}>
         <div className={styles.articleContainer}>
-          <Link href="/blog" className={styles.backBtn}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Back to all articles
-          </Link>
-
-          {/* Cover Image */}
-          <div className={styles.imageWrapper}>
-            <img
-              src={post.image}
-              alt={post.title}
-              className={styles.featuredImage}
-            />
-          </div>
 
           <div className={styles.articleLayoutGrid}>
+            {/* Left Column: Table of Contents */}
+            <aside className={styles.tocSidebar}>
+              <div className={styles.tocSticky}>
+                <h4 className={styles.tocTitle}>Table of Contents</h4>
+                <nav className={styles.tocNav}>
+                  {headings.map((heading) => (
+                    <a
+                      key={heading.id}
+                      href={`#${heading.id}`}
+                      className={`${styles.tocLink} ${activeId === heading.id ? styles.tocLinkActive : ""}`}
+                      onClick={(e) => handleScrollTo(e, heading.id)}
+                      style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
+                    >
+                      {heading.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* Center Column: Article Main Content */}
             <div className={styles.articleMainBody}>
+              {/* Breadcrumbs */}
+              <div className={styles.breadcrumb}>
+                <Link href="/" className={styles.breadcrumbLink}>Home</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <Link href="/blog" className={styles.breadcrumbLink}>Blog</Link>
+                <span className={styles.breadcrumbSeparator}>/</span>
+                <span className={styles.breadcrumbActive}>{post.title}</span>
+              </div>
+
+              <span className={styles.category}>{post.category}</span>
+              <h1 className={styles.headline}>{post.title}</h1>
+
               {/* Author Block */}
               <div className={styles.authorBlock}>
                 <div className={styles.authorAvatar}>
@@ -688,32 +963,24 @@ export default function BlogDetailClient({ id }) {
                 </div>
                 <div className={styles.authorInfo}>
                   <h5 className={styles.authorName}>Sanmora Team</h5>
-                  <p className={styles.authorMeta}>Published in {post.category} • {post.date}</p>
+                  <p className={styles.authorMeta}>
+                    Published in {post.category} • {post.date} • {post.readTime}
+                  </p>
                 </div>
-                <div className={styles.shareButtons}>
-                  <span className={styles.shareLabel}>Share:</span>
-                  <button className={styles.shareBtn} onClick={handleCopyLink}>
-                    {copied ? "✓ Copied!" : "🔗 Copy Link"}
-                  </button>
-                  {post.redditLink && (
-                    <a
-                      href={post.redditLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.redditShareBtn}
-                    >
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                        <path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.85-1.64-6.29-1.72l1.25-3.91 3.43.77c.04.9.78 1.63 1.7 1.63 1.1 0 2-1 2-2s-.9-2-2-2c-.73 0-1.37.4-1.72 1L14.7 3.5c-.15-.04-.32.02-.39.17l-1.48 4.62c-2.58.05-4.9.7-6.59 1.72-.56-.76-1.46-1.24-2.42-1.24-1.65 0-3 1.35-3 3 0 1.05.54 1.97 1.37 2.53-.08.4-.13.82-.13 1.24 0 4.14 4.93 7.5 11 7.5s11-3.36 11-7.5c0-.42-.05-.84-.13-1.24.83-.56 1.37-1.48 1.37-2.53zM5 13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm13 5c-1.8 1.8-5.2 1.8-7 0-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0 1.4 1.4 4.2 1.4 5.6 0 .2-.2.5-.2.7 0 .2.2.2.5 0 .7zm-1-3c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
-                      </svg>
-                      Discuss on Reddit
-                    </a>
-                  )}
-                </div>
+              </div>
+
+              {/* Featured Cover Image */}
+              <div className={styles.imageWrapper}>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className={styles.featuredImage}
+                />
               </div>
 
               {/* Combined Article Body */}
               <div className={styles.richParagraphs}>
-                {renderContent(post.content)}
+                {renderContent(cleanContent)}
               </div>
 
               {post.redditLink && (
@@ -739,34 +1006,86 @@ export default function BlogDetailClient({ id }) {
               )}
             </div>
 
-            {/* Sidebar with sticky CTA */}
-            <aside className={styles.sidebar}>
-              <div className={styles.stickyCtaContainer}>
-                <div className={styles.ctaSection}>
-                  <h4 className={styles.ctaTitle}>Looking for premium web services?</h4>
-                  <p className={styles.ctaDesc}>
-                    Sanmora builds blazing-fast Next.js portals, custom database applications, and high-impact local SEO systems. Let's grow your brand.
-                  </p>
-                  
-                  <div className={styles.ctaInfoBlock}>
-                    <p className={styles.ctaInfoItem}>
-                      <strong>Address:</strong><br />
-                      13, Virat Apartment,<br />
-                      Opp. B.R.T. Bus Stand,<br />
-                      Sola Road, Ghatlodiya,<br />
-                      Ahmedabad, 380061
-                    </p>
-                    <p className={styles.ctaInfoItem}>
-                      <strong>Email:</strong> <a href="mailto:info@sanmora.in" className={styles.sidebarLink}>info@sanmora.in</a>
-                    </p>
-                    <p className={styles.ctaInfoItem}>
-                      <strong>WhatsApp:</strong> <a href="https://wa.me/918780005326?text=Hello%20Sanmora%2C%20I%20would%20like%20to%20inquire%20about%20your%20Web%20Development%20and%20SEO%20services." target="_blank" rel="noopener noreferrer" className={styles.sidebarLink}>+91 87800 05326</a>
-                    </p>
+            {/* Right Column: Related Blogs & Share Block */}
+            <aside className={styles.sidebarRight}>
+              <div className={styles.sidebarRightSticky}>
+                {relatedPosts.length > 0 && (
+                  <div className={styles.relatedSection}>
+                    <h4 className={styles.sidebarSectionTitle}>Related Blogs</h4>
+                    <div className={styles.relatedGrid}>
+                      {relatedPosts.map((relatedPost) => (
+                        <Link 
+                          key={relatedPost.id} 
+                          href={`/blog/${relatedPost.id}`}
+                          className={styles.relatedCard}
+                        >
+                          <h5 className={styles.relatedCardTitle}>{relatedPost.title}</h5>
+                          <div className={styles.relatedCardAuthor}>
+                            <div className={styles.relatedCardAvatar}>
+                              <span>S</span>
+                            </div>
+                            <div className={styles.relatedCardAuthorInfo}>
+                              <span className={styles.relatedCardAuthorName}>Sanmora Team</span>
+                              <span className={styles.relatedCardMeta}>{relatedPost.date} • {relatedPost.readTime}</span>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
+                )}
 
-                  <Link href="/consultation" className={styles.ctaBtn} style={{ width: "100%", marginTop: "1rem" }}>
-                    Get Free Quote & Audit
-                  </Link>
+                <div className={styles.shareBlock}>
+                  <h4 className={styles.sidebarSectionTitle}>Share This Blog:</h4>
+                  <div className={styles.shareIconsList}>
+                    <a 
+                      href={`https://api.whatsapp.com/send?text=${encodeURIComponent(post.title + " - " + shareUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.shareIconBtn}
+                      title="Share on WhatsApp"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.978L2 22l5.197-1.363a9.93 9.93 0 0 0 4.814 1.233h.004c5.505 0 9.99-4.478 9.991-9.985A9.97 9.97 0 0 0 12.012 2zm5.735 14.33c-.252.712-1.263 1.294-1.748 1.385-.435.082-.99.124-2.87-.613-2.404-.94-3.923-3.376-4.043-3.536-.12-.16-1.026-1.363-1.026-2.599 0-1.236.65-1.843.88-2.083.23-.24.5-.3.67-.3.17 0 .34.002.486.008.156.006.366-.06.574.44.214.515.733 1.787.796 1.917.063.13.104.28.02.45-.084.17-.126.28-.252.43-.126.15-.265.33-.378.45-.126.13-.258.27-.11.53.148.25.656 1.077 1.41 1.748.97.866 1.79 1.134 2.046 1.264.256.13.404.11.554-.06.15-.17.65-.758.82-.98.17-.22.34-.18.574-.1.236.09 1.497.7.175.76.06.13.1.222.062.436l-.01.002z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.shareIconBtn}
+                      title="Share on LinkedIn"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.shareIconBtn}
+                      title="Share on Facebook"
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                      </svg>
+                    </a>
+                    <button 
+                      onClick={handleCopyLink}
+                      className={styles.shareIconBtn}
+                      title="Copy Article Link"
+                    >
+                      {copied ? (
+                        <span>✓</span>
+                      ) : (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
             </aside>
