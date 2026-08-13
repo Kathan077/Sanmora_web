@@ -4,8 +4,8 @@ import ConsultationClient from "@/components/Consultation/ConsultationClient";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Get a Free Consultation - Sanmora Technologies",
-  description: "Request a free consultation with the experts at Sanmora Technologies.",
+  title: "Get a Free Consultation - Sanmora",
+  description: "Request a free consultation with the experts at Sanmora.",
 };
 
 export default function ConsultationPage() {

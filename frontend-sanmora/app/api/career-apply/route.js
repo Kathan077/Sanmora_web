@@ -126,7 +126,7 @@ export async function POST(request) {
     });
 
     const mailOptions = {
-      from: `"Sanmora Web Careers" <${user}>`,
+      from: `"Sanmora Careers" <${user}>`,
       to: receiver,
       subject: `New Job Application: ${jobTitle || "Job Seeker"} - ${name}`,
       html: `
@@ -164,7 +164,7 @@ export async function POST(request) {
             <em>Note: The applicant's resume is attached to this email.</em>
           </p>
           <div style="margin-top: 30px; padding: 12px; background-color: #ecfeff; color: #0891b2; border-radius: 6px; font-size: 14px; text-align: center;">
-            This job application was submitted from the Sanmora Web Careers Portal.
+            This job application was submitted from the Sanmora Careers Portal.
           </div>
         </div>
       `,

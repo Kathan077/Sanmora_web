@@ -12,13 +12,13 @@ export async function generateMetadata({ params }) {
   const post = blogPosts.find(p => p.id === parseInt(id));
   if (!post) {
     return {
-      title: "Article Not Found | Sanmora Technologies",
+      title: "Article Not Found | Sanmora",
       description: "The article you are looking for does not exist."
     };
   }
   return {
-    title: `${post.title} | Sanmora Technologies`,
-    description: post.excerpt || "Read the latest article from Sanmora Technologies."
+    title: `${post.title} | Sanmora`,
+    description: post.excerpt || "Read the latest article from Sanmora."
   };
 }
 

@@ -6,8 +6,8 @@ import JobDetailClient from './JobDetailClient';
 import styles from '@/app/page.module.css';
 
 export const metadata = {
-  title: "Career Opportunity | Sanmora Technologies",
-  description: "Explore job details and requirements, and apply to join the engineering and design team at Sanmora Technologies."
+  title: "Career Opportunity | Sanmora",
+  description: "Explore job details and requirements, and apply to join the engineering and design team at Sanmora."
 };
 
 export default async function JobDetailPage({ params }) {

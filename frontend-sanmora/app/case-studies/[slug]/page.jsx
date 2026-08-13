@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
   if (!caseStudy) return { title: "Case Study Not Found" };
 
   return {
-    title: `${caseStudy.title} | Sanmora Technologies`,
+    title: `${caseStudy.title} | Sanmora`,
     description: caseStudy.summary,
   };
 }

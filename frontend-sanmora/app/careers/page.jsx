@@ -6,8 +6,8 @@ import CareersClient from './CareersClient';
 import styles from '@/app/page.module.css';
 
 export const metadata = {
-  title: "Careers | Sanmora Technologies",
-  description: "Join Sanmora Technologies. Explore job openings in UI/UX Design and Business Development. Shape the future of digital innovation."
+  title: "Careers | Sanmora",
+  description: "Join Sanmora. Explore job openings in UI/UX Design and Business Development. Shape the future of digital innovation."
 };
 
 export default function CareersPage() {

@@ -115,7 +115,7 @@ export async function POST(request) {
     });
 
     const mailOptions = {
-      from: `"Sanmora Web Consultation" <${user}>`,
+      from: `"Sanmora Consultation" <${user}>`,
       to: receiver,
       subject: `New Free Consultation Request - ${serviceName}`,
       html: `

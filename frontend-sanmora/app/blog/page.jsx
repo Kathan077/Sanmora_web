@@ -3,8 +3,8 @@ import BlogClient from "../../components/Blog/BlogClient";
 import Footer from "../../components/Footer/Footer"; // Assuming a Footer exists, otherwise I'll just use the standard layout.
 
 export const metadata = {
-  title: "Blog | Sanmora Technologies",
-  description: "Insights and articles from the Sanmora Technologies team.",
+  title: "Blog - Sanmora",
+  description: "Insights and articles from the Sanmora team.",
 };
 
 export default function BlogPage() {

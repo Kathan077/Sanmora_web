@@ -42,7 +42,7 @@ export default function AboutCompany() {
           <div className={`tech-reveal`} style={{ marginBottom: '2rem' }}>
             <img
               src="/logo/Samoa in vibrant gradient typography-BoK3SB3d.png"
-              alt="Sanmora Technologies Logo"
+              alt="Sanmora Logo"
               style={{ height: '45px', objectFit: 'contain' }}
             />
           </div>

@@ -20,7 +20,7 @@ export default function HeroSection() {
 
             <div className={styles.anim2}>
               <h1 className={styles.heading}>
-                SANMORA <span className={styles.highlight}>Web-Tech</span>
+                SANMORA
                 <br />
                 Web Development &
                 <br />
