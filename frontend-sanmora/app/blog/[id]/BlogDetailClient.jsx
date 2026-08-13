@@ -686,7 +686,7 @@ export default function BlogDetailClient({ id }) {
                 },
                 "publisher": {
                   "@type": "Organization",
-                  "name": "Sanmora Technologies",
+                  "name": "Sanmora",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://sanmora.in/logo/sanmora-logo.png"
@@ -783,7 +783,7 @@ export default function BlogDetailClient({ id }) {
                 },
                 "publisher": {
                   "@type": "Organization",
-                  "name": "Sanmora Technologies",
+                  "name": "Sanmora",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://sanmora.in/logo/sanmora-logo.png"
@@ -904,7 +904,7 @@ export default function BlogDetailClient({ id }) {
                 },
                 "publisher": {
                   "@type": "Organization",
-                  "name": "Sanmora Technologies",
+                  "name": "Sanmora",
                   "logo": {
                     "@type": "ImageObject",
                     "url": "https://sanmora.in/logo/sanmora-logo.png"

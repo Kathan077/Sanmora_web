@@ -16,8 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "Sanmora Technologies | Web Development & Digital Marketing Company in Ahmedabad",
-  description: "Sanmora Technologies is the premier web development company, web design agency, and digital marketing company in Ahmedabad. We build premium Next.js websites, Shopify ecommerce stores, custom software, and high-impact SEO.",
+  title: "Sanmora | Web Development & Digital Marketing Company in Ahmedabad",
+  description: "Sanmora is the premier web development company, web design agency, and digital marketing company in Ahmedabad. We build premium Next.js websites, Shopify ecommerce stores, custom software, and high-impact SEO.",
   verification: {
     google: [
       "HmTa_ABl4g4bvL8xkwB0BUONqxT0Kp1vw_CR8fAfui8",
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "name": "Sanmora Technologies",
+              "name": "Sanmora",
               "image": "https://sanmora.in/logo/Footer_logo.png",
               "@id": "https://sanmora.in/#localbusiness",
               "url": "https://sanmora.in",

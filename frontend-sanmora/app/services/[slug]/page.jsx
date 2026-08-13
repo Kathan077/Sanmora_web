@@ -6,8 +6,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const service = servicesData.find((item) => item.slug === slug);
   return {
-    title: `${service?.name ?? "Service"} | Sanmora Technologies`,
-    description: service?.description ?? "Explore Sanmora Technologies' premium design and engineering services.",
+    title: `${service?.name ?? "Service"} | Sanmora`,
+    description: service?.description ?? "Explore Sanmora's premium design and engineering services.",
   };
 }
 
