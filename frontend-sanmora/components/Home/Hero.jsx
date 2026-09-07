@@ -20,17 +20,18 @@ export default function HeroSection() {
 
             <div className={styles.anim2}>
               <h1 className={styles.heading}>
-                SANMORA
-                <br />
-                Web Development &
-                <br />
-                <span className={styles.gradientText}>Digital Marketing in Ahmedabad</span>
+                SANMORA 
+            
+                
+                
+                <span className={styles.gradientText}> AI-Powered <br /> Digital Innovation in <br /> India & South Africa</span>
               </h1>
             </div>
 
             <div className={styles.anim3}>
               <p className={styles.subtext}>
-                We are a premium digital marketing company and website development agency engineering high-performance digital ecosystems for modern enterprises. Our team specializes in custom full stack web applications, bespoke software development, performance SEO solutions, and data driven digital growth marketing services crafting flawless, lightning-fast platforms that dominate search rankings from our tech in Ahmedabad, Gujarat.              </p>
+               We are a premium technology and digital solutions company engineering high performance digital ecosystems for modern businesses. From custom websites, full stack applications, and bespoke software solutions to SEO, digital marketing, AI & ML, automation, and cloud technologies, we deliver end to end solutions built around innovation, performance, and scalability. With a technology driven approach and global perspective, we transform complex business challenges into intelligent, scalable, and future ready digital experiences, with a strong presence through our branches in India and South Africa.
+         </p>
             </div>
 
             <div className={styles.anim4}>
