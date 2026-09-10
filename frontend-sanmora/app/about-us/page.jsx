@@ -4,6 +4,9 @@ import AboutHero from '@/components/Aboutus/AboutHero';
 import WhyChooseUs from '@/components/Aboutus/WhyChooseUs';
 import AboutCompany from '@/components/Aboutus/AboutCompany';
 import VisionMission from '@/components/Home/VisionMission';
+import LifeAtSanmoraIntro from '@/components/Aboutus/LifeAtSanmoraIntro';
+import SanmoraPerks from '@/components/Aboutus/SanmoraPerks';
+import DownTheMemoryLane from '@/components/Aboutus/DownTheMemoryLane';
 import AboutTechSection from '@/components/Aboutus/AboutTechSection';
 import Footer from '@/components/Footer/Footer';
 import ParticleBackground from '@/components/Home/ParticleBackground';
@@ -14,7 +17,7 @@ import WhyClientsChooseUs from '@/components/Aboutus/WhyClientsChooseUs';
 
 export const metadata = {
   title: "About Us | Sanmora",
-  description: "Learn more about Sanmora, our agile execution, and enterprise scaling solutions."
+  description: "Learn more about Sanmora, our agile execution, life at Sanmora, and enterprise scaling solutions."
 };
 
 export default function AboutUsPage() {
@@ -29,9 +32,17 @@ export default function AboutUsPage() {
       <WhyChooseUs />
       <WhatWeDo />
       <VisionMission />
+
+      {/* 3 Dedicated Life At Sanmora Sections matching image structure */}
+      <LifeAtSanmoraIntro />
+      <SanmoraPerks />
+      <DownTheMemoryLane />
+
       <AboutTechSection />
       <Footer />
     </main>
   );
 }
+
+
 

@@ -1,6 +1,6 @@
 .detailPage {
   min-height: 100vh;
-  padding: 8rem 0 6rem 0; /* Add top padding to account for sticky header */
+  padding: 5.5rem 0 4rem 0; /* Compact top padding right below sticky header */
   background: #ffffff;
   font-family: var(--font-body);
   color: #0f172a;
@@ -379,7 +379,7 @@
   display: grid;
   grid-template-columns: 240px 1fr 300px;
   gap: 2.5rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .articleMainBody {
@@ -393,8 +393,8 @@
 
 .tocSticky {
   position: sticky;
-  top: 120px;
-  max-height: calc(100vh - 160px);
+  top: 96px;
+  max-height: calc(100vh - 120px);
   overflow-y: auto;
   padding-right: 0.75rem;
   scrollbar-width: thin;
@@ -463,7 +463,7 @@
 
 .sidebarRightSticky {
   position: sticky;
-  top: 120px;
+  top: 96px;
   display: flex;
   flex-direction: column;
   gap: 2rem;

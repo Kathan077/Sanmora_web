@@ -4,7 +4,12 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import LifeAtSanmoraIntro from "@/components/Aboutus/LifeAtSanmoraIntro";
+import SanmoraPerks from "@/components/Aboutus/SanmoraPerks";
+import DownTheMemoryLane from "@/components/Aboutus/DownTheMemoryLane";
 import styles from "./careers.module.css";
+
+
 
 const jobsData = [
   {
@@ -114,6 +119,13 @@ export default function CareersClient() {
           ))}
         </div>
       </section>
+
+      {/* Life At Sanmora 3 Sections */}
+      <LifeAtSanmoraIntro />
+      <SanmoraPerks />
+      <DownTheMemoryLane />
     </div>
   );
 }
+
+

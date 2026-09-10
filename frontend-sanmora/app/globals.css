@@ -153,3 +153,12 @@ button {
     transform: translateY(0px) translateX(0px) rotate(360deg) scale(1);
   }
 }
+
+/* Accessibility Voice Reader Active Element Highlighting */
+.voice-active-element {
+  outline: 2.5px solid #7c3aed !important;
+  outline-offset: 3px !important;
+  border-radius: inherit !important;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.35) !important;
+  transition: outline 0.15s ease, box-shadow 0.15s ease !important;
+}

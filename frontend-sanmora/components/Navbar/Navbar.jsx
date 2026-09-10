@@ -39,12 +39,52 @@ export default function Navbar() {
   // Active Category removed for simplified dropdown
   const desktopLinks = [
     { name: "Home", href: "/", type: "standard" },
-    { name: "About Us", href: "/about-us", type: "standard" },
+    { name: "About Us", href: "/about-us", type: "dropdown", id: "about" },
     { name: "Services", href: "/services", type: "dropdown", id: "services" },
     { name: "Blog", href: "/blog", type: "standard" },
     { name: "Case Studies", href: "/case-studies", type: "standard" },
     { name: "Careers", href: "/careers", type: "standard" },
   ];
+
+  const aboutSubLinks = [
+    {
+      name: "About Overview",
+      desc: "Who we are, our story & enterprise values",
+      href: "/about-us",
+      icon: "globe",
+      badge: "Overview"
+    },
+    {
+      name: "How We Work",
+      desc: "Agile sprints, discovery & SLA execution",
+      href: "/about-us/how-we-work",
+      icon: "cpu",
+      badge: "Methodology"
+    },
+    {
+      name: "OUR VISION & MISSION",
+      desc: "Strategic goals, core purpose & 2030 roadmap",
+      href: "/about-us/vision-mission",
+      icon: "eye",
+      badge: "Core Purpose"
+    },
+    {
+      name: "OUR TECHNOLOGIES",
+      desc: "Modern tech stack, cloud & AI architecture",
+      href: "/about-us/technologies",
+      icon: "code",
+      badge: "Tech Stack"
+    },
+    {
+      name: "life at sanmora",
+      desc: "Culture, perks, memory gallery & team vibe",
+      href: "/about-us/life-at-sanmora",
+      icon: "layers",
+      badge: "Culture"
+    }
+  ];
+
+  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
 
   // Framer Motion Stagger Variants
   const containerVariants = {
@@ -75,7 +115,7 @@ export default function Navbar() {
     <>
       <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         {/* Logo Section */}
-        <div className={styles.logoArea}>
+        <div className={styles.logoArea} onClick={() => router.push('/')}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo/sanmora-logo.png"
@@ -141,20 +181,61 @@ export default function Navbar() {
                   y: 0,
                   scale: 1,
                   rotateX: 0,
-                  x: activeTab === "services" ? -120 : -140
+                  x: activeTab === "services" ? -120 : -100
                 }}
                 exit={{ opacity: 0, y: 12, scale: 0.95, rotateX: -8 }}
                 transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}
-                className={`${styles.stripeDropdown} ${activeTab === "services" ? styles.servicesExpandedDropdown : ""}`}
+                className={`
+                  ${styles.stripeDropdown} 
+                  ${activeTab === "services" ? styles.servicesExpandedDropdown : ""}
+                  ${activeTab === "about" ? styles.aboutExpandedDropdown : ""}
+                `}
                 style={{ transformOrigin: "top center", transformStyle: "preserve-3d" }}
               >
                 {/* Soft glass dynamic arrow */}
                 <div className={`
                   ${styles.stripeDropdownArrow} 
                   ${activeTab === "services" ? styles.arrowServices : ""}
+                  ${activeTab === "about" ? styles.arrowAbout : ""}
                 `} />
 
                 <div className={styles.stripeDropdownContentContainer}>
+                  {activeTab === "about" && (
+                    <div className={styles.aboutDropdownLayout}>
+                      <div className={styles.aboutDropdownHeader}>
+                        <span className={styles.sidebarSectionTitle}>Explore Sanmora</span>
+                        <p className={styles.aboutDropdownSubtitle}>Discover our methodology, tech stack, company vision & vibrant culture.</p>
+                      </div>
+                      <motion.div
+                        className={styles.aboutGrid}
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="show"
+                      >
+                        {aboutSubLinks.map((sub) => (
+                          <MotionLink
+                            key={sub.name}
+                            variants={itemVariants}
+                            href={sub.href}
+                            className={styles.aboutGridCard}
+                            onClick={() => setActiveTab(null)}
+                          >
+                            <div className={styles.aboutCardIcon}>
+                              <IconRenderer icon={sub.icon} className={styles.vectorIcon} />
+                            </div>
+                            <div className={styles.aboutCardContent}>
+                              <div className={styles.aboutCardTop}>
+                                <span className={styles.aboutCardTitle}>{sub.name}</span>
+                                <span className={styles.aboutCardBadge}>{sub.badge}</span>
+                              </div>
+                              <p className={styles.aboutCardDesc}>{sub.desc}</p>
+                            </div>
+                          </MotionLink>
+                        ))}
+                      </motion.div>
+                    </div>
+                  )}
+
                   {activeTab === "services" && (() => {
                     const activeService = servicesData.find(s => s.id === activeServiceId);
                     return (
@@ -296,7 +377,49 @@ export default function Navbar() {
 
         <nav className={styles.mobileNavLinks}>
           <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
-          <Link href="/about-us" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
+
+          {/* About Us Mobile Collapsible Accordion */}
+          <div>
+            <button
+              className={`${styles.mobileNavLink} ${styles.mobileAccordionTrigger}`}
+              onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+            >
+              <span>About Us</span>
+              <svg className={`${styles.chevron} ${isMobileAboutOpen ? styles.chevronOpen : ""}`} width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M1 1l4 4 4-4" />
+              </svg>
+            </button>
+            <AnimatePresence>
+              {isMobileAboutOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className={styles.mobileAccordionContent}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div className={styles.mobileSubLinksContainer}>
+                    {aboutSubLinks.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={styles.mobileSubLink}
+                        style={{ fontWeight: 700, color: '#111827', display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 12px' }}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setIsMobileAboutOpen(false);
+                        }}
+                      >
+                        <IconRenderer icon={item.icon} className={styles.vectorIconMobile} style={{ width: 16, height: 16 }} />
+                        <span>{item.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Services Mobile Collapsible Accordion */}
           <div>

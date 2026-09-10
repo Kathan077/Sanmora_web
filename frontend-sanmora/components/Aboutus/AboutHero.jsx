@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ShieldCheck, Users, Flag } from "lucide-react";
 import styles from "./AboutHero.module.css";
 
 export default function Hero() {
@@ -34,15 +35,19 @@ export default function Hero() {
           {/* Stats */}
           <div className={styles.stats}>
             <div className={styles.stat}>
-              <div className={styles.iconCircle}>$</div>
-              <h3>₹40M+</h3>
-              <span>Total Funding</span>
+              <div className={styles.iconCircle}>
+                <ShieldCheck size={22} color="#7c3aed" />
+              </div>
+              <h3>100%</h3>
+              <span>Client Trust</span>
             </div>
 
             <div className={styles.divider}></div>
 
             <div className={styles.stat}>
-              <div className={styles.iconCircle}>👥</div>
+              <div className={styles.iconCircle}>
+                <Users size={22} color="#7c3aed" />
+              </div>
               <h3>500k+</h3>
               <span>Active Users</span>
             </div>
@@ -50,7 +55,9 @@ export default function Hero() {
             <div className={styles.divider}></div>
 
             <div className={styles.stat}>
-              <div className={styles.iconCircle}>⚑</div>
+              <div className={styles.iconCircle}>
+                <Flag size={22} color="#7c3aed" />
+              </div>
               <h3>2025</h3>
               <span>Founded</span>
             </div>

@@ -168,6 +168,11 @@
   height: 430px !important;
 }
 
+.aboutExpandedDropdown {
+  width: 640px !important;
+  height: 350px !important;
+}
+
 .stripeDropdownArrow {
   position: absolute;
   top: -6px;
@@ -183,6 +188,108 @@
 
 .arrowServices {
   left: 200px;
+}
+
+.arrowAbout {
+  left: 95px;
+}
+
+.aboutDropdownLayout {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+.aboutDropdownHeader {
+  margin-bottom: 14px;
+}
+
+.aboutDropdownSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  padding-left: 16px;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.aboutGridCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.08);
+  background: rgba(248, 250, 252, 0.6);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.aboutGridCard:hover {
+  background: rgba(124, 58, 237, 0.06);
+  border-color: rgba(124, 58, 237, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -8px rgba(124, 58, 237, 0.12);
+}
+
+.aboutCardIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.aboutCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.aboutCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.aboutCardTitle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aboutCardBadge {
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.aboutCardDesc {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  line-height: 1.3;
 }
 
 .singlePanelLayout {
