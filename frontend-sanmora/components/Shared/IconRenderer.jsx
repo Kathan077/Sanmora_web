@@ -291,9 +291,9 @@ export default function IconRenderer({ icon, className }) {
               <stop offset="100%" stopColor="#3b82f6" />
             </linearGradient>
           </defs>
-          <circle cx="9" cy="21" r="1" stroke="url(#gradCart)" strokeWidth="2" />
-          <circle cx="20" cy="21" r="1" stroke="url(#gradCart)" strokeWidth="2" />
-          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" stroke="url(#gradCart)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="9" cy="20" r="1.5" fill="url(#gradCart)" stroke="none" />
+          <circle cx="18" cy="20" r="1.5" fill="url(#gradCart)" stroke="none" />
+          <path d="M3 3h2l2.2 11.2a2 2 0 002 1.6h8.6a2 2 0 002-1.6L21 6H6" stroke="url(#gradCart)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
     case "layout":
