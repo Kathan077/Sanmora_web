@@ -45,14 +45,14 @@ const memoryBlocks = [
     align: "right"
   },
   {
-    id: "festival",
+    id: "restaurant",
    
-    category: "FESTIVALS & CULTURAL DAYS",
-    title: "Diwali, Garba & Cultural Celebrations",
-    description: "From traditional ethnic attire days and office decorations to Navratri Garba, festive lunches, and joyful cultural events with the team.",
+    category: "RESTAURANT OUTINGS & TEAM DINING",
+    title: "Team Restaurant Outings & Food Treats",
+    description: "Enjoying delicious team lunches, lavish dinners, and restaurant outings together, building strong team bonding over great food.",
     image: "/images/culture/sanmora_team_photo_3.jpeg",
-    floatingBadge: "🪔 Festive Joy",
-    highlights: ["Diwali & Garba", "Cultural Events", "Festive Celebrations"],
+    floatingBadge: "🍽️ Restaurant Outings",
+    highlights: ["Restaurant Outings", "Team Dinners", "Gourmet Lunches"],
     align: "left"
   }
 ];
@@ -133,6 +133,12 @@ export default function DownTheMemoryLane() {
               {/* Visual Side */}
               <div className={styles.visualSide}>
                 <div className={styles.mainImageFrame}>
+                  <img 
+                    src={block.image} 
+                    alt="" 
+                    aria-hidden="true"
+                    className={styles.blurBgImg}
+                  />
                   <img 
                     src={block.image} 
                     alt={block.title} 

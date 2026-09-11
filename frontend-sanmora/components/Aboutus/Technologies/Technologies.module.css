@@ -4,12 +4,34 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 40px 24px 100px;
+  padding: 20px 24px 80px;
 }
 
 .heroSection {
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 24px 20px 30px;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 10px 16px 50px;
+  }
+
+  .heroSection {
+    padding: 10px 12px 20px;
+  }
+
+  .heroBadge {
+    margin-bottom: 12px;
+  }
+
+  .heroTitle {
+    margin-bottom: 14px;
+  }
+
+  .heroSubtitle {
+    margin-bottom: 24px;
+  }
 }
 
 .heroBadge {
@@ -336,4 +358,72 @@
 .complianceSub {
   font-size: 13px;
   color: var(--text-secondary);
+}
+
+/* Breakpoints: 768px, 425px, 375px, 320px */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 10px 14px 40px;
+    overflow-x: hidden;
+  }
+
+  .techTabs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .techTabBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gridSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+  .heroTitle {
+    font-size: clamp(20px, 6.5vw, 26px);
+  }
+
+  .techCard {
+    padding: 20px 16px;
+  }
+
+  .complianceBox {
+    padding: 18px 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 21px;
+  }
+
+  .techTabBtn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  .pageContainer {
+    padding: 8px 10px 30px;
+  }
+
+  .heroTitle {
+    font-size: 19px;
+    letter-spacing: -0.5px;
+  }
+
+  .techCard {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .complianceBox {
+    padding: 14px 10px;
+  }
 }

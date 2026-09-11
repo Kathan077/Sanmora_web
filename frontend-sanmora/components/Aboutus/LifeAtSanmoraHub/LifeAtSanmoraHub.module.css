@@ -4,12 +4,34 @@
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 40px 24px 100px;
+  padding: 20px 24px 80px;
 }
 
 .heroSection {
   text-align: center;
-  padding: 60px 20px 40px;
+  padding: 24px 20px 30px;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 10px 16px 50px;
+  }
+
+  .heroSection {
+    padding: 10px 12px 20px;
+  }
+
+  .heroBadge {
+    margin-bottom: 12px;
+  }
+
+  .heroTitle {
+    margin-bottom: 14px;
+  }
+
+  .heroSubtitle {
+    margin-bottom: 24px;
+  }
 }
 
 .heroBadge {
@@ -70,10 +92,11 @@
   background: #ffffff;
   border: 1px solid rgba(124, 58, 237, 0.12);
   border-radius: 24px;
-  padding: 32px 30px;
+  padding: 28px 26px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 14px;
   box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.06);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -108,7 +131,7 @@
   padding: 4px 12px;
   border-radius: 20px;
   width: fit-content;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .cardTitle {
@@ -194,4 +217,86 @@
 .ctaBtn:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px -5px rgba(124, 58, 237, 0.6);
+}
+
+/* Breakpoints: 768px, 425px, 375px, 320px */
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 10px 14px 40px;
+    overflow-x: hidden;
+  }
+
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bentoCard {
+    padding: 24px 20px;
+  }
+
+  .careersCtaCard {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .heroTitle {
+    font-size: clamp(20px, 6.5vw, 26px);
+  }
+
+  .bentoCard {
+    padding: 20px 16px;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .ctaTitle {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 21px;
+  }
+
+  .cardTitle {
+    font-size: 19px;
+  }
+
+  .cardDesc {
+    font-size: 14px;
+  }
+
+  .ctaBtn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 320px) {
+  .pageContainer {
+    padding: 8px 10px 30px;
+  }
+
+  .heroTitle {
+    font-size: 19px;
+    letter-spacing: -0.5px;
+  }
+
+  .bentoCard {
+    padding: 16px 12px;
+    border-radius: 18px;
+  }
+
+  .cardTitle {
+    font-size: 17.5px;
+  }
+
+  .ctaTitle {
+    font-size: 20px;
+  }
 }

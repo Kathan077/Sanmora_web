@@ -138,22 +138,38 @@
   position: relative;
   width: 100%;
   max-width: 560px;
-  height: 350px;
+  height: 380px;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.15);
   border: 1.5px solid rgba(124, 58, 237, 0.15);
+  background: #0f172a;
+}
+
+.blurBgImg {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  object-fit: cover;
+  filter: blur(24px) brightness(0.65);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .memoryImg {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featureCard:hover .memoryImg {
-  transform: scale(1.08);
+  transform: scale(1.03);
 }
 
 .badgeTag {
@@ -249,4 +265,97 @@
   background: rgba(124, 58, 237, 0.12);
   border-color: rgba(124, 58, 237, 0.3);
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 4% 3rem 4%;
+  }
+
+  .container {
+    gap: 2rem;
+  }
+
+  .blocksWrapper {
+    gap: 2rem;
+  }
+
+  .featureCard {
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .mainImageFrame {
+    height: 260px;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .title {
+    font-size: clamp(22px, 7vw, 28px);
+  }
+
+  .blockTitle {
+    font-size: 1.35rem;
+  }
+
+  .featureCard {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .mainImageFrame {
+    height: 230px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .title {
+    font-size: 21px;
+  }
+
+  .blockTitle {
+    font-size: 1.25rem;
+  }
+
+  .blockDesc {
+    font-size: 0.95rem;
+  }
+
+  .mainImageFrame {
+    height: 210px;
+  }
+}
+
+@media (max-width: 320px) {
+  .section {
+    padding: 1.5rem 3% 2rem 3%;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .blockTitle {
+    font-size: 1.15rem;
+  }
+
+  .featureCard {
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 14px;
+  }
+
+  .mainImageFrame {
+    height: 190px;
+    border-radius: 12px;
+  }
+
+  .highlightPill {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
 }
