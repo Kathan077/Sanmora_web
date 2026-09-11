@@ -86,7 +86,7 @@ export default function WhatsAppButton() {
                   className={styles.locationCard}
                   onClick={() =>
                     handleLocationClick(
-                      "https://wa.me/918780005326?text=Hello%20Sanmora%20India%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                      "https://wa.me/918780005326?text=Hello%20Sanmora%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services%20towards%20the%20%22India%20branch%22."
                     )
                   }
                 >
@@ -108,7 +108,7 @@ export default function WhatsAppButton() {
                   className={styles.locationCard}
                   onClick={() =>
                     handleLocationClick(
-                      "https://wa.me/27837810032?text=Hello%20Sanmora%20South%20Africa%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                      "https://wa.me/27837810032?text=Hello%20Sanmora%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services%20towards%20the%20%22South%20Africa%20branch%22."
                     )
                   }
                 >
