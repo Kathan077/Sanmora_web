@@ -155,10 +155,48 @@ button {
 }
 
 /* Accessibility Voice Reader Active Element Highlighting */
-.voice-active-element {
+.voice-active-element,
+.tts-active-reading-chunk {
   outline: 2.5px solid #7c3aed !important;
   outline-offset: 3px !important;
-  border-radius: inherit !important;
+  border-radius: 8px !important;
+  background-color: rgba(124, 58, 237, 0.08) !important;
   box-shadow: 0 0 16px rgba(124, 58, 237, 0.35) !important;
-  transition: outline 0.15s ease, box-shadow 0.15s ease !important;
-}
+  transition: all 0.2s ease !important;
+}
+
+/* Google Translate Clean Overrides */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-banner {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.skiptranslate {
+  font-family: inherit !important;
+}
+
+/* Reduced Motion Mode */
+body.reduce-motion *,
+body.reduce-motion *::before,
+body.reduce-motion *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+  scroll-behavior: auto !important;
+}
+
+

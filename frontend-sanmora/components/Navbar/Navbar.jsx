@@ -10,6 +10,7 @@ import { servicesData } from "./servicesData";
 const MotionLink = motion.create(Link);
 
 import IconRenderer from "../Shared/IconRenderer";
+import AccessibilityLanguageWidget from "../Shared/AccessibilityLanguageWidget";
 
 export default function Navbar() {
   const router = useRouter();

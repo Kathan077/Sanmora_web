@@ -84,7 +84,7 @@ export default function Footer() {
                 <span className={styles.officeTag}>INDIA</span>
               </div>
               <p className={styles.officeAddressText}>
-                13, Virat Apartment, Opp. B.R.T. Bus Stand, Opp. Shakuntala Bunglow, Sola Road, Ghatlodiya, Ahmedabad, Gujarat 380061
+                13, Virat Apartment, Opp. BRTS Bus Stand, Opp. Shakuntala Bunglow, Sola Road, Ghatlodiya, Ahmedabad, Gujarat 380061
               </p>
               <a href="tel:+918780005326" className={styles.phoneLink}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -116,7 +116,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
           <span className={styles.copyright}>
-            © 2025 Sanmora. All rights reserved.
+            © 2026 Sanmora. All rights reserved.
           </span>
           <div className={styles.socials}>
             <a href="https://www.facebook.com/share/1JFKX4zXoJ/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Facebook">
