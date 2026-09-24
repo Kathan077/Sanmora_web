@@ -7,7 +7,7 @@ const sendConsultationEmail = async (req, res) => {
     return res.status(400).json({ error: "Missing required fields: fullName, emailId, contactNo, and serviceName are required." });
   }
 
-  const receiver = process.env.EMAIL_RECEIVER || "mksolanki527@gmail.com";
+  const receiver = process.env.EMAIL_RECEIVER || "info@sanmora.in, info@sanmora.co.za";
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASS;
 

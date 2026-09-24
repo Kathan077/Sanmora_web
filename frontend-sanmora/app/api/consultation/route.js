@@ -94,7 +94,7 @@ export async function POST(request) {
     const port = parseInt(process.env.EMAIL_PORT) || 465;
     const user = process.env.EMAIL_USER;
     const pass = process.env.EMAIL_PASS;
-    const receiver = process.env.EMAIL_RECEIVER || "info@sanmora.in";
+    const receiver = process.env.EMAIL_RECEIVER || "info@sanmora.in, info@sanmora.co.za";
 
     if (!user || !pass) {
       console.warn("[Mailer Warning] EMAIL_USER or EMAIL_PASS not configured. Skipping email delivery (simulating success).");

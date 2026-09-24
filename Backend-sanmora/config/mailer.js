@@ -46,7 +46,7 @@ const sendViaResend = async (mailOptions) => {
     },
     body: JSON.stringify({
       from: sender,
-      to: typeof to === "string" ? [to] : to,
+      to: typeof to === "string" ? to.split(",").map(e => e.trim()) : to,
       subject: subject,
       html: html,
       attachments: resendAttachments.length > 0 ? resendAttachments : undefined
@@ -101,7 +101,7 @@ const sendViaSendGrid = async (mailOptions) => {
     body: JSON.stringify({
       personalizations: [
         {
-          to: (typeof to === "string" ? [to] : to).map(email => ({ email }))
+          to: (typeof to === "string" ? to.split(",").map(e => e.trim()) : to).map(email => ({ email }))
         }
       ],
       from: {

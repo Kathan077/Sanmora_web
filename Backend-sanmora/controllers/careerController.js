@@ -11,7 +11,7 @@ const applyJob = async (req, res) => {
     return res.status(400).json({ error: "Resume / CV file attachment is required." });
   }
 
-  const receiver = process.env.EMAIL_RECEIVER || "mksolanki527@gmail.com";
+  const receiver = process.env.EMAIL_RECEIVER || "info@sanmora.in, info@sanmora.co.za";
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASS;
 
