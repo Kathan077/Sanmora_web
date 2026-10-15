@@ -9,7 +9,7 @@ import { blogPosts } from '@/components/Blog/blogData';
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const post = blogPosts.find(p => p.id === parseInt(id));
+  const post = blogPosts.find(p => p.id === parseInt(id) || p.slug === id);
   if (!post) {
     return {
       title: "Article Not Found | Sanmora",
@@ -17,8 +17,8 @@ export async function generateMetadata({ params }) {
     };
   }
   return {
-    title: `${post.title} | Sanmora`,
-    description: post.excerpt || "Read the latest article from Sanmora."
+    title: `${post.seoTitle || post.title} | Sanmora`,
+    description: post.metaDescription || post.excerpt || "Read the latest article from Sanmora."
   };
 }
 

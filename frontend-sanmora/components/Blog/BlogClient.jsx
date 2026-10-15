@@ -88,7 +88,7 @@ export default function BlogClient() {
                 </div>
                 <h2 className={styles.postTitle}>{featuredPost.title}</h2>
                 <p className={styles.postExcerpt}>{featuredPost.excerpt}</p>
-                <Link href={`/blog/${featuredPost.id}`} className={styles.readMoreBtn}>
+                <Link href={`/blog/${featuredPost.slug || featuredPost.id}`} className={styles.readMoreBtn}>
                   Read Article
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </Link>
@@ -116,7 +116,7 @@ export default function BlogClient() {
                 </div>
                 <h3 className={styles.postTitle}>{post.title}</h3>
                 <p className={styles.postExcerpt}>{post.excerpt}</p>
-                <Link href={`/blog/${post.id}`} className={styles.readMoreBtn}>
+                <Link href={`/blog/${post.slug || post.id}`} className={styles.readMoreBtn}>
                   Read Article
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </Link>

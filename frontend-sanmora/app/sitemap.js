@@ -32,12 +32,23 @@ export default async function sitemap() {
   }));
 
   // 3. Dynamic Blog Post Pages
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const blogRoutes = blogPosts.flatMap((post) => {
+    const routes = [{
+      url: `${baseUrl}/blog/${post.slug || post.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }];
+    if (post.slug && post.id) {
+      routes.push({
+        url: `${baseUrl}/blog/${post.id}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.6,
+      });
+    }
+    return routes;
+  });
 
   // Combine static, dynamic, and blog arrays
   return [...staticRoutes, ...seoRoutes, ...blogRoutes];

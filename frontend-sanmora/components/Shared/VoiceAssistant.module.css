@@ -2,13 +2,14 @@
 
 .voiceWidgetContainer {
   position: fixed;
-  bottom: 115px;
-  right: 24px;
+  bottom: 105px;
+  left: 24px;
+  right: auto;
   z-index: 99999;
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 10px;
   pointer-events: none;
 }
@@ -647,8 +648,9 @@
 
 @media (max-width: 640px) {
   .voiceWidgetContainer {
-    bottom: 95px;
-    right: 16px;
+    bottom: 85px;
+    left: 16px;
+    right: auto;
   }
   .triggerBtn span {
     display: none;
