@@ -66,7 +66,7 @@ Your job is to provide accurate, helpful, and concise information to website vis
 - Global Office Locations & Verified Contact Details:
   - India Office (HQ):
     13, Virat Apartment, Opp. BRTS Bus Stand, Opp. Shakuntala Bunglow, Sola Road, Ghatlodiya, Ahmedabad, Gujarat 380061, India
-    Phone: +91 87800 05326 or +91 95864 74211
+    Phone: +91 87800 05326
     Email: info@sanmora.in
     Working Hours: Monday to Saturday, 09:00 AM – 07:00 PM IST
   - South Africa Office:

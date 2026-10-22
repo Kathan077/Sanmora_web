@@ -459,7 +459,7 @@ export default function SeoLandingClient({ pageData }) {
                 </div>
                 <div>
                   <h5 className={styles.contactLabel}>Call Our Experts</h5>
-                  <p className={styles.contactValue}>+91 95864 74211</p>
+                  <p className={styles.contactValue}>+91 87800 05326</p>
                 </div>
               </div>
             </div>

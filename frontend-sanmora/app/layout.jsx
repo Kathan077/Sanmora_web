@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
               "image": "https://sanmora.in/logo/Footer_logo.png",
               "@id": "https://sanmora.in/#localbusiness",
               "url": "https://sanmora.in",
-              "telephone": "+91 95864 74211",
+              "telephone": "+91 87800 05326",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Ahmedabad",
