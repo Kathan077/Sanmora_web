@@ -10,6 +10,7 @@ import ServiceVisual from "@/components/Services/ServiceVisual";
 import { getCategoryDetailPrimaryImagePath, getCategoryDetailSecondaryImagePath } from "@/components/Services/serviceImages";
 import styles from "@/app/services/services.module.css";
 import { caseStudiesData } from "@/components/CaseStudies/caseStudiesData";
+import PendulumCta from "@/components/Shared/PendulumCta/PendulumCta";
 
 export default function CategoryDetailClient({ service, category }) {
   if (!service || !category) {
@@ -245,6 +246,9 @@ export default function CategoryDetailClient({ service, category }) {
           </div>
         </section>
       )}
+
+      {/* ── Interactive 3D Pendulum CTA ── */}
+      <PendulumCta service={service} category={category} />
 
       <Footer />
     </div>

@@ -1,0 +1,1001 @@
+.pendulumSection {
+  position: relative;
+  width: 100%;
+  padding: 80px 24px 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, rgba(124, 58, 237, 0.06) 0%, rgba(6, 182, 212, 0.03) 45%, transparent 75%);
+}
+
+/* Background Ambient Lighting */
+.ambientGlow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 750px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  will-change: transform;
+}
+
+/* ── Kinetic Background Typography (Zero Lag CSS Marquee) ── */
+.bgTypographyLayer {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.28;
+  overflow: hidden;
+}
+
+.marqueeRow {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeTrackLeft {
+  display: flex;
+  flex-shrink: 0;
+  animation: marqueeScrollLeft 48s linear infinite;
+  will-change: transform;
+}
+
+.marqueeTrackRight {
+  display: flex;
+  flex-shrink: 0;
+  animation: marqueeScrollRight 52s linear infinite;
+  will-change: transform;
+}
+
+.marqueeText {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(124, 58, 237, 0.35);
+  padding: 0 20px;
+  line-height: 1;
+}
+
+.marqueeTextSolid {
+  color: rgba(15, 23, 42, 0.05);
+  -webkit-text-stroke: 0px;
+}
+
+@keyframes marqueeScrollLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marqueeScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ── Concentric Tech Radar Rings ── */
+.radarContainer {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radarRing1 {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px dashed rgba(124, 58, 237, 0.15);
+  animation: radarSpin 40s linear infinite;
+}
+
+.radarRing2 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.08);
+}
+
+.radarRing3 {
+  position: absolute;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  border: 1px dashed rgba(124, 58, 237, 0.08);
+}
+
+@keyframes radarSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Section Header ── */
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.sectionBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.08);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 8px;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7c3aed;
+  box-shadow: 0 0 10px #7c3aed;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+/* ── Overall Stage Layout with Side Badges ── */
+.stageWrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1240px;
+}
+
+/* Side Columns for Floating Stats / Trust Badges */
+.sideColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 280px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.floatingChip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.07), 0 2px 6px rgba(124, 58, 237, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.floatingChip:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 14px 35px -6px rgba(124, 58, 237, 0.15);
+}
+
+.chipIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floatingChip:hover .chipIconBox {
+  transform: scale(1.08);
+}
+
+.chipIconZap {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14) 0%, rgba(251, 191, 36, 0.06) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: #d97706;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+}
+
+.chipIconTarget {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.14) 0%, rgba(14, 165, 233, 0.06) 100%);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: #0891b2;
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.12);
+}
+
+.chipIconShield {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(5, 150, 105, 0.06) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.12);
+}
+
+.chipIconSupport {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.14) 0%, rgba(99, 102, 241, 0.06) 100%);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  color: #7c3aed;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.12);
+}
+
+.chipTitle {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.chipSubtitle {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: 3px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Smooth GPU floating animations */
+.floatAnim1 {
+  animation: floatGentle1 5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.floatAnim2 {
+  animation: floatGentle2 6s ease-in-out infinite alternate;
+  animation-delay: 1.5s;
+  will-change: transform;
+}
+
+@keyframes floatGentle1 {
+  0% {
+    transform: translate3d(0, 0px, 0);
+  }
+  100% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes floatGentle2 {
+  0% {
+    transform: translate3d(0, -6px, 0);
+  }
+  100% {
+    transform: translate3d(0, 6px, 0);
+  }
+}
+
+/* ── Central Pendulum Stage ── */
+.pendulumStage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  max-width: 100%;
+  perspective: 1400px;
+  z-index: 3;
+}
+
+/* Ceiling Mount Fixture */
+.ceilingMount {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.mountPlate {
+  width: 58px;
+  height: 13px;
+  background: linear-gradient(180deg, #334155 0%, #0f172a 100%);
+  border-radius: 7px 7px 3px 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7px;
+}
+
+.mountRivet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.mountHook {
+  width: 15px;
+  height: 15px;
+  border: 2.5px solid #64748b;
+  border-radius: 50%;
+  margin-top: -3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Pendulum Arm (Pivot at (50% 0)) ── */
+.pendulumArm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 50% 0px;
+  animation: pendulumSwing 3.6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  will-change: transform;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Pauses swing when hovered for effortless reading & clicking */
+.pendulumArm.isHovered {
+  animation-play-state: paused;
+}
+
+@keyframes pendulumSwing {
+  0% {
+    transform: rotate(-11.5deg);
+  }
+  50% {
+    transform: rotate(11.5deg);
+  }
+  100% {
+    transform: rotate(-11.5deg);
+  }
+}
+
+/* Suspended Metallic Cord / String */
+.suspensionCord {
+  width: 2px;
+  height: 135px;
+  background: linear-gradient(180deg, #475569 0%, #94a3b8 40%, #cbd5e1 75%, #7c3aed 100%);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+  position: relative;
+}
+
+.cordCarabiner {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 11px;
+  border: 2px solid #7c3aed;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Tag Card 3D Flip System ── */
+.tagCardContainer {
+  position: relative;
+  width: 375px;
+  max-width: 92vw;
+  height: 440px;
+  perspective: 1400px;
+  margin-top: 2px;
+}
+
+.tagCardFlipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.75s cubic-bezier(0.34, 1.45, 0.64, 1);
+  will-change: transform;
+}
+
+.tagCardFlipper.isFlipped {
+  transform: rotateY(180deg);
+}
+
+/* Common Card Face Styling */
+.cardFace {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 28px 24px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(124, 58, 237, 0.18);
+  box-shadow: 
+    0 25px 60px -15px rgba(15, 23, 42, 0.16),
+    0 10px 24px -8px rgba(124, 58, 237, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pendulumArm:hover .cardFace {
+  border-color: rgba(124, 58, 237, 0.38);
+  box-shadow: 
+    0 32px 75px -15px rgba(15, 23, 42, 0.22),
+    0 14px 35px -6px rgba(124, 58, 237, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+/* Top Eyelet / Hole Punch for the tag */
+.cardEyeletWrapper {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardEyelet {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 3px solid #94a3b8;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* ── Front Face ── */
+.faceFront {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.frontTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-bottom: 20px;
+}
+
+.brandPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandLogoSmall {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brandTagText {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.frontCategoryBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(124, 58, 237, 0.08);
+  color: #7c3aed;
+}
+
+.frontBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 6px;
+}
+
+.frontHeadline {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: 2.15rem;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.frontPitch {
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+.frontFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flipTriggerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -4px rgba(124, 58, 237, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flipTriggerBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px -4px rgba(124, 58, 237, 0.45);
+}
+
+.flipIcon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s ease;
+}
+
+.flipTriggerBtn:hover .flipIcon {
+  transform: rotate(180deg);
+}
+
+.flipSubHint {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ── Back Face (Sales & Inquiry) ── */
+.faceBack {
+  transform: rotateY(180deg);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 255, 0.98) 100%);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.backTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.liveBeacon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #059669;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.beaconDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulseDot 1.5s infinite ease-in-out;
+}
+
+.backTitle {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.backSubtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 4px 0 14px;
+  line-height: 1.4;
+}
+
+/* Highlight Phone Box */
+.phoneHighlightBox {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(37, 99, 235, 0.05) 100%);
+  border: 1px dashed rgba(124, 58, 237, 0.25);
+  border-radius: 16px;
+  padding: 14px 16px;
+  text-align: center;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.phoneLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.phoneNumber {
+  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s ease;
+}
+
+.phoneNumber:hover {
+  color: #7c3aed;
+}
+
+.phoneOfficeBadge {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 3px;
+  display: block;
+}
+
+/* Action Buttons Grid */
+.backActionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.callNowBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.callNowBtn:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}
+
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsappBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.consultationLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.06);
+  color: #7c3aed;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.consultationLink:hover {
+  background: rgba(124, 58, 237, 0.12);
+}
+
+/* Flip Back Button */
+.flipBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: auto;
+  padding: 6px;
+  transition: color 0.2s ease;
+}
+
+.flipBackBtn:hover {
+  color: #475569;
+}
+
+/* ── Floor Shadow (Synchronized with Pendulum Sway) ── */
+.pendulumFloorShadow {
+  width: 220px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.3) 0%, rgba(124, 58, 237, 0.12) 40%, transparent 75%);
+  margin-top: 14px;
+  animation: shadowSway 3.6s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+  will-change: transform, opacity;
+  filter: blur(4px);
+}
+
+.pendulumArm.isHovered ~ .pendulumFloorShadow {
+  animation-play-state: paused;
+}
+
+@keyframes shadowSway {
+  0% {
+    transform: translateX(-48px) scaleX(1.15) scaleY(0.85);
+    opacity: 0.28;
+  }
+  25% {
+    transform: translateX(0px) scaleX(0.92) scaleY(1.1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateX(48px) scaleX(1.15) scaleY(0.85);
+    opacity: 0.28;
+  }
+  75% {
+    transform: translateX(0px) scaleX(0.92) scaleY(1.1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(-48px) scaleX(1.15) scaleY(0.85);
+    opacity: 0.28;
+  }
+}
+
+/* ── Responsive Tablet & Mobile Optimizations ── */
+@media (max-width: 1080px) {
+  .stageWrapper {
+    gap: 20px;
+  }
+
+  .sideColumn {
+    width: 230px;
+  }
+
+  .floatingChip {
+    padding: 12px 14px;
+  }
+
+  .chipIconBox {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .chipTitle {
+    font-size: 0.82rem;
+  }
+
+  .chipSubtitle {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .stageWrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sideColumn {
+    width: 100%;
+    max-width: 480px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .floatingChip {
+    flex: 1 1 calc(50% - 14px);
+    min-width: 200px;
+    padding: 12px 14px;
+  }
+
+  .floatAnim1,
+  .floatAnim2 {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .pendulumSection {
+    padding: 60px 14px 80px;
+  }
+
+  .suspensionCord {
+    height: 95px;
+  }
+
+  .tagCardContainer {
+    width: 320px;
+    height: 430px;
+  }
+
+  .frontHeadline {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+  }
+
+  .frontPitch {
+    font-size: 0.84rem;
+    margin-bottom: 14px;
+  }
+
+  .cardFace {
+    padding: 24px 20px 20px;
+    border-radius: 24px;
+  }
+
+  .phoneNumber {
+    font-size: 1.25rem;
+  }
+
+  .pendulumFloorShadow {
+    width: 170px;
+  }
+
+  .sideColumn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .floatingChip {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  @keyframes pendulumSwing {
+    0% {
+      transform: rotate(-9deg);
+    }
+    50% {
+      transform: rotate(9deg);
+    }
+    100% {
+      transform: rotate(-9deg);
+    }
+  }
+
+  @keyframes shadowSway {
+    0% {
+      transform: translateX(-32px) scaleX(1.1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translateX(32px) scaleX(1.1);
+      opacity: 0.25;
+    }
+    100% {
+      transform: translateX(-32px) scaleX(1.1);
+      opacity: 0.25;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pendulumArm,
+  .pendulumFloorShadow,
+  .marqueeTrackLeft,
+  .marqueeTrackRight,
+  .radarRing1,
+  .floatAnim1,
+  .floatAnim2 {
+    animation: none !important;
+    transform: none !important;
+  }
+}

@@ -9,6 +9,7 @@ import ParticleBackground from "@/components/Home/ParticleBackground";
 import { servicesData } from "@/components/Navbar/servicesData";
 import blogStyles from "@/components/Blog/BlogClient.module.css";
 import servicesStyles from "@/app/services/services.module.css";
+import PendulumCta from "@/components/Shared/PendulumCta/PendulumCta";
 
 export default function ServicesPageClient() {
   return (
@@ -112,6 +113,12 @@ export default function ServicesPageClient() {
           })}
         </div>
       </section>
+
+      {/* ── Interactive 3D Pendulum CTA ── */}
+      <PendulumCta
+        titleOverride="NEED A TAILORED DIGITAL SOLUTION?"
+        subtextOverride="Accelerate your revenue, modernize your software infrastructure, and command brand authority with Sanmora."
+      />
 
       <Footer />
     </div>
