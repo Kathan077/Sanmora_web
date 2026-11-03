@@ -94,7 +94,7 @@ export default function Footer() {
                 <span className={styles.officeTag}>INDIA</span>
               </div>
               <p className={styles.officeAddressText}>
-                13, Virat Apartment, Opp. BRTS Bus Stand, Opp. Shakuntala Bunglow, Sola Road, Ghatlodiya, Ahmedabad, Gujarat 380061
+                A-210, Titanium City Centre, Anand Nagar Road, Ahmedabad, Gujarat 380015
               </p>
               <a href="tel:+918780005326" className={styles.phoneLink}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

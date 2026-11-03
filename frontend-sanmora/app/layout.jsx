@@ -45,10 +45,10 @@ export default function RootLayout({ children }) {
               "telephone": "+91 87800 05326",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Ahmedabad",
+                "streetAddress": "A-210, Titanium City Centre, Anand Nagar Road",
                 "addressLocality": "Ahmedabad",
                 "addressRegion": "Gujarat",
-                "postalCode": "380001",
+                "postalCode": "380015",
                 "addressCountry": "IN"
               },
               "geo": {
