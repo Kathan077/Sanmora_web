@@ -6,6 +6,7 @@ import Link from "next/link";
 import styles from "./ConsultationClient.module.css";
 import servicesStyles from "@/app/services/services.module.css";
 import ParticleBackground from "@/components/Home/ParticleBackground";
+import { getRecaptchaToken } from "@/lib/recaptchaClient";
 
 import { servicesData } from "@/components/Navbar/servicesData";
 
@@ -143,6 +144,9 @@ export default function ConsultationClient() {
     setErrorMessage("");
 
     try {
+      // Execute Google reCAPTCHA v3
+      const recaptchaToken = await getRecaptchaToken("consultation");
+
       const response = await fetch(`/api/consultation`, {
         method: "POST",
         headers: {
@@ -154,6 +158,7 @@ export default function ConsultationClient() {
           emailId,
           contactNo,
           serviceName,
+          recaptchaToken,
         }),
       });
 

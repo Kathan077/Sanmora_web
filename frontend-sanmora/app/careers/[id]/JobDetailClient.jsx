@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { getRecaptchaToken } from "@/lib/recaptchaClient";
 import styles from "../careers.module.css";
 
 const DISPOSABLE_DOMAINS = [
@@ -232,6 +233,9 @@ export default function JobDetailClient({ id }) {
     setIsSubmitting(true);
 
     try {
+      // Execute Google reCAPTCHA v3
+      const recaptchaToken = await getRecaptchaToken("career_apply");
+
       const data = new FormData();
       data.append("name", formData.name);
       data.append("email", formData.email);
@@ -241,6 +245,9 @@ export default function JobDetailClient({ id }) {
       data.append("message", formData.message);
       data.append("jobId", id);
       data.append("jobTitle", formData.jobType);
+      if (recaptchaToken) {
+        data.append("recaptchaToken", recaptchaToken);
+      }
 
       const response = await fetch(`/api/career-apply`, {
         method: "POST",

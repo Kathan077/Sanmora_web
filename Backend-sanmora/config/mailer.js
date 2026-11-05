@@ -4,17 +4,14 @@ if (typeof dns.setDefaultResultOrder === "function") {
   dns.setDefaultResultOrder("ipv4first");
 }
 
-/**
- * Custom wrapper that mimics Nodemailer's transporter object but sends via HTTPS API
- * for Resend or SendGrid to bypass SMTP port blocking on environments like Render Free Tier.
- */
+let pooledTransporter = null;
+
 const sendViaResend = async (mailOptions) => {
   const { from, to, subject, html, attachments } = mailOptions;
 
-  // Format attachments for Resend API (base64 encoded content)
   let resendAttachments = [];
   if (attachments && attachments.length > 0) {
-    resendAttachments = attachments.map(att => {
+    resendAttachments = attachments.map((att) => {
       let base64Content = "";
       if (Buffer.isBuffer(att.content)) {
         base64Content = att.content.toString("base64");
@@ -25,12 +22,11 @@ const sendViaResend = async (mailOptions) => {
       }
       return {
         filename: att.filename,
-        content: base64Content
+        content: base64Content,
       };
     });
   }
 
-  // Handle display name prefix and default to onboarding email if no verified custom domain
   let sender = process.env.RESEND_FROM;
   if (!sender) {
     const match = from.match(/^"([^"]+)"/);
@@ -42,15 +38,15 @@ const sendViaResend = async (mailOptions) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.RESEND_API_KEY}`
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
     },
     body: JSON.stringify({
       from: sender,
-      to: typeof to === "string" ? to.split(",").map(e => e.trim()) : to,
+      to: typeof to === "string" ? to.split(",").map((e) => e.trim()) : to,
       subject: subject,
       html: html,
-      attachments: resendAttachments.length > 0 ? resendAttachments : undefined
-    })
+      attachments: resendAttachments.length > 0 ? resendAttachments : undefined,
+    }),
   });
 
   const data = await response.json();
@@ -65,7 +61,7 @@ const sendViaSendGrid = async (mailOptions) => {
 
   let sendgridAttachments = [];
   if (attachments && attachments.length > 0) {
-    sendgridAttachments = attachments.map(att => {
+    sendgridAttachments = attachments.map((att) => {
       let base64Content = "";
       if (Buffer.isBuffer(att.content)) {
         base64Content = att.content.toString("base64");
@@ -78,12 +74,11 @@ const sendViaSendGrid = async (mailOptions) => {
         content: base64Content,
         filename: att.filename,
         type: att.contentType || "application/octet-stream",
-        disposition: "attachment"
+        disposition: "attachment",
       };
     });
   }
 
-  // Extract plain email from "Display Name <email@domain.com>"
   let senderEmail = from;
   if (from.includes("<")) {
     const match = from.match(/<([^>]+)>/);
@@ -96,26 +91,26 @@ const sendViaSendGrid = async (mailOptions) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${process.env.SENDGRID_API_KEY}`
+      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
     },
     body: JSON.stringify({
       personalizations: [
         {
-          to: (typeof to === "string" ? to.split(",").map(e => e.trim()) : to).map(email => ({ email }))
-        }
+          to: (typeof to === "string" ? to.split(",").map((e) => e.trim()) : to).map((email) => ({ email })),
+        },
       ],
       from: {
-        email: senderEmail
+        email: senderEmail,
       },
       subject: subject,
       content: [
         {
           type: "text/html",
-          value: html
-        }
+          value: html,
+        },
       ],
-      attachments: sendgridAttachments.length > 0 ? sendgridAttachments : undefined
-    })
+      attachments: sendgridAttachments.length > 0 ? sendgridAttachments : undefined,
+    }),
   });
 
   if (!response.ok) {
@@ -132,60 +127,77 @@ const sendViaSendGrid = async (mailOptions) => {
 };
 
 const getTransporter = () => {
-  // 1. If RESEND_API_KEY is configured, return the HTTP API wrapper
   if (process.env.RESEND_API_KEY) {
-    console.log("[Mailer] Configured to use Resend HTTP API.");
-    return {
-      sendMail: sendViaResend
-    };
+    return { sendMail: sendViaResend };
   }
 
-  // 2. If SENDGRID_API_KEY is configured, return the HTTP API wrapper
   if (process.env.SENDGRID_API_KEY) {
-    console.log("[Mailer] Configured to use SendGrid HTTP API.");
-    return {
-      sendMail: sendViaSendGrid
-    };
+    return { sendMail: sendViaSendGrid };
   }
 
-  // 3. Fallback to standard Nodemailer SMTP
-  console.log("[Mailer] Configured to use SMTP Transporter.");
+  if (pooledTransporter) {
+    return pooledTransporter;
+  }
+
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASS;
 
   if (!user || !pass) {
     console.warn("WARNING: SMTP credentials (EMAIL_USER/EMAIL_PASS) are not configured in .env. Emails will fail to send.");
+    return null;
   }
 
-  const host = process.env.EMAIL_HOST || "smtp.gmail.com";
-  if (host.includes("gmail.com")) {
-    return nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: user,
-        pass: pass
-      },
-      connectionTimeout: 8000,
-      greetingTimeout: 8000,
-      socketTimeout: 10000
-    });
-  }
+  const host = process.env.EMAIL_HOST || "smtp.hostinger.com";
+  const port = parseInt(process.env.EMAIL_PORT, 10) || 465;
+  const isSecure = port === 465;
 
-  return nodemailer.createTransport({
-    host: host,
-    port: parseInt(process.env.EMAIL_PORT) || 587,
-    secure: process.env.EMAIL_PORT == 465,
+  pooledTransporter = nodemailer.createTransport({
+    host: host.trim(),
+    port: port,
+    secure: isSecure,
+    // Connection pooling to prevent socket floods to Hostinger
+    pool: true,
+    maxConnections: 3,
+    maxMessages: 50,
+    rateLimit: 5,
     auth: {
-      user: user,
-      pass: pass
+      user: user.trim(),
+      pass: pass.trim(),
     },
-    connectionTimeout: 8000,
-    greetingTimeout: 8000,
-    socketTimeout: 10000
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+    tls: {
+      minVersion: "TLSv1.2",
+      rejectUnauthorized: true,
+    },
   });
+
+  return pooledTransporter;
+};
+
+const sendMailSafe = async (mailOptions) => {
+  const transporter = getTransporter();
+  if (!transporter) {
+    throw new Error("SMTP credentials are not configured.");
+  }
+
+  const authUser = (process.env.EMAIL_USER || "").trim();
+  const fromName = mailOptions.fromName || "Sanmora Web";
+  const safeOptions = {
+    ...mailOptions,
+    from: `"${fromName}" <${authUser}>`,
+  };
+
+  const sendPromise = transporter.sendMail(safeOptions);
+  const timeoutPromise = new Promise((_, reject) => {
+    setTimeout(() => reject(new Error("SMTP_TIMEOUT: Sending mail timed out after 20 seconds.")), 20000);
+  });
+
+  return Promise.race([sendPromise, timeoutPromise]);
 };
 
 module.exports = {
-  getTransporter
+  getTransporter,
+  sendMailSafe,
 };
-

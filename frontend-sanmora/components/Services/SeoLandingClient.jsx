@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import ParticleBackground from "@/components/Home/ParticleBackground";
 import IconRenderer from "@/components/Shared/IconRenderer";
+import { getRecaptchaToken } from "@/lib/recaptchaClient";
 import styles from "./SeoLandingClient.module.css";
 
 const DISPOSABLE_DOMAINS = [
@@ -160,6 +161,9 @@ export default function SeoLandingClient({ pageData }) {
     setErrorMessage("");
 
     try {
+      // Execute Google reCAPTCHA v3
+      const recaptchaToken = await getRecaptchaToken("consultation_seo");
+
       const response = await fetch(`/api/consultation`, {
         method: "POST",
         headers: {
@@ -171,6 +175,7 @@ export default function SeoLandingClient({ pageData }) {
           emailId,
           contactNo,
           serviceName: `${headline} (SEO Landing Page)`,
+          recaptchaToken,
         }),
       });
 

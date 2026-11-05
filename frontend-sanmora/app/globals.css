@@ -9,7 +9,6 @@
   inherits: true;
   initial-value: rgba(6, 182, 212, 0.2);
 }
-
 :root {
   --background: #FFFFFF;
   --foreground: #0F172A;
@@ -199,4 +198,4 @@ body.reduce-motion *::after {
   scroll-behavior: auto !important;
 }
 
-
+

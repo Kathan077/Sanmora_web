@@ -188,6 +188,8 @@ export async function POST(request) {
         setTimeout(() => reject(new Error("GATEWAY_TIMEOUT")), 15000)
       );
 
+      // AI Security: Tools and function-calling are explicitly disabled.
+      // Gemini operates strictly as a text generator and cannot trigger emails or execute code.
       const apiPromise = ai.models.generateContent({
         model: modelName,
         contents,
@@ -196,6 +198,7 @@ export async function POST(request) {
           maxOutputTokens: 600,
           temperature: 0.6,
           topP: 0.95,
+          tools: [], // Strictly no function calling / tool use
         },
       });
 
