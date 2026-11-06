@@ -501,6 +501,93 @@ export default function BlogDetailClient({ id }) {
 
   return (
     <div className={styles.detailPage}>
+      {post.id === 18 && (
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What is the core difference between a standard AI chatbot and an agentic software system?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "A standard AI chatbot is passive and single-turn: it generates text in response to an immediate prompt and stops. In contrast, agentic software is goal-oriented, autonomous, and proactive: it decomposes high-level goals into multi-step execution plans, queries databases, calls external APIs, verifies intermediate results, handles unexpected errors, and iterates until the objective is accomplished."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Will agentic software replace existing enterprise SaaS platforms or integrate with them?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Agentic software will primarily integrate with existing enterprise SaaS platforms rather than replace them overnight. Agents serve as an intelligent orchestration layer on top of databases, CRMs, ERPs, and cloud services, utilizing standard REST, GraphQL, and webhook APIs to execute workflows across fragmented legacy systems."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How do developers prevent AI agents from taking dangerous or unintended actions?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Enterprise systems implement multi-layered guardrails: deterministic schema validation, principle of least privilege for API keys, read-only vs write permissions, budget and rate limits, and Human-in-the-Loop (HITL) checkpoints for irreversible actions such as payment authorizations, customer-wide communications, or database deletions."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What backend infrastructure is needed to support agentic applications at enterprise scale?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Agentic software requires high-throughput event buses, idempotent and well-documented APIs (such as semantic OpenAPI specifications), distributed vector and graph databases for contextual memory, sandboxed code execution environments, and real-time observability pipelines to trace agent decision trees, latency, and token consumption."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How does Sanmora assist businesses in designing and deploying agentic software solutions?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Sanmora specializes in end-to-end custom software development, modern API architecture, and enterprise AI engineering. We help organizations audit operational workflows, build scalable multi-agent systems, secure backend integrations, and implement intuitive user interfaces tailored to their unique business domain."
+                    }
+                  }
+                ]
+              })
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": "The Rise of Agentic Software: When Applications Start Making Decisions",
+                "alternativeHeadline": "The Rise of Agentic Software: How AI Agents Are Changing Applications",
+                "image": "https://sanmora.in/images/rise_of_agentic_software.jpg",
+                "author": {
+                  "@type": "Organization",
+                  "name": "Sanmora Technology Team",
+                  "url": "https://sanmora.in"
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Sanmora",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://sanmora.in/logo/sanmora-logo.png"
+                  }
+                },
+                "datePublished": "2026-11-06",
+                "dateModified": "2026-11-06",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://sanmora.in/blog/rise-of-agentic-software"
+                },
+                "description": "Discover how agentic software is transforming applications through AI agents, intelligent decision-making, automated workflows, and next-generation business solutions."
+              })
+            }}
+          />
+        </>
+      )}
       {post.id === 16 && (
         <>
           <script
@@ -1146,7 +1233,7 @@ export default function BlogDetailClient({ id }) {
                       {relatedPosts.map((relatedPost) => (
                         <Link 
                           key={relatedPost.id} 
-                          href={`/blog/${relatedPost.id}`}
+                          href={`/blog/${relatedPost.slug || relatedPost.id}`}
                           className={styles.relatedCard}
                         >
                           <h5 className={styles.relatedCardTitle}>{relatedPost.title}</h5>
