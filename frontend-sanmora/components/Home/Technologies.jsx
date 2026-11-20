@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import styles from "./Technologies.module.css";
 import { motion } from "framer-motion";
 import { 
@@ -42,7 +42,7 @@ const TechGroup = ({ items }) => (
   </div>
 );
 
-export default function Technologies() {
+export default memo(function Technologies() {
   return (
     <section className={styles.section} id="technologies">
       <div className={styles.container}>
@@ -89,4 +89,4 @@ export default function Technologies() {
       </div>
     </section>
   );
-}
+});

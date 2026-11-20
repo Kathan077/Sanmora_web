@@ -1,7 +1,8 @@
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import WhatsAppButton from "@/components/Shared/WhatsAppButton";
-import VoiceAssistant from "@/components/Shared/VoiceAssistant";
-import Chatbot from "@/components/Shared/Chatbot/Chatbot";
+import DeferredWidgets from "@/components/Shared/DeferredWidgets";
+import InstagramProgressBar from "@/components/Shared/InstagramLoading/InstagramProgressBar";
+import { Suspense } from "react";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -113,11 +114,13 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={inter.className}>
+        <Suspense fallback={null}>
+          <InstagramProgressBar />
+        </Suspense>
         <ScrollToTop />
         {children}
         <WhatsAppButton />
-        <VoiceAssistant />
-        <Chatbot />
+        <DeferredWidgets />
       </body>
     </html>
   );

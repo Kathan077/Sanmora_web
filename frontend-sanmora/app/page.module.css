@@ -1,4 +1,4 @@
-﻿.heroSection {
+.heroSection {
 
   width: 100%;
   min-height: 100vh;
@@ -203,6 +203,11 @@
   min-height: 100vh;
 }
 
+.progressiveSection {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}
+
 /* ── Floating Ambient Parallax Glows (fixed background orbs) ── */
 .ambientGlowPrimary {
   position: fixed;
@@ -212,11 +217,14 @@
   height: 60vw;
   max-width: 800px;
   max-height: 800px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(124, 58, 237, 0.03) 45%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  filter: blur(60px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: strict;
+  filter: blur(25px);
   animation: ambientFloat1 25s ease-in-out infinite alternate;
 }
 
@@ -228,11 +236,14 @@
   height: 50vw;
   max-width: 700px;
   max-height: 700px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.07) 0%, rgba(6, 182, 212, 0.02) 45%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  filter: blur(60px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  contain: strict;
+  filter: blur(25px);
   animation: ambientFloat2 30s ease-in-out infinite alternate;
 }
 

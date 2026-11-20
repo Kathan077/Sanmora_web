@@ -1,12 +1,12 @@
 "use client";
-import { useEffect, useRef } from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./Hero.module.css";
 import heroImg from "./image (1).png";
 
 /* ─── Main Hero ───────────────────────────────────────── */
-export default function HeroSection() {
+export default memo(function HeroSection() {
   const router = useRouter();
 
   return (
@@ -204,4 +204,4 @@ export default function HeroSection() {
       </section>
     </>
   );
-}
+});

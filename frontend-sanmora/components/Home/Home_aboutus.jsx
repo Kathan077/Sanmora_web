@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Home_aboutus.module.css";
@@ -8,7 +8,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function HomeAboutUs() {
+export default memo(function HomeAboutUs() {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -177,4 +177,4 @@ We blend creativity, innovation, and expertise to create impactful solutions tha
       </div>
     </section>
   );
-}
+});

@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { memo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './DigitalGrowth.module.css';
 
@@ -25,7 +25,7 @@ const processSteps = [
   { step: "04", title: "Optimization", desc: "Analyzing data to refine targeting and scale your results." }
 ];
 
-export default function DigitalGrowth() {
+export default memo(function DigitalGrowth() {
   const containerVariants = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -112,4 +112,4 @@ export default function DigitalGrowth() {
       </div>
     </section>
   );
-}
+});

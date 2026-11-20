@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import styles from "./Services.module.css";
 import { Cpu, PenTool, Code, Smartphone, Megaphone, Palette } from "lucide-react";
 import { motion } from "framer-motion";
@@ -58,7 +58,7 @@ const cardVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function Services() {
+export default memo(function Services() {
   return (
     <section className={styles.section} id="services">
       <div className={styles.container}>
@@ -100,4 +100,4 @@ export default function Services() {
       </div>
     </section>
   );
-}
+});

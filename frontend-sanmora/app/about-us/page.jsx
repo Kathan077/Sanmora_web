@@ -29,16 +29,30 @@ export default function AboutUsPage() {
 
       <Navbar />
       <AboutHero />
-      <WhyChooseUs />
-      <WhatWeDo />
-      <VisionMission />
+      <div className={styles.progressiveSection}>
+        <WhyChooseUs />
+      </div>
+      <div className={styles.progressiveSection}>
+        <WhatWeDo />
+      </div>
+      <div className={styles.progressiveSection}>
+        <VisionMission />
+      </div>
 
       {/* 3 Dedicated Life At Sanmora Sections matching image structure */}
-      <LifeAtSanmoraIntro />
-      <SanmoraPerks />
-      <DownTheMemoryLane />
+      <div className={styles.progressiveSection}>
+        <LifeAtSanmoraIntro />
+      </div>
+      <div className={styles.progressiveSection}>
+        <SanmoraPerks />
+      </div>
+      <div className={styles.progressiveSection}>
+        <DownTheMemoryLane />
+      </div>
 
-      <AboutTechSection />
+      <div className={styles.progressiveSection}>
+        <AboutTechSection />
+      </div>
       <Footer />
     </main>
   );

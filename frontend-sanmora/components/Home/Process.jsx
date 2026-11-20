@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import styles from './Process.module.css';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { Search, List, Users, FileText, Settings, Target, CheckCircle, Rocket, Play, Monitor, Shield, TrendingUp, BarChart, Layout, Code, RefreshCw, Edit3, PenTool, Palette } from 'lucide-react';
@@ -63,7 +63,7 @@ const serviceData = {
     }
 };
 
-const Processes = () => {
+const Processes = memo(() => {
     const [activeTab, setActiveTab] = useState('website');
     const containerRef = useRef(null);
 
@@ -154,6 +154,6 @@ const Processes = () => {
             </div>
         </section>
     );
-};
+});
 
 export default Processes;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 import styles from "./Workflow.module.css";
 import { motion, useScroll, useSpring } from "framer-motion";
 
@@ -31,7 +31,7 @@ const workflowSteps = [
   }
 ];
 
-export default function Workflow() {
+export default memo(function Workflow() {
   const containerRef = useRef(null);
   const diagramRef = useRef(null); // Ref specifically for the diagram section
   
@@ -133,4 +133,4 @@ export default function Workflow() {
       </div>
     </section>
   );
-}
+});

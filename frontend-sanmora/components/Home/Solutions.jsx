@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Solutions.module.css";
@@ -117,7 +117,7 @@ const solutionsData = [
   },
 ];
 
-export default function Solutions() {
+export default memo(function Solutions() {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -189,4 +189,4 @@ export default function Solutions() {
       </div>
     </section>
   );
-}
+});
